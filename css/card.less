@@ -1,0 +1,93 @@
+@card-background-color: #fff;
+
+/* CARD */
+.card  {
+	
+	background: @card-background-color;
+	box-shadow: @component-shadow;
+	margin-bottom: @component-bottom-margin;
+	border-radius: 2px;
+
+	&.inverse {
+		background: #333;
+		color: @default-color;
+		.input-group {
+			* {
+				background: transparent;
+				color: @default-color;
+			}
+			label {
+				color: darken(@default-color, 30);
+			}
+			textarea,
+			select,
+			input[type=text],
+			input[type=password],
+			input[type=email] {
+				border-bottom: 1px solid darken(@default-color, 50);
+			}
+		}
+	}
+
+	&.card-table {
+		.card-block {
+			padding: 0;
+			.table tbody tr:last-child td {
+				border: 0;
+			}
+		}
+	}
+
+	.card-footer,
+	.card-block {
+		padding: 15px;
+	}
+
+	.card-title {
+		font-size: 20px;
+		margin: 0 0 15px !important;
+	}
+
+	.card-footer {
+		border-top: 1px solid rgba(0,0,0,0.1);
+		padding: 15px;	
+	}
+
+	.card-image {
+		
+		border-top-left-radius: 2px;
+		border-top-right-radius: 2px;
+
+		background-size: cover;
+		background-position: center bottom;
+		background-repeat: no-repat;
+		
+		width: 100%;
+		min-height: 200px;
+		
+		overflow: hidden;
+		display: block;
+		
+		transition: all 200ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+		position: relative;
+		
+		.card-image-caption {
+			position: absolute;
+			bottom: 0;
+			display: block;
+			padding: 20px;
+			font-size: 24px;
+			&.card-image-dark {
+				color: #fff;
+				text-shadow: 1px 1px 0 rgba(0,0,0,0.25);
+			}
+		}
+	}
+
+	&.card-pad-lg {
+		.card-footer, 
+		.card-block {
+			padding: 25px;
+		}
+	}
+}

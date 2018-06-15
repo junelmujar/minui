@@ -1,0 +1,50 @@
+/* ALERT */
+
+.alert {
+	border-radius: @component-border-radius;
+	background: rgba(0,0,0,0.05);
+	border: 1px solid rgba(0,0,0,0.05);
+	padding: 15px;
+	font-size: 14px;
+	line-height: 20px;
+	.alert-title {
+		font-size: 18px;
+		margin: 0 0 10px;
+	}
+	margin-bottom: @component-bottom-margin;
+	&.danger {
+		background: @danger-color;
+		color: lighten(@danger-color, 40);
+		.alert-title {
+			color: lighten(@danger-color, 50);
+		}
+	}
+	&.success {
+		background: @success-color;
+		color: lighten(@success-color, 40);
+		.alert-title {
+			color: lighten(@success-color, 50);
+		}
+	}	
+	&.warning {
+		background: @warning-color;
+		color: lighten(@warning-color, 40);
+		.alert-title {
+			color: lighten(@warning-color, 50);
+		}
+	}
+	&.info {
+		background: @info-color;
+		color: darken(@info-color, 50);
+		.alert-title {
+			color: darken(@info-color, 60);
+		}
+	}		
+	&.inverse {
+		background: darken(@default-color, 70);
+		color: darken(@default-color, 10);
+		.alert-title {
+			color: lighten(@default-color, 60);
+		}
+	}	
+}

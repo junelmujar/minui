@@ -1,0 +1,35 @@
+.table {
+	background: @component-default-bg-color;
+	width: 100%;
+	// margin-bottom: @component-bottom-margin;
+	// box-shadow: @component-shadow;
+	border-radius: @component-border-radius;
+	border-collapse: collapse;
+	thead {
+		tr {
+			transition: background ease 0.25s;
+			th {
+				padding: 10px;
+				border-bottom: 1px solid rgba(0,0,0,0.15);
+			}
+		}
+	}
+	tbody {
+		tr {
+			td {
+				padding: 10px;
+				border-bottom: 1px solid rgba(0,0,0,0.05);
+			}
+			&:hover {
+				background: rgba(0,0,0,0.025);
+			}
+		}
+	}
+	&.striped {
+		tbody {
+			tr:nth-child(odd) {
+				background: rgba(0,0,0,0.035);
+			}
+		}
+	}
+}
