@@ -241,7 +241,7 @@ input[type=email] {
 		list-style: none;
 		.nav-item {
 			display: inline-block;
-			a {
+			> a {
 				text-decoration: none;
 				display: inline-block;
 				padding: 15px;
@@ -321,14 +321,14 @@ input[type=email] {
 		}
 
 		.dropdown-item {
-			display: block !important;
+			display: block;
 			padding: 10px;
 			text-decoration: none;
 			text-align: left;
 			color: @font-color;
 			&:hover {
 				background: @primary-color;
-				color: #fff !important;
+				color: #fff;
 			}
 		}
 		&.icons {
@@ -345,13 +345,13 @@ input[type=email] {
 					bottom: 0;
 					text-align: center;
 					padding-top: 10px;
-					color: lighten(@font-color, 30) !important;
+					color: lighten(@font-color, 30);
 				}
 				&:hover {
 					background: @primary-color;
-					color: #fff !important;
+					color: #fff;
 					.leading-icon {
-						color: #fff !important;
+						color: #fff;
 					}
 				}
 			}
@@ -406,6 +406,9 @@ input[type=email] {
 		.tab-item {
 			display: inline-block;
 			margin-left: -4px;
+			* {
+				pointer-events: none;
+			}
 			a {
 				display: block;
 				padding: 12px 15px 10px;
