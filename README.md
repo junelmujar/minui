@@ -26,10 +26,10 @@ As of now it's in its baby form, and needs tons of refactoring. It's fairly usab
 
 ## Future plans
 
-- refactor JS and split bits of code for each component that uses it (e.g: tabs, dropdowns, material design form inputs, modal)
+- ~~refactor JS and split bits of code for each component that uses it (e.g: tabs, dropdowns, material design form inputs, modal)~~
 - refactor/optimize LESS code
-- improve code structure
-- add build/minification for JS and LESS bits
+- ~~improve code structure~~
+- ~~add build/minification for JS and LESS bits~~
 - add browser tests
 
 
