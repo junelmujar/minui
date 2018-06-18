@@ -1,36 +1,36 @@
-const gulp     = require("gulp");
-const less     = require('gulp-less');
-const minify   = require("gulp-babel-minify");
-const cleanCSS = require('gulp-clean-css');
-const path     = require('path');
+// gulpfile.js
+var gulp     = require( "gulp" );
+var webpack  = require( "webpack-stream" );
+var rename   = require( "gulp-rename" );
+var minify   = require( "gulp-babel-minify" );
 
-gulp.task("minify-js", () =>
-  gulp.src("./src/js/minui.js")
-    .pipe(minify({
-      mangle: {
-        keepClassName: true
-      }
-    }))
-    .pipe(gulp.dest("./dist/js"))
-);
+var less     = require('gulp-less');
+var cleanCSS = require('gulp-clean-css');
+var path     = require('path');
 
-gulp.task('less', () => {
+gulp.task('build-less', () => {
   return gulp.src('./src/less/minui.less')
     .pipe(less({
-      paths: [ path.join(__dirname, 'less') ]
+      	paths: [ path.join(__dirname, 'less') ]
     }))
-    .pipe(gulp.dest('./dist/css'));
+    .pipe( gulp.dest( "./" ) )
+    .pipe( cleanCSS({compatibility: 'ie8'}) )
+    .pipe( rename( "minui.min.css" ) )
+    .pipe( gulp.dest('./dist/css') );
 });
 
-gulp.task('minify-css', ['less'], () => {
-  return gulp.src('./dist/css/*.css')
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('./dist/css'));
-});
+gulp.task( "build-js", function() {
+   return gulp.src( "src/js/*.js" )
+      .pipe( webpack( require( "./webpack.config.js" ) ) )
+      .pipe( gulp.dest( "./" ) )
+      .pipe( minify() )
+      .pipe( rename( "minui.min.js" ) )
+      .pipe( gulp.dest( "dist/js/" ) );
+} );
 
 gulp.task('watch', function () {
-    gulp.watch('./src/less/minui.less', ['minify-css']);
-    gulp.watch('./src/js/minui.js', ['minify-js']);
+    gulp.watch('./src/less/*.less', ['build-less']);
+    gulp.watch('./src/js/*.js', ['build-js']);
 });
 
 gulp.task('default', ['watch']);
