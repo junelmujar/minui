@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			var activeModal = document.querySelector(".modal.show-modal");
 			if (typeof activeModal !== 'undefined' && activeModal) {
 				activeModal.classList.remove('show-modal');
+				document.body.classList.remove("modal-shown");
 			}
 		}
 
@@ -227,8 +228,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalOverlayClick = (event) => {
     	if (event.target.classList.contains('show-modal')) {
     		event.target.classList.toggle("show-modal");
-    		document.body.classList.remove("modal-shown");
     	}
+   		document.body.classList.remove("modal-shown");
     }
 
     modalTriggers.forEach((el, i) => {
