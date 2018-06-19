@@ -95,6 +95,40 @@ nav,
 					color: darken(@font-color, 20);
 				}
 			}
+			.dropdown {
+				display: none;
+				opacity: 0;
+				position: absolute;
+				background: #fff;
+				list-style: none;
+				margin: 0;
+				border: 1px solid rgba(0,0,0,0.1);
+				border-radius: @component-border-radius;
+				padding: 4px 0;
+				min-width: 250px;
+				box-shadow: 0 5px 20px -5px rgba(0,0,0,0.25);
+				li {
+					display: block;
+					a {
+						display: block;
+						padding: 15px;
+						text-decoration: none;
+						color: lighten(@font-color, 20);
+						&:hover {
+							background: @primary-color;
+							color: #fff;
+						}
+					}
+					&.divider {
+						margin: 4px 0;
+						border-top: 1px solid rgba(0,0,0,0.1);
+					}
+				}
+				&.dropdown__visible {
+					opacity: 1;
+					display: block;
+				}
+			}
 			&.nav-item__active {
 				.nav-item-link {
 					color: darken(@font-color, 20);	

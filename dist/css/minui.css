@@ -735,6 +735,46 @@ nav .nav-items .nav-item .nav-item-link:hover,
   background: rgba(0, 0, 0, 0.05);
   color: #000000;
 }
+nav .nav-items .nav-item .dropdown,
+.nav .nav-items .nav-item .dropdown {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  background: #fff;
+  list-style: none;
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 4px 0;
+  min-width: 250px;
+  box-shadow: 0 5px 20px -5px rgba(0, 0, 0, 0.25);
+}
+nav .nav-items .nav-item .dropdown li,
+.nav .nav-items .nav-item .dropdown li {
+  display: block;
+}
+nav .nav-items .nav-item .dropdown li a,
+.nav .nav-items .nav-item .dropdown li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #666666;
+}
+nav .nav-items .nav-item .dropdown li a:hover,
+.nav .nav-items .nav-item .dropdown li a:hover {
+  background: #1875d1;
+  color: #fff;
+}
+nav .nav-items .nav-item .dropdown li.divider,
+.nav .nav-items .nav-item .dropdown li.divider {
+  margin: 4px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+nav .nav-items .nav-item .dropdown.dropdown__visible,
+.nav .nav-items .nav-item .dropdown.dropdown__visible {
+  opacity: 1;
+  display: block;
+}
 nav .nav-items .nav-item.nav-item__active .nav-item-link,
 .nav .nav-items .nav-item.nav-item__active .nav-item-link {
   color: #000000;
