@@ -84,6 +84,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dropdowns__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__navs__ = __webpack_require__(6);
+
 
 
 
@@ -95,6 +97,7 @@ new __WEBPACK_IMPORTED_MODULE_0__inputs__["a" /* default */]();
 new __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* default */]();
 new __WEBPACK_IMPORTED_MODULE_3__modals__["a" /* default */]();
 new __WEBPACK_IMPORTED_MODULE_4__dropdowns__["a" /* default */]();
+new __WEBPACK_IMPORTED_MODULE_5__navs__["a" /* default */]();
 
 /***/ }),
 /* 1 */
@@ -467,6 +470,80 @@ const Dropdowns = (() => {
 })();
 
 /* harmony default export */ __webpack_exports__["a"] = (Dropdowns);
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const Navs = (() => {
+
+	const Data = {
+		TOGGLE: 'nav',
+		TARGET: 'href',
+		SELECTOR: '.nav, nav'
+	};
+
+	class Navs {
+
+		constructor() {
+			// Initialize all found tabs
+			this._navs = document.querySelectorAll('[data-toggle=' + Data.TOGGLE + ']');
+			if (typeof this._navs !== 'undefined' && this._navs) {
+				this.setup();
+				this.bindListeners();
+			}
+		}
+
+		setup() {
+			var that = this;
+			this._navs.forEach(function (el, i) {
+				el.addEventListener('click', function (event) {
+					event.preventDefault();
+					var targetNavID = this.getAttribute(Data.TARGET);
+					var targetNav = document.querySelector(targetNavID);
+					event.target.classList.toggle('nav-item__toggled');
+					targetNav.classList.toggle('nav-items__open');
+				});
+			});
+		}
+
+		bindListeners() {
+
+			var togglers = document.querySelectorAll('[data-toggle=' + Data.TOGGLE + ']');
+			if (window.outerWidth <= 768) {
+				togglers.forEach(function (el, i) {
+					el.parentNode.classList.add('nav__collapsed');
+					el.nextElementSibling.classList.remove('nav-items__open');
+				});
+			} else {
+				togglers.forEach(function (el, i) {
+					el.parentNode.classList.remove('nav__collapsed');
+				});
+			}
+
+			window.addEventListener('resize', function (event) {
+				if (typeof event.target !== undefined) {
+					if (event.target.outerWidth <= 768) {
+						togglers.forEach(function (el, i) {
+							el.parentNode.classList.add('nav__collapsed');
+							el.nextElementSibling.classList.remove('nav-items__open');
+						});
+					} else {
+						togglers.forEach(function (el, i) {
+							el.parentNode.classList.remove('nav__collapsed');
+						});
+					}
+				}
+			});
+		}
+
+	}
+
+	return Navs;
+})();
+
+/* harmony default export */ __webpack_exports__["a"] = (Navs);
 
 /***/ })
 /******/ ]);

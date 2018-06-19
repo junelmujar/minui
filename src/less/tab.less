@@ -1,0 +1,41 @@
+.tab {
+	.card;
+	.tab-nav {
+		background: #fff;
+		list-style: none;
+		padding: 0;
+		margin: 0 0 0 4px;
+		.tab-item {
+			display: inline-block;
+			margin-left: -4px;
+			a {
+				display: block;
+				padding: 12px 15px 10px;
+				border-bottom: 2px solid transparent;
+				text-decoration: none;
+				color: lighten(@font-color, 40);
+				&:hover{
+					border-bottom: 2px solid darken(@default-color, 10);
+					color: darken(@font-color, 20);
+				}
+			}
+			&.active {
+				a {
+					background: #fff;
+					border-bottom: 2px solid darken(@default-color, 40);
+					color: darken(@font-color, 20);
+				}
+			}		
+		}
+	}
+}
+.tab-content {
+	.tab-panel {
+		border-top: 1px solid @default-color;
+		padding: 25px;
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
+}

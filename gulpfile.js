@@ -19,15 +19,20 @@ gulp.task('build-less', () => {
     .pipe(less({
       	paths: [ path.join(__dirname, 'less') ]
     }))
-    .pipe( gulp.dest( "./" ) )
-    .pipe( cleanCSS({compatibility: 'ie8'}) )
-    .pipe( rename( "minui.min.css" ) )
+    .pipe( gulp.dest( "./dist/css" ) )
+    .pipe( rename( "minui.css" ) )
     .pipe( gulp.dest('./dist/css') );
 });
 
 gulp.task('build-css', ['build-less'], () => {
-  return gulp.src( './dist/css/**/*.css' )
+  return gulp.src( [
+      './dist/css/lib/normalize.css',
+      './dist/css/lib/fluidable-min.css',
+      './dist/css/minui.css'
+    ] )
     .pipe( concatCss("./dist/css/minui.min.css") )
+    .pipe( gulp.dest('./') )
+    .pipe( cleanCSS({compatibility: 'ie8'}) )
     .pipe( gulp.dest('./') );
 });
 

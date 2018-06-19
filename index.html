@@ -1,43 +1,32 @@
 <html>
 	<head>
+		<meta name="viewport" content="initial-scale=1">
 		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/minui.min.css">
 		<title>MinUI</title>
+		<style>
+			body {
+				padding-top: 80px;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="nav">
-			<div class="container">
-				<ul class="navbar">
-					<li class="nav-item">
-						<a href="#">Home</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a href="#" class="" data-toggle="dropdown">Portfolio</a>
-						<div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
-						    <a class="dropdown-item" href="google.com" target="_new">
-						    	<i class="icon ion-md-person leading-icon"></i> Action
-						    </a>
-						    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-cog"></i></span> Another action <span class="modifier-key">Ctrl + A</span></a>
-						    <div class="dropdown-divider"></div>
-						    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-list"></i></span> Something else here asfasf asfasfas</a>
-						</div>						
-					</li>
-					<li class="nav-item dropdown">
-						<a href="#" class="" data-toggle="dropdown">Help</a>
-						  <div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
-						    <a class="dropdown-item" href="google.com" target="_new">
-						    	<i class="icon ion-md-person leading-icon"></i> Action
-						    </a>
-						    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-cog"></i></span> Another action <span class="modifier-key">Ctrl + A</span></a>
-						    <div class="dropdown-divider"></div>
-						    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-list"></i></span> Something else here asfasf asfasfas</a>
-						  </div>						
-					</li>
-					</li>
-				</ul>
-			</div>
-		</div>
+	
+		<header class="header__fixed-top header__shadow">
+			<nav>
+				<a href="#" class="nav-brand">MINUI</a>
+				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
+				<ul class="nav-items nav-items__open" id="main-nav">
+					<li class="nav-item nav-item__active"><a href="#" class="nav-item-link">Home</a></li>
+					<li class="nav-item"><a href="#" class="nav-item-link">About</a></li>
+					<li class="nav-item"><a href="#" class="nav-item-link">Blog</a></li>
+					<li class="nav-item"><a href="#" class="nav-item-link">Forum</a></li>
+					<li class="nav-item"><a href="#" class="nav-item-link">Help</a></li>
+				</ul>				
+			</nav>
+		</header>
+
 		<div class="container">
 
 			<h1>Hello World, I'm min.ui!</h1>
@@ -130,6 +119,21 @@
 				</article>
 				<aside class="col-4 col-dt-8">
 
+					<div class="header shadow">
+						<div class="nav">
+							<a href="#" class="nav-brand">MINUI</a>
+							<a href="#secondary-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
+							<ul class="nav-items nav-items__collapse" id="secondary-nav">
+								<li class="nav-item nav-item__active"><a href="#" class="nav-item-link">Home</a></li>
+								<li class="nav-item"><a href="#" class="nav-item-link">About</a></li>
+								<li class="nav-item"><a href="#" class="nav-item-link">Blog</a></li>
+								<li class="nav-item"><a href="#" class="nav-item-link">Forum</a></li>
+								<li class="nav-item"><a href="#" class="nav-item-link">Help</a></li>
+							</ul>
+							
+						</div>
+					</div>
+
 					<div class="tab shadow-2dp">
 
 						<ul class="tab-nav">
@@ -164,43 +168,10 @@
 						</div>
 			
 					</div>
-
-					<div class="nav">
-						<div class="container">
-							<ul class="navbar">
-								<li class="nav-item">
-									<a href="#">Home</a>
-								</li>
-								<li class="nav-item dropdown">
-									<a href="#" class="" data-toggle="dropdown">Portfolio</a>
-									<div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
-									    <a class="dropdown-item" href="google.com" target="_new">
-									    	<i class="icon ion-md-person leading-icon"></i> Action
-									    </a>
-									    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-cog"></i></span> Another action <span class="modifier-key">Ctrl + A</span></a>
-									    <div class="dropdown-divider"></div>
-									    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-list"></i></span> Something else here asfasf asfasfas</a>
-									</div>						
-								</li>
-								<li class="nav-item dropdown">
-									<a href="#" class="" data-toggle="dropdown">Help</a>
-									  <div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
-									    <a class="dropdown-item" href="google.com" target="_new">
-									    	<i class="icon ion-md-person leading-icon"></i> Action
-									    </a>
-									    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-cog"></i></span> Another action <span class="modifier-key">Ctrl + A</span></a>
-									    <div class="dropdown-divider"></div>
-									    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-list"></i></span> Something else here asfasf asfasfas</a>
-									  </div>						
-								</li>
-								</li>
-							</ul>
-						</div>
-					</div>
 					
 					<div class="dropdown">
 					  <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Dropdown Centered 
+					    Centered 
 					  </a>
 
 					  <div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
@@ -216,7 +187,7 @@
 
 					<div class="dropdown">
 					  <a class="btn warning" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Dropdown Left Aligned 
+					    Left Aligned 
 					  </a>
 
 					  <div class="dropdown-menu keys icons" aria-labelledby="dropdownMenuLink">
@@ -232,7 +203,7 @@
 
 					<div class="dropdown">
 					  <a class="btn success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Dropdown Right Aligned 
+					    Right Aligned 
 					  </a>
 
 					  <div class="dropdown-menu right" aria-labelledby="dropdownMenuLink">
