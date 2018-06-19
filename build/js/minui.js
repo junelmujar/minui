@@ -247,12 +247,12 @@ const Tabs = (() => {
 					event.preventDefault();
 
 					that._tabs.forEach((tabItem, index) => {
-						tabItem.parentNode.classList.remove('active');
+						tabItem.parentNode.classList.remove('tab-item__active');
 					});
 
 					var targetTabPanelID = event.target.getAttribute(Data.TARGET);
 
-					event.target.parentNode.classList.add('active');
+					event.target.parentNode.classList.add('tab-item__active');
 
 					var targetTabPanel = document.querySelector(targetTabPanelID);
 
@@ -261,11 +261,11 @@ const Tabs = (() => {
 						for (var child of targetTabPanel.parentNode.children) {
 							var siblingType = child.tagName.toLowerCase();
 							if (child !== targetTabPanel) {
-								child.classList.remove('active');
+								child.classList.remove('tab-panel__active');
 							}
 						}
 
-						targetTabPanel.classList.add('active');
+						targetTabPanel.classList.add('tab-panel__active');
 					}
 				});
 			});
@@ -382,8 +382,8 @@ const Dropdowns = (() => {
 				// Dropdowns: Close all visible dropdowns if there's any
 				that._dropdowns.forEach((p, index) => {
 					if (p.nextElementSibling.classList.contains('dropdown-menu')) {
-						if (p.nextElementSibling.classList.contains('visible')) {
-							p.nextElementSibling.classList.remove('visible');
+						if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
+							p.nextElementSibling.classList.remove('dropdown-menu__visible');
 						}
 					}
 				});
@@ -396,8 +396,8 @@ const Dropdowns = (() => {
 					if (typeof that._dropdowns !== 'undefined' && that._dropdowns) {
 						that._dropdowns.forEach((p, index) => {
 							if (p.nextElementSibling.classList.contains('dropdown-menu')) {
-								if (p.nextElementSibling.classList.contains('visible')) {
-									p.nextElementSibling.classList.remove('visible');
+								if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
+									p.nextElementSibling.classList.remove('dropdown-menu__visible');
 								}
 							}
 						});
@@ -422,8 +422,8 @@ const Dropdowns = (() => {
 					that._dropdowns.forEach((dropdown, i) => {
 						if (dropdown != el) {
 							if (dropdown.nextElementSibling.classList.contains('dropdown-menu')) {
-								if (dropdown.nextElementSibling.classList.contains('visible')) {
-									dropdown.nextElementSibling.classList.remove('visible');
+								if (dropdown.nextElementSibling.classList.contains('dropdown-menu__visible')) {
+									dropdown.nextElementSibling.classList.remove('dropdown-menu__visible');
 								}
 							}
 						}
@@ -432,8 +432,8 @@ const Dropdowns = (() => {
 					// Toggle visibility
 					if (event.target.nextElementSibling.classList.contains('dropdown-menu')) {
 
-						if (event.target.nextElementSibling.classList.contains('visible')) {
-							event.target.nextElementSibling.classList.remove('visible');
+						if (event.target.nextElementSibling.classList.contains('dropdown-menu__visible')) {
+							event.target.nextElementSibling.classList.remove('dropdown-menu__visible');
 						} else {
 
 							var placement = 'bottom-start'; // bottom left
@@ -441,7 +441,7 @@ const Dropdowns = (() => {
 							if (event.target.nextElementSibling.classList.contains('center')) placement = 'bottom'; // bottom centered
 							if (event.target.nextElementSibling.classList.contains('right')) placement = 'bottom-end'; // bottom right
 
-							event.target.nextElementSibling.classList.add('visible');
+							event.target.nextElementSibling.classList.add('dropdown-menu__visible');
 
 							/**
         * Check for Popper dependency

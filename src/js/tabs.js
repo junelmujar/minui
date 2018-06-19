@@ -26,12 +26,12 @@ const Tabs = (() => {
 					event.preventDefault();
 
 					that._tabs.forEach((tabItem, index) => {
-				    	tabItem.parentNode.classList.remove('active');
+				    	tabItem.parentNode.classList.remove('tab-item__active');
 					});
 
 					var targetTabPanelID = event.target.getAttribute(Data.TARGET);
 
-					event.target.parentNode.classList.add('active');
+					event.target.parentNode.classList.add('tab-item__active');
 
 					var targetTabPanel = document.querySelector(targetTabPanelID);
 
@@ -40,11 +40,11 @@ const Tabs = (() => {
 						for (var child of targetTabPanel.parentNode.children) {
 							var siblingType = child.tagName.toLowerCase();
 							if (child !== targetTabPanel) {
-								child.classList.remove('active');
+								child.classList.remove('tab-panel__active');
 							}						
 						}
 							
-						targetTabPanel.classList.add('active');
+						targetTabPanel.classList.add('tab-panel__active');
 					}
 
 				});

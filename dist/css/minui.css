@@ -455,7 +455,7 @@ input[type=email] {
   max-width: 250px;
   opacity: 0;
 }
-.dropdown-menu.visible {
+.dropdown-menu.dropdown-menu__visible {
   opacity: 1;
   display: block;
   position: inherit;
@@ -891,7 +891,7 @@ nav.nav__collapsed .nav-items.nav-items__open,
   border-bottom: 2px solid #d1d1d1;
   color: #000000;
 }
-.tab .tab-nav .tab-item.active a {
+.tab .tab-nav .tab-item.tab-item__active a {
   background: #fff;
   border-bottom: 2px solid #848484;
   color: #000000;
@@ -901,7 +901,7 @@ nav.nav__collapsed .nav-items.nav-items__open,
   padding: 25px;
   display: none;
 }
-.tab-content .tab-panel.active {
+.tab-content .tab-panel.tab-panel__active {
   display: block;
 }
 .text-center {
