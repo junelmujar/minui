@@ -1,50 +1,56 @@
 /* ALERT */
+.section {
+	background: @default-color;
+	color: @font-color;
+	padding: 1rem;
+	border-radius: @component-border-radius;
+	h1,h2,h3,h4,h5,h6 {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
 
 .alert {
+
 	border-radius: @component-border-radius;
 	background: rgba(0,0,0,0.05);
 	border: 1px solid rgba(0,0,0,0.05);
-	padding: 15px;
-	font-size: 14px;
-	line-height: 20px;
-	.alert-title {
+	padding: 1rem;
+	font-size: 0.9rem;
+	line-height: 1.1rem;
+	margin-bottom: @component-bottom-margin;
+
+	h1,h2,h3,h4,h5,h6 {
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	&__title {
 		font-size: 18px;
 		margin: 0 0 10px;
 	}
-	margin-bottom: @component-bottom-margin;
-	&.danger {
-		background: @danger-color;
-		color: lighten(@danger-color, 40);
-		.alert-title {
-			color: lighten(@danger-color, 50);
-		}
-	}
-	&.success {
-		background: @success-color;
-		color: lighten(@success-color, 40);
-		.alert-title {
-			color: lighten(@success-color, 50);
-		}
-	}	
-	&.warning {
+	&--warning {
 		background: @warning-color;
-		color: lighten(@warning-color, 40);
-		.alert-title {
-			color: lighten(@warning-color, 50);
-		}
-	}
-	&.info {
+		color: lighten(negation(@font-color, @warning-color), 30);
+	}	
+	&--info {
 		background: @info-color;
-		color: darken(@info-color, 50);
-		.alert-title {
-			color: darken(@info-color, 60);
-		}
-	}		
-	&.inverse {
-		background: darken(@default-color, 70);
-		color: darken(@default-color, 10);
-		.alert-title {
-			color: lighten(@default-color, 60);
-		}
+		color: lighten(multiply(@font-color, @info-color), 20);
+	}	
+	&--success {
+		background: @success-color;
+		color: lighten(negation(@font-color, @success-color), 30);
+	}
+	&--danger {
+		background: @danger-color;
+		color: lighten(negation(@font-color, @danger-color), 30);
 	}	
 }

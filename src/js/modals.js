@@ -36,7 +36,10 @@ const Modals = (() => {
             });
 
             this._modals.forEach((el, i) => {
-                el.addEventListener("click", this.modalOverlayClick);
+                var closeOnOverlayClick = el.getAttribute('data-close-overlay');
+                if (closeOnOverlayClick) {
+                    el.addEventListener("click", this.modalOverlayClick);
+                }
             });
 
             this._modalDismissTriggers.forEach((el, i) => {
@@ -55,8 +58,13 @@ const Modals = (() => {
                 if (event.keyCode == 27) {
                     var activeModal = document.querySelector(".modal.show-modal");
                     if (typeof activeModal !== 'undefined' && activeModal) {
-                        activeModal.classList.remove('show-modal');
-                        document.body.classList.remove("modal-shown");
+                        var closeOnEsc = activeModal.getAttribute('data-close-esc');
+                        if (closeOnEsc === 'undefined' || closeOnEsc === 'true') {
+                            if (typeof activeModal !== 'undefined' && activeModal) {
+                                activeModal.classList.remove('show-modal');
+                                document.body.classList.remove("modal-shown");
+                            }
+                        }
                     }
                 }
             });

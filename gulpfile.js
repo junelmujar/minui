@@ -27,7 +27,6 @@ gulp.task('build-less', () => {
 gulp.task('build-css', ['build-less'], () => {
   return gulp.src( [
       './dist/css/lib/normalize.css',
-      './dist/css/lib/fluidable-min.css',
       './dist/css/minui.css'
     ] )
     .pipe( concatCss("./dist/css/minui.min.css") )

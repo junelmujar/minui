@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1">
+		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<link rel="stylesheet" href="css/prism.css">
+		<title>MinUI</title>
+		<style>
+			body {
+
+				padding-top: 80px;
+				padding-bottom: 80px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<header class="header__fixed-top header__shadow">
+			<nav>
+				<a href="#" class="nav-brand">MINUI</a>
+				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
+				<ul class="nav-items nav-items__open" id="main-nav">
+					<li class="nav-item"><a href="index.html" class="nav-item-link">Home</a></li>
+					<li class="nav-item">
+						<a href="#dropdown-about" class="nav-item-link" data-toggle="dropdown">Components</a>
+						<ul class="dropdown" id="dropdown-about">
+							<li><a href="typo.html">Typography</a></li>
+							<li><a href="layout.html">Layout</a></li>
+							<li><a href="button.html">Button</a></li>
+							<li><a href="card.html">Card</a></li>
+							<li><a href="form.html">Form</a></li>
+							<li><a href="table.html">Table</a></li>
+							<li class="divider"></li>
+							<li><a href="nav.html">Nav</a></li>
+							<li><a href="modal.html">Modal</a></li>
+							<li><a href="tab.html">Tab</a></li>
+							<li><a href="dropdown.html">Dropdown</a></li>
+							<li><a href="accordion.html">Accordion</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a href="#dropdown-sample" class="nav-item-link" data-toggle="dropdown">Examples</a>
+						<ul class="dropdown" id="dropdown-sample">
+							<li><a href="example1.html">Kitchen Sink</a></li>
+							<li><a href="example2.html">Admin</a></li>
+							<li><a href="example3.html">Email</a></li>
+						</ul>
+					</li>					
+					<li class="nav-item">
+						<a href="#dropdown-blog" class="nav-item-link" data-toggle="dropdown">Hacking</a>
+						<ul class="dropdown" id="dropdown-blog">
+							<li><a href="build.html">Build Tools</a></li>
+							<li><a href="source.html">Source</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a href="about.html" class="nav-item-link">About</a></li>
+				</ul>				
+			</nav>
+		</header>
+
+		<div class="container">
+			<h1>Cards</h1>
+			<br>
+	
+			<div class="display-2">Basic</div>
+			<div class="card">
+				<div class="card__block">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</div>
+			<br>
+
+			<div class="display-2">With Title</div>
+			<div class="card shadow-2dp">
+				<form class="card__block">
+					<div class="card__title">Login Form</div>
+			        <div class="input-group input-md">
+			        	<label class="label" for="name"><i class="icon ion-md-person"></i> Username</label>
+			            <input id="name" class="input" type="text" placeholder="Enter username" />
+			            
+			        </div>
+
+			        <div class="input-group input-md">
+			        	<label class="label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+			            <input id="name1" class="input" type="password" placeholder="Enter password" />
+			        </div>
+					<div class="group text-center">
+						<button class="btn primary large block"> Login</button>
+					</div>									    
+				</form>
+			</div>
+			<br>
+
+			<div class="display-2">Inverse</div>
+			<div class="card card--inverse">
+				<div class="card__block">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+			</div>
+			<br>
+	
+			<div class="display-2">With Header & Footer</div>
+			<div class="card">
+				<div class="card__header">
+					Header
+				</div>
+				<div class="card__block">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</div>
+				<div class="card__footer">
+					Footer
+				</div>
+			</div>
+			<br>
+			
+			<div class="display-2">With Card Image</div>
+			<div class="card">
+				<div class="card__image" style="background-image: url(https://placeimg.com/640/480/nature)">
+					<div class="card__image__caption card__image__caption--dark">
+						Card Image
+					</div>
+				</div>
+				<div class="card__block">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae aliquid quo minima sit voluptatum saepe quos nostrum provident ex quisquam, hic, odio repellendus atque porro distinctio quae id laboriosam facilis.
+					</p>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
+		<script src="dist/js/minui.min.js"></script>
+		<script src="js/prism.js"></script>
+
+		
+
+	</body>
+</html>

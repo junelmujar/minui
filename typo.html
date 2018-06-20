@@ -4,6 +4,7 @@
 		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<link rel="stylesheet" href="css/prism.css">
 		<title>MinUI</title>
 		<style>
 			body {
@@ -58,43 +59,59 @@
 		</header>
 
 		<div class="container">
-			<h1>Build Tools</h1>
-		
-			<p class="text__lead">
-				MINUI uses Gulp to compile the javascript and less files. It relies on the following packages:
-			</p>
+			<h1>Typography</h1>
 
 			<div class="card">
-				<div class="card__header">Package List</div>
+				<div class="card__header">Headers</div>
 				<div class="card__block">
+					<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
+					<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+					<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
+					<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
+					<h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5>
+					<h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card__header">Paragraph</div>
+				<div class="card__block">
+					<p class="text__lead">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vel, suscipit hic asperiores est alias corporis facere dolorem, id atque! Provident officia, esse sequi, veniam ex possimus reiciendis nam ipsa.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum vel, suscipit hic asperiores est alias corporis facere dolorem, id atque! Provident officia, esse sequi, veniam ex possimus reiciendis nam ipsa.
+					</p>		
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ipsa iusto quod, sapiente necessitatibus dolorem, quidem dolorum libero dolores est non totam hic suscipit beatae illum quis. Iure, voluptates, illum?
+					</p>			
+				</div>
+			</div>
+			
+			<div class="card">
+				<div class="card__header">Lists</div>
+				<div class="card__block">
+					<ol>
+						<li>Bird</li>
+						<li>Cat</li>
+						<li>Dog</li>
+						<li>Cow</li>
+					</ol>
 					<ul>
-					    <li>babel-cli</li>
-					    <li>babel-loader</li>
-					    <li>gulp-babel-minify</li>
-					    <li>gulp-clean-css</li>
-					    <li>gulp-concat-css</li>
-					    <li>gulp-less</li>
-					    <li>gulp-rename</li>
-					    <li>webpack-stream</li>
+						<li>Bird</li>
+						<li>Cat</li>
+						<li>Dog</li>
+						<li>Cow</li>
 					</ul>
 				</div>
 			</div>
 
-			<h4>To build the source, type the following command:</h4>
-			<div class="section">
-				gulp build
-			</div>
-
-			<h4>To enable auto-build when hacking away on the code:</h4>
-			<div class="section">
-				gulp watch
-			</div>
-			
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
 		<script src="dist/js/minui.min.js"></script>
+		<script src="js/prism.js"></script>
 
 		
 

@@ -62,8 +62,8 @@
 			<h1>The Kitchen Sink</h1>
 
 			<p>
-					<button class=" btn" data-toggle="modal" data-target="one">Toggle One</button>
-					<button class=" btn" data-toggle="modal" data-target="two">Toggle Two</button>
+					<button class="btn" data-toggle="modal" data-target="one" data-close-esc="false">Toggle One</button>
+					<button class="btn" data-toggle="modal" data-target="two">Toggle Two</button>
 			</p>
 
 			<div class="col-group">
@@ -71,8 +71,8 @@
 					<div class="col-group">
 						<div class="col-12">
 							<div class="card shadow-2dp">
-								<form class="card-block">
-									<div class="card-title">Login Form</div>
+								<form class="card__block">
+									<div class="card__title">Login Form</div>
 							        <div class="input-group input-md">
 							        	<label class="label" for="name"><i class="icon ion-md-person"></i> Username</label>
 							            <input id="name" class="input" type="text" placeholder="Enter username" />
@@ -90,13 +90,13 @@
 							
 							</div>								
 							<div class="card">
-<!-- 								<div class="card-image" style="background-image: url(https://placeimg.com/640/480/nature)">
-									<div class="card-image-caption card-image-dark">
+								<div class="card__image" style="background-image: url(https://placeimg.com/640/480/nature)">
+									<div class="card__image-caption card__image-dark">
 										fasfsaasfasfas
 									</div>
-								</div> -->
-								<div class="card-block" style="position: relative;">
-									<div class="card-title"><i class="icon ion-md-person"></i> Card One</div>
+								</div>
+								<div class="card__block" style="position: relative;">
+									<div class="card__title"><i class="icon ion-md-person"></i> Card One</div>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae aliquid quo minima sit voluptatum saepe quos nostrum provident ex quisquam, hic, odio repellendus atque porro distinctio quae id laboriosam facilis.
 									</p>
 									<div class="dropdown">
@@ -113,18 +113,18 @@
 										</div>											
 									</div>
 								</div>
-								<div class="card-footer muted">
+								<div class="card__footer muted">
 									This is the footer
 								</div>
 							</div>
 							<div class="card inverse">
-								<div class="card-block">
-									<div class="card-title">Card One</div>
+								<div class="card__block">
+									<div class="card__title">Card One</div>
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae aliquid quo minima sit voluptatum saepe quos nostrum provident ex quisquam, hic, odio repellendus atque porro distinctio quae id laboriosam facilis.
 
 
 								</div>
-								<div class="card-footer">
+								<div class="card__footer">
 									<a href="#" class="btn primary">Submit</a>
 									<a href="#" class="btn success">Success</a>
 									<a href="#" class="btn warning">Warning</a>
@@ -258,8 +258,8 @@
 					</div>										
 					<br><br>
 					
-					<div class="card card-table">
-						<div class="card-block">
+					<div class="card card--table">
+						<div class="card__block">
 							<table class="table">
 							  <thead>
 							    <tr>
@@ -346,12 +346,12 @@
 						</div>
 					</div>
 
-					<form class="card card-pad-lg">
-					    <div class="card-block">
-					    	<h2 class="card-title">This is form</h2>
+					<form class="card card--pad-medium">
+					    <div class="card__block">
+					    	<h2 class="card__title">This is form</h2>
 
-					    	<div class="alert info">
-					    		<div class="alert-title"><i class="icon ion-md-information-circle"></i> This is an alert!</div>
+					    	<div class="alert alert--info">
+					    		<div class="alert__title"><i class="icon ion-md-information-circle"></i> This is an alert!</div>
 					    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores rem expedita a nam vitae modi quidem, similique ducimus nobis sed tempora assumenda velit esse totam tempore illum quod quo.
 					    	</div>
 
@@ -392,7 +392,7 @@
 					        </div>
 
 					    </div>
-						<div class="card-footer text-right">
+						<div class="card__footer text-right">
 							<button class="btn" data-toggle="tooltip" data-tooltip="This is a tooltip!">Default</button>
 							<a href="#" class="btn danger" data-toggle="tooltip" data-tooltip="This is a tooltip!">Danger</a>
 						</div>							    
@@ -410,7 +410,7 @@
 			</div>
 		</div>
 
-		<div class="modal" data-modal-id="one">
+		<div class="modal" data-modal-id="one" data-close-esc="true" data-close-overlay="true">
 	        <div class="modal-content">
 
 				<div class="modal-header">

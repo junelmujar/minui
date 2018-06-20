@@ -4,6 +4,7 @@
 		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<link rel="stylesheet" href="css/prism.css">
 		<title>MinUI</title>
 		<style>
 			body {
@@ -58,36 +59,20 @@
 		</header>
 
 		<div class="container">
-			<h1>Build Tools</h1>
-		
-			<p class="text__lead">
-				MINUI uses Gulp to compile the javascript and less files. It relies on the following packages:
-			</p>
+			<h1>Buttons</h1>
 
 			<div class="card">
-				<div class="card__header">Package List</div>
-				<div class="card__block">
-					<ul>
-					    <li>babel-cli</li>
-					    <li>babel-loader</li>
-					    <li>gulp-babel-minify</li>
-					    <li>gulp-clean-css</li>
-					    <li>gulp-concat-css</li>
-					    <li>gulp-less</li>
-					    <li>gulp-rename</li>
-					    <li>webpack-stream</li>
-					</ul>
+				<div class="card-header">Basic Usage</div>
+				<div class="card-block">
+					<pre><code class="language-css">p { color: red }</code></pre>
 				</div>
 			</div>
 
-			<h4>To build the source, type the following command:</h4>
-			<div class="section">
-				gulp build
-			</div>
-
-			<h4>To enable auto-build when hacking away on the code:</h4>
-			<div class="section">
-				gulp watch
+			<div class="card">
+				<div class="card-header">With modifiers</div>
+				<div class="card-block">
+					<pre><code class="language-markup"><pre style="margin: 0; "><span style="color: #008000; font-weight: bold">&lt;p&gt;</span>asfas asfas<span style="color: #008000; font-weight: bold">&lt;/p&gt;</span></code></pre>
+				</div>
 			</div>
 			
 		</div>
@@ -95,6 +80,7 @@
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
 		<script src="dist/js/minui.min.js"></script>
+		<script src="js/prism.js"></script>
 
 		
 
