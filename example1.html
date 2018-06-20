@@ -1,0 +1,557 @@
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1">
+		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<title>MinUI</title>
+		<style>
+			body {
+
+				padding-top: 80px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<header class="header__fixed-top header__shadow">
+			<nav>
+				<a href="#" class="nav-brand">MINUI</a>
+				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
+				<ul class="nav-items nav-items__open" id="main-nav">
+					<li class="nav-item"><a href="index.html" class="nav-item-link">Home</a></li>
+					<li class="nav-item">
+						<a href="#dropdown-about" class="nav-item-link" data-toggle="dropdown">Components</a>
+						<ul class="dropdown" id="dropdown-about">
+							<li><a href="typo.html">Typography</a></li>
+							<li><a href="layout.html">Layout</a></li>
+							<li><a href="button.html">Button</a></li>
+							<li><a href="card.html">Card</a></li>
+							<li><a href="form.html">Form</a></li>
+							<li><a href="table.html">Table</a></li>
+							<li class="divider"></li>
+							<li><a href="nav.html">Nav</a></li>
+							<li><a href="modal.html">Modal</a></li>
+							<li><a href="tab.html">Tab</a></li>
+							<li><a href="dropdown.html">Dropdown</a></li>
+							<li><a href="accordion.html">Accordion</a></li>
+						</ul>
+					</li>
+					<li class="nav-item nav-item__active">
+						<a href="#dropdown-sample" class="nav-item-link" data-toggle="dropdown">Examples</a>
+						<ul class="dropdown" id="dropdown-sample">
+							<li><a href="example1.html">Kitchen Sink</a></li>
+							<li><a href="example2.html">Admin</a></li>
+							<li><a href="example3.html">Email</a></li>
+						</ul>
+					</li>					
+					<li class="nav-item">
+						<a href="#dropdown-blog" class="nav-item-link" data-toggle="dropdown">Hacking</a>
+						<ul class="dropdown" id="dropdown-blog">
+							<li><a href="build.html">Build Tools</a></li>
+							<li><a href="source.html">Source</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a href="about.html" class="nav-item-link">About</a></li>
+				</ul>				
+			</nav>
+		</header>
+
+		<div class="container">
+
+			<h1>The Kitchen Sink</h1>
+
+			<p>
+					<button class=" btn" data-toggle="modal" data-target="one">Toggle One</button>
+					<button class=" btn" data-toggle="modal" data-target="two">Toggle Two</button>
+			</p>
+
+			<div class="col-group">
+				<article class="col-8 col-dt-4 col-dt-offset-0">
+					<div class="col-group">
+						<div class="col-12">
+							<div class="card shadow-2dp">
+								<form class="card-block">
+									<div class="card-title">Login Form</div>
+							        <div class="input-group input-md">
+							        	<label class="label" for="name"><i class="icon ion-md-person"></i> Username</label>
+							            <input id="name" class="input" type="text" placeholder="Enter username" />
+							            
+							        </div>
+
+							        <div class="input-group input-md">
+							        	<label class="label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+							            <input id="name1" class="input" type="password" placeholder="Enter password" />
+							        </div>
+									<div class="group text-center">
+										<button class="btn primary large block"> Login</button>
+									</div>									    
+								</form>
+							
+							</div>								
+							<div class="card">
+<!-- 								<div class="card-image" style="background-image: url(https://placeimg.com/640/480/nature)">
+									<div class="card-image-caption card-image-dark">
+										fasfsaasfasfas
+									</div>
+								</div> -->
+								<div class="card-block" style="position: relative;">
+									<div class="card-title"><i class="icon ion-md-person"></i> Card One</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae aliquid quo minima sit voluptatum saepe quos nostrum provident ex quisquam, hic, odio repellendus atque porro distinctio quae id laboriosam facilis.
+									</p>
+									<div class="dropdown">
+										<a href="#" class="btn primary fab" data-toggle="dropdown">
+											<i class="icon ion-md-more fab-icon"></i> 									
+										</a>
+										<div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">
+										    	<i class="icon ion-md-person leading-icon"></i> Action
+										    </a>
+										    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-cog"></i></span> Another action <span class="modifier-key">Ctrl + A</span></a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-list"></i></span> Something else here asfasf asfasfas</a>
+										</div>											
+									</div>
+								</div>
+								<div class="card-footer muted">
+									This is the footer
+								</div>
+							</div>
+							<div class="card inverse">
+								<div class="card-block">
+									<div class="card-title">Card One</div>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae aliquid quo minima sit voluptatum saepe quos nostrum provident ex quisquam, hic, odio repellendus atque porro distinctio quae id laboriosam facilis.
+
+
+								</div>
+								<div class="card-footer">
+									<a href="#" class="btn primary">Submit</a>
+									<a href="#" class="btn success">Success</a>
+									<a href="#" class="btn warning">Warning</a>
+								</div>								
+							</div>		
+
+							
+								<a href="#" class="btn primary fab" data-toggle="dropdown">
+									<i class="icon ion-md-more fab-icon"></i> 									
+								</a>
+								<div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
+								    <a class="dropdown-item" href="google.com" target="_new">
+								    	<i class="icon ion-md-person leading-icon"></i> Action
+								    </a>
+								    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-cog"></i></span> Another action <span class="modifier-key">Ctrl + A</span></a>
+								    <div class="dropdown-divider"></div>
+								    <a class="dropdown-item" href="#"><span class="leading-icon"><i class="icon ion-md-list"></i></span> Something else here asfasf asfasfas</a>
+								</div>											
+										
+						</div>
+					</div>
+				</article>
+				<aside class="col-4 col-dt-8">
+
+					<div class="header shadow">
+						<div class="nav">
+							<a href="#secondary-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
+							<ul class="nav-items nav-items__collapse" id="secondary-nav">
+								<li class="nav-item"><a href="#" class="nav-item-link">Home</a></li>
+								<li class="nav-item">
+									<a href="#dropdown-about" class="nav-item-link" data-toggle="dropdown">About</a>
+									<ul class="dropdown" id="dropdown-about">
+										<li><a href="">One</a></li>
+										<li><a href="">Two</a></li>
+										<li><a href="">Three</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a href="#dropdown-blog" class="nav-item-link" data-toggle="dropdown">Blog</a>
+									<ul class="dropdown" id="dropdown-blog">
+										<li><a href="">One</a></li>
+										<li><a href="">Two</a></li>
+										<li><a href="">Three</a></li>
+									</ul>
+								</li>
+								<li class="nav-item"><a href="#" class="nav-item-link">Forum</a></li>
+								<li class="nav-item"><a href="#" class="nav-item-link">Help</a></li>
+							</ul>
+							
+						</div>
+					</div>
+
+					<div class="tab shadow-2dp">
+
+						<ul class="tab-nav">
+							<li class="tab-item tab-item__active"><a href="#one" data-toggle="tab">One</a></li>
+							<li class="tab-item"><a href="#two" data-toggle="tab">Two</a></li>
+							<li class="tab-item"><a href="#three" data-toggle="tab">Three</a></li>
+							<li class="tab-item"><a href="#four" data-toggle="tab">Four</a></li>
+							<li class="tab-item"><a href="#five" data-toggle="tab">Five</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-panel tab-panel__active" id="one">
+								<h2 class="contained">Lorem Ipsum</h2>
+								<p>
+									Lorem ipsum dolor sit amet, vix ad latine scripta molestie, homero diceret nusquam ea ius. Labitur admodum his ea, habeo postea conclusionemque et eum. Illud dolores tacimates has no. Vix ceteros perpetua ne, facete oportere assentior usu no. Nam ea delenit explicari, quas assum inani his in.
+								</p>
+								<p>
+									Stet semper dissentias eos ut. Per equidem expetendis dissentiet ne. Delectus ocurreret sententiae his ut, duo ex erat aperiam omittam. Te explicari dissentiunt vel. Invidunt deterruisset per te, in est purto epicurei mediocritatem.
+								</p>
+								<h3>Lorem Ipsum</h3>
+								<p>
+									Lorem ipsum dolor sit amet, vix ad latine scripta molestie, homero diceret nusquam ea ius. Labitur admodum his ea, habeo postea conclusionemque et eum. Illud dolores tacimates has no. Vix ceteros perpetua ne, facete oportere assentior usu no. Nam ea delenit explicari, quas assum inani his in.
+								</p>
+								<p>
+									Stet semper dissentias eos ut. Per equidem expetendis dissentiet ne. Delectus ocurreret sententiae his ut, duo ex erat aperiam omittam. Te explicari dissentiunt vel. Invidunt deterruisset per te, in est purto epicurei mediocritatem.
+								</p>								
+							</div>
+							<div class="tab-panel" id="two">Sed quod inimicus mnesarchum ne. Ferri delicatissimi te cum, quo eu putent blandit accommodare. Mei melius nostrum et, quod eirmod reprehendunt pri ne. Magna appellantur nec ea, eu patrioque scribentur sea, euripidis neglegentur an cum. Eu latine conclusionemque sea, usu diam esse te, vix eius corpora id. Reque facilis dolores ius ne.
+</div>
+							<div class="tab-panel" id="three">Vel ei placerat insolens, ut fastidii philosophia sea. Verear meliore senserit quo et, enim lorem accumsan eu sit. Qui persius principes eu, te minim verear accumsan eos. Sea et odio copiosae. Velit ceteros ne ius, sea te ridens verear, at sed idque mentitum.</div>
+							<div class="tab-panel" id="four">Four</div>
+							<div class="tab-panel" id="five">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, laborum. Labore voluptates totam at, aut nemo deserunt rem magni pariatur, reprehenderit perspiciatis, atque eveniet unde laborum ipsum, in cupiditate voluptas.</div>
+						</div>
+			
+					</div>
+					
+					<div class="dropdown">
+					  <a class="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Centered 
+					  </a>
+
+					  <div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
+					    <a class="dropdown-item" href="google.com" target="_new">
+					    	<i class="icon ion-md-person leading-icon"></i> Action
+					    </a>
+					    <a class="dropdown-item" href="#"><i class="icon ion-md-cog leading-icon"></i> Another action <span class="modifier-key">Ctrl + A</span></a>
+					    <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="#"><i class="icon ion-md-list leading-icon"></i> Something else here asfasf asfasfas</a>
+					  </div>
+					</div>
+					&nbsp;&nbsp;&nbsp;
+
+					<div class="dropdown">
+					  <a class="btn warning" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Left Aligned 
+					  </a>
+
+					  <div class="dropdown-menu keys icons" aria-labelledby="dropdownMenuLink">
+					    <a class="dropdown-item" href="google.com" target="_new">
+					    	<i class="icon ion-md-person leading-icon"></i> Action
+					    </a>
+					    <a class="dropdown-item" href="#"><i class="icon ion-md-cog leading-icon"></i> Another action</a>
+					    <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="#"><i class="icon ion-md-list  leading-icon"></i> Something else here asfasf asfasfas</a>
+					  </div>
+					</div>
+					&nbsp;&nbsp;&nbsp;
+
+					<div class="dropdown">
+					  <a class="btn success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    Right Aligned 
+					  </a>
+
+					  <div class="dropdown-menu right" aria-labelledby="dropdownMenuLink">
+					    <a class="dropdown-item" href="google.com" target="_new">Action asfas af asf as</a>
+					    <a class="dropdown-item" href="#">Another action asfasf</a>
+					    <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="#">Something else here asfas asfas</a>
+					  </div>
+					</div>										
+					<br><br>
+					
+					<div class="card card-table">
+						<div class="card-block">
+							<table class="table">
+							  <thead>
+							    <tr>
+							      <th>Material</th>
+							      <th>Quantity</th>
+							      <th>Unit price</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td><input type="text" data-toggle="tooltip" data-tooltip="This is a tooltip 1!"></td>
+							      <td class="text-center">25</td>
+							      <td class="text-center">
+										<div class="dropdown">
+										  <a class="btn small success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    	Edit
+										  </a>
+
+										  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+										    <a class="dropdown-item" href="#">Delete</a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#">Properties</a>
+										  </div>
+										</div>	
+							      </td>
+							    </tr>
+							    <tr>
+							      <td><input type="text" data-toggle="tooltip" data-tooltip="This is a tooltip 2!"></td>
+							      <td class="text-center">50</td>
+							      <td class="text-center">
+										<div class="dropdown">
+										  <a class="btn small" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    	Edit
+										  </a>
+
+										  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+										    <a class="dropdown-item" href="#">Delete</a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#">Properties</a>
+										  </div>
+										</div>								      	
+							      </td>
+							    </tr>
+							    <tr>
+							      <td><input type="checkbox" data-toggle="tooltip" data-tooltip="This is a tooltip 3!"></td>
+							      <td class="text-center">10</td>
+							      <td class="text-center">
+										<div class="dropdown">
+										  <a class="btn small info" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    	Edit
+										  </a>
+
+										  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+										    <a class="dropdown-item" href="#">Delete</a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#">Properties</a>
+										  </div>
+										</div>								      	
+							      </td>
+							    </tr>
+							    <tr>
+							      <td><input type="checkbox"></td>
+							      <td class="text-center">10</td>
+							      <td class="text-center">
+										<div class="dropdown">
+										  <a class="btn small danger" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    	Edit
+										  </a>
+
+										  <div class="dropdown-menu right" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+										    <a class="dropdown-item" href="#">Delete</a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#">Properties</a>
+										  </div>
+										</div>								      	
+							      </td>
+							    </tr>					    
+							  </tbody>
+							</table>
+						</div>
+					</div>
+
+					<form class="card card-pad-lg">
+					    <div class="card-block">
+					    	<h2 class="card-title">This is form</h2>
+
+					    	<div class="alert info">
+					    		<div class="alert-title"><i class="icon ion-md-information-circle"></i> This is an alert!</div>
+					    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio maiores rem expedita a nam vitae modi quidem, similique ducimus nobis sed tempora assumenda velit esse totam tempore illum quod quo.
+					    	</div>
+
+					    	<a href="#" data-toggle="tooltip" data-tooltip="<strong>Lorem ipsum</strong> dolor sit amet, consectetur adipisicing elit, sed do eiusmod.">Tool Tip!</a>
+
+					        <div class="input-group input-md">
+					        	<label class="label" for="name">Name</label>
+					            <input id="name" class="" type="text" placeholder="Enter full name" />
+					            
+					        </div>
+
+					        <div class="input-group input-md">
+					        	<label class="label" for="name1">Email</label>
+					            <input id="name1" class="input" type="email" placeholder="Enter email address" value="asfas" />
+					        </div>
+
+					        <div class="input-group input-md">
+					        	<label for="">Description</label>
+					        	<textarea name="" id="" cols="30" rows="5"></textarea>
+					        	<div class="text-help info">This is text with .info class</div>
+					        </div>
+
+					        <div class="input-group input-md">
+					        	<label for="">Dropdown</label>
+					        	<select name="" id="">
+					        		<option>Select</option>
+					        		<option value="1">1</option>
+					        		<option value="2">2</option>
+					        		<option value="3">3</option>
+					        		<option value="4">4</option>
+					        	</select>
+					        </div>
+
+					        <div class="input-group">
+					        	<label for="">Checkboxes</label>
+					        	<div><input type="checkbox" name="a" id="a"> Checkbox 1</div>
+					        	<div><input type="checkbox" name="a" id="a"> Checkbox 2</div>
+					        </div>
+
+					    </div>
+						<div class="card-footer text-right">
+							<button class="btn" data-toggle="tooltip" data-tooltip="This is a tooltip!">Default</button>
+							<a href="#" class="btn danger" data-toggle="tooltip" data-tooltip="This is a tooltip!">Danger</a>
+						</div>							    
+					</form>
+
+					<h2>Typography</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quidem consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta, aut eius fugit quam in! Omnis.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. At praesentium ut sapiente repudiandae, voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet, commodi deleniti alias. Ut odit velit cumque.
+					</p>
+					<a href="#" class="btn">Read Article</a>
+				</aside>
+			</div>
+		</div>
+
+		<div class="modal" data-modal-id="one">
+	        <div class="modal-content">
+
+				<div class="modal-header">
+					Modal #1 <a href="#" class="float-right" data-dismiss="modal">&times;</a>
+				</div>
+				<div class="modal-block">
+	            
+	            <h1 class="contained">Hello, I am a modal!</h1>
+
+				<div class="dropdown">
+				  	<a class="btn success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    	Dropdown Right Aligned 
+				  	</a>
+
+				  	<div class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+					    <a class="dropdown-item" href="google.com" target="_new">Action asfas af asf as</a>
+					    <a class="dropdown-item" href="#">Another action asfasf</a>
+					    <div class="dropdown-divider"></div>
+					    <a class="dropdown-item" href="#">Something else here asfas asfas</a>
+				  	</div>
+				</div>	
+
+	            <p>
+	            	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto itaque dicta, aperiam maiores provident, id, incidunt autem fuga magnam recusandae. Quibusdam quasi fugiat asperiores harum voluptatum tenetur, a possimus.
+	            </p>
+	            <p>
+	            	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora ipsam distinctio minima, dolorum tenetur perferendis labore possimus impedit voluptates ab sint, repudiandae! Nisi quam quia repellat ut tempore laborum possimus.
+	            </p>
+	            <p>
+	            	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci architecto itaque dicta, aperiam maiores provident, id, incidunt autem fuga magnam recusandae. Quibusdam quasi fugiat asperiores harum voluptatum tenetur, a possimus.
+	            </p>
+	            <p>
+	            	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora ipsam distinctio minima, dolorum tenetur perferendis labore possimus impedit voluptates ab sint, repudiandae! Nisi quam quia repellat ut tempore laborum possimus.
+	            </p>	     
+
+							<table class="table">
+							  <thead>
+							    <tr>
+							      <th>Material</th>
+							      <th>Quantity</th>
+							      <th>Unit price</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td><input type="text" data-toggle="tooltip" data-tooltip="This is a tooltip 1!"></td>
+							      <td class="text-center">25</td>
+							      <td class="text-center">
+										<div class="dropdown">
+										  <a class="btn small success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    	Edit
+										  </a>
+
+										  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+										    <a class="dropdown-item" href="#">Delete</a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#">Properties</a>
+										  </div>
+										</div>	
+							      </td>
+							    </tr>
+							    <tr>
+							      <td><input type="text" data-toggle="tooltip" data-tooltip="This is a tooltip 2!"></td>
+							      <td class="text-center">50</td>
+							      <td class="text-center">
+										<div class="dropdown">
+										  <a class="btn small" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    	Edit
+										  </a>
+
+										  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+										    <a class="dropdown-item" href="#">Delete</a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#">Properties</a>
+										  </div>
+										</div>								      	
+							      </td>
+							    </tr>
+							    <tr>
+							      <td><input type="checkbox" data-toggle="tooltip" data-tooltip="This is a tooltip 3!"></td>
+							      <td class="text-center">10</td>
+							      <td class="text-center">
+										<div class="dropdown">
+										  <a class="btn small info" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    	Edit
+										  </a>
+
+										  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+										    <a class="dropdown-item" href="#">Delete</a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#">Properties</a>
+										  </div>
+										</div>								      	
+							      </td>
+							    </tr>
+							    <tr>
+							      <td><input type="checkbox"></td>
+							      <td class="text-center">10</td>
+							      <td class="text-center">
+										<div class="dropdown">
+										  <a class="btn small danger" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										    	Edit
+										  </a>
+
+										  <div class="dropdown-menu right" aria-labelledby="dropdownMenuLink">
+										    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+										    <a class="dropdown-item" href="#">Delete</a>
+										    <div class="dropdown-divider"></div>
+										    <a class="dropdown-item" href="#">Properties</a>
+										  </div>
+										</div>								      	
+							      </td>
+							    </tr>					    
+							  </tbody>
+							</table>
+
+	            </div>
+				<div class="modal-footer text-right">
+	            	<button class="btn primary" data-dismiss="modal">Close</button>       
+	            </div>
+	        </div>
+	    </div>		
+
+		<div class="modal" data-modal-id="two">
+	        <div class="modal-content">
+	        	<div class="modal-header">
+	            	Modal #2 <a href="#" class="float-right" data-dismiss="modal">&times;</a>
+	            </div>
+	            <div class="modal-block">
+<iframe width="720" height="480" src="https://www.youtube.com/embed/XGBDQpT9-i4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	            </div>            
+	        </div>
+	    </div>	
+		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
+		<script src="dist/js/minui.min.js"></script>
+
+		
+
+	</body>
+</html>

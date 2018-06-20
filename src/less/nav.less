@@ -1,6 +1,6 @@
 header,
 .header {
-	padding: 4px;
+	// padding: 4px;
 	background: #fff;
 	border: 1px solid rgba(0,0,0,0.1);
 	border-radius: 1px;
@@ -74,7 +74,7 @@ nav,
 
 	.nav-items {
 		list-style: none;
-		margin: 4px 0 0;
+		margin: 0;
 		padding: 0;
 		opacity: 1;
 		transition: all 0.5s ease-in-out;	
@@ -99,21 +99,22 @@ nav,
 				display: none;
 				opacity: 0;
 				position: absolute;
-				background: #fff;
+				background: #333;
 				list-style: none;
 				margin: 0;
-				border: 1px solid rgba(0,0,0,0.1);
+				//border: 1px solid rgba(0,0,0,0.1);
 				border-radius: @component-border-radius;
 				padding: 4px 0;
 				min-width: 250px;
 				box-shadow: 0 5px 20px -5px rgba(0,0,0,0.25);
+				z-index: 1000;
 				li {
 					display: block;
 					a {
 						display: block;
-						padding: 15px;
+						padding: 10px 15px;
 						text-decoration: none;
-						color: lighten(@font-color, 20);
+						color: lighten(@font-color, 50);
 						&:hover {
 							background: @primary-color;
 							color: #fff;
@@ -131,7 +132,9 @@ nav,
 			}
 			&.nav-item__active {
 				.nav-item-link {
-					color: darken(@font-color, 20);	
+					background: #444;
+					color: #fff;
+					//color: darken(@font-color, 20);	
 				}
 			}
 			&:first-child {
