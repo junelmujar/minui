@@ -11,3 +11,21 @@ new Tabs;
 new Modals;
 new Dropdowns;
 new Navs;
+
+export {
+	Tabs,
+	Inputs,
+	Modals,
+	Dropdowns,
+	Navs,
+	Tooltips
+}
+
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+var code = document.querySelectorAll('code');
+code.forEach(function(el, i) {
+	el.innerHTML = htmlEntities(el.innerHTML);
+});

@@ -4,6 +4,7 @@
 		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<link rel="stylesheet" href="css/prism.css">
 		<title>MinUI</title>
 		<style>
 			body {
@@ -16,7 +17,7 @@
 	
 		<header class="header__fixed-top header__shadow">
 			<nav>
-				<!-- <a href="#" class="nav-brand">MINUI</a> -->
+				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
 				<ul class="nav-items nav-items__open" id="main-nav">
 					<li class="nav-item"><a href="index.html" class="nav-item-link">Home</a></li>
@@ -100,18 +101,19 @@
 	
 			</div>
 			<br><br>
-
+	
+			<div class="display-2">Languages</div>
 			<div class="tab shadow-2dp">
 
 				<ul class="tab__nav">
-					<li class="tab__nav__item"><a href="two:one" data-toggle="tab">One</a></li>
-					<li class="tab__nav__item tab__nav__item--active"><a href="two:two" data-toggle="tab">Two</a></li>
-					<li class="tab__nav__item"><a href="two:three" data-toggle="tab">Three</a></li>
-					<li class="tab__nav__item"><a href="two:four" data-toggle="tab">Four</a></li>
-					<li class="tab__nav__item"><a href="two" data-toggle="tab">Five</a></li>
+					<li class="tab__nav__item"><a href="two:one" data-toggle="tab">PHP</a></li>
+					<li class="tab__nav__item tab__nav__item--active"><a href="two:two" data-toggle="tab">Javascript</a></li>
+					<li class="tab__nav__item"><a href="two:three" data-toggle="tab">Python</a></li>
+					<li class="tab__nav__item"><a href="two:four" data-toggle="tab">.Net</a></li>
+					<li class="tab__nav__item"><a href="two" data-toggle="tab">Golang</a></li>
 				</ul>
 				<div class="tab__content" data-panel-id="two">
-					<div class="tab__content__panel tab__content__panel--active" data-id="one">
+					<div class="tab__content__panel tab__content__panel--active" data-id="one" style="max-height: 200px; overflow-y: auto;">
 						<h2 class="contained">Lorem Ipsum</h2>
 						<p>
 							Lorem ipsum dolor sit amet, vix ad latine scripta molestie, homero diceret nusquam ea ius. Labitur admodum his ea, habeo postea conclusionemque et eum. Illud dolores tacimates has no. Vix ceteros perpetua ne, facete oportere assentior usu no. Nam ea delenit explicari, quas assum inani his in.
@@ -134,14 +136,34 @@
 					<div class="tab__content__panel" data-id="five">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, laborum. Labore voluptates totam at, aut nemo deserunt rem magni pariatur, reprehenderit perspiciatis, atque eveniet unde laborum ipsum, in cupiditate voluptas.</div>
 				</div>
 	
-			</div>			
+			</div>	
+			<br><br>
+
+			<div class="display-2">Event</div>
+			<p>
+				The following custom event are emitted when toggling or dismissing a modal.
+				<ul>
+					<li>minui.tab.clicked</li>
+				</ul>
+			</p>
+			<pre>
+			<code class="language-javascript">
+		<script>
+			document.addEventListener('minui.tab.clicked', function(event) {
+		        console.log(event.detail.target);
+		    });
+		</script>
+			</code></pre>	
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
 		<script src="dist/js/minui.min.js"></script>
-
-		
-
+		<script src="js/prism.js"></script>
+		<script>
+			document.addEventListener('minui.tab.clicked', function(event) {
+		        console.log(event.detail.target);
+		    });
+		</script>
 	</body>
 </html>

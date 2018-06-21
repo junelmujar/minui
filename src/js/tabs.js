@@ -30,6 +30,10 @@ const Tabs = (() => {
 			});
 		}	
 
+        _sendEvent(action, obj) {
+            document.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));               
+        }
+
 		// Get target panel
 		getTarget(tab) {
 			var target;
@@ -52,6 +56,9 @@ const Tabs = (() => {
 
 				// Show found tab panel
 				if (typeof targetTabPanel !== 'undefined' && targetTabPanel) {
+
+					targetTabPanel.parentNode.classList.add('tab__content--active');
+
 					for (var child of targetTabPanel.parentNode.children) {
 						var siblingType = child.tagName.toLowerCase();
 						if (child !== targetTabPanel) {
@@ -97,6 +104,8 @@ const Tabs = (() => {
 
 					// Make current tab item active and show tab panel
 					that.showPanel(tab, target);
+
+					that._sendEvent('minui.tab.clicked', event);
 
 				});
 			});		

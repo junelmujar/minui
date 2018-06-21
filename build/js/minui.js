@@ -85,6 +85,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dropdowns__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__navs__ = __webpack_require__(6);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Tabs", function() { return __WEBPACK_IMPORTED_MODULE_2__tabs__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Inputs", function() { return __WEBPACK_IMPORTED_MODULE_0__inputs__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Modals", function() { return __WEBPACK_IMPORTED_MODULE_3__modals__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Dropdowns", function() { return __WEBPACK_IMPORTED_MODULE_4__dropdowns__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Navs", function() { return __WEBPACK_IMPORTED_MODULE_5__navs__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Tooltips", function() { return __WEBPACK_IMPORTED_MODULE_1__tooltips__["a"]; });
 
 
 
@@ -98,6 +104,17 @@ new __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* default */]();
 new __WEBPACK_IMPORTED_MODULE_3__modals__["a" /* default */]();
 new __WEBPACK_IMPORTED_MODULE_4__dropdowns__["a" /* default */]();
 new __WEBPACK_IMPORTED_MODULE_5__navs__["a" /* default */]();
+
+
+
+function htmlEntities(str) {
+	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+var code = document.querySelectorAll('code');
+code.forEach(function (el, i) {
+	el.innerHTML = htmlEntities(el.innerHTML);
+});
 
 /***/ }),
 /* 1 */
@@ -246,6 +263,10 @@ const Tabs = (() => {
 			});
 		}
 
+		_sendEvent(action, obj) {
+			document.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));
+		}
+
 		// Get target panel
 		getTarget(tab) {
 			var target;
@@ -268,6 +289,9 @@ const Tabs = (() => {
 
 				// Show found tab panel
 				if (typeof targetTabPanel !== 'undefined' && targetTabPanel) {
+
+					targetTabPanel.parentNode.classList.add('tab__content--active');
+
 					for (var child of targetTabPanel.parentNode.children) {
 						var siblingType = child.tagName.toLowerCase();
 						if (child !== targetTabPanel) {
@@ -312,6 +336,8 @@ const Tabs = (() => {
 
 					// Make current tab item active and show tab panel
 					that.showPanel(tab, target);
+
+					that._sendEvent('minui.tab.clicked', event);
 				});
 			});
 		}
@@ -343,55 +369,67 @@ const Modals = (() => {
             }
         }
 
-        toggleModal(event) {
-            event.stopPropagation();
-            var targetModalID = '[data-modal-id=' + event.target.getAttribute('data-target') + ']';
-            var targetModal = document.querySelector(targetModalID);
-            document.body.classList.add("modal-shown");
-            targetModal.classList.toggle("show-modal");
-        }
-
-        modalOverlayClick(event) {
-            if (event.target.classList.contains('show-modal')) {
-                event.target.classList.toggle("show-modal");
-            }
-            document.body.classList.remove("modal-shown");
+        _sendEvent(action, obj) {
+            document.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));
         }
 
         setup() {
 
+            var that = this;
+
+            // Toggle
             this._modalTriggers.forEach((el, i) => {
-                el.addEventListener("click", this.toggleModal);
+                el.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    var targetModalID = '[data-modal-id=' + event.target.getAttribute('data-target') + ']';
+                    var targetModal = document.querySelector(targetModalID);
+                    document.body.classList.add("modal--shown");
+                    targetModal.classList.toggle("modal--show");
+                    that._sendEvent('minui.modal.open', event);
+                });
             });
 
+            // Overlay
             this._modals.forEach((el, i) => {
                 var closeOnOverlayClick = el.getAttribute('data-close-overlay');
-                if (closeOnOverlayClick) {
-                    el.addEventListener("click", this.modalOverlayClick);
+                if (closeOnOverlayClick === 'true') {
+                    el.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        if (event.target.classList.contains('modal--show')) {
+                            event.target.classList.toggle("modal--show");
+                            that._sendEvent('minui.modal.overlay.dismissed', event);
+                            document.body.classList.remove("modal--shown");
+                        }
+                    });
                 }
             });
 
+            // Dismiss triggers
             this._modalDismissTriggers.forEach((el, i) => {
                 el.addEventListener("click", event => {
                     event.preventDefault();
-                    document.querySelector(".modal.show-modal").classList.remove('show-modal');
-                    document.body.classList.remove("modal-shown");
+                    event.stopImmediatePropagation();
+                    document.querySelector(".modal.modal--show").classList.remove('modal--show');
+                    document.body.classList.remove("modal--shown");
+                    that._sendEvent('minui.modal.dismissed', event);
                 });
             });
         }
 
         bindListeners() {
-
             // Document listeners
+            var that = this;
             document.addEventListener('keyup', function (event) {
                 if (event.keyCode == 27) {
-                    var activeModal = document.querySelector(".modal.show-modal");
+                    var activeModal = document.querySelector(".modal.modal--show");
                     if (typeof activeModal !== 'undefined' && activeModal) {
                         var closeOnEsc = activeModal.getAttribute('data-close-esc');
                         if (closeOnEsc === 'undefined' || closeOnEsc === 'true') {
                             if (typeof activeModal !== 'undefined' && activeModal) {
-                                activeModal.classList.remove('show-modal');
-                                document.body.classList.remove("modal-shown");
+                                activeModal.classList.remove('modal--show');
+                                document.body.classList.remove("modal--shown");
+                                that._sendEvent('minui.modal.esc.dismissed', event);
                             }
                         }
                     }
