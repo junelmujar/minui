@@ -108,31 +108,27 @@ const Inputs = (() => {
 
 	class Inputs {
 		constructor() {
-
-			this._inputs = document.querySelectorAll(".input-md input, .input-md textarea, .input-md select");
-
-			if (typeof this._inputs !== 'undefined' && this._inputs) {
+			this._md_inputs = document.querySelectorAll(".form__input__group--md .form__input");
+			if (typeof this._md_inputs !== 'undefined' && this._md_inputs) {
 				this.setup();
 			}
 		}
 
 		setup() {
 
-			this._inputs.forEach((el, index) => {
+			this._md_inputs.forEach((el, index) => {
 
 				if (el.value != '' && typeof el.value !== 'undefined') {
-					el.parentNode.classList.add('focused');
-
+					el.parentNode.classList.add('form__input__group--has-value');
 					for (var child of el.parentNode.children) {
-						var siblingType = child.tagName.toLowerCase();
-						if (child !== el && child == 'label') {
-							child.classList.add('no-transition');
+						if (child.classList.contains('form__label')) {
+							child.classList.add('form__label--no-transition');
 						}
 					}
 				}
 
 				el.addEventListener('click', event => {
-					event.target.parentNode.classList.add('focused');
+					event.target.parentNode.classList.add('form__input__group--has-value');
 				});
 
 				el.addEventListener('blur', event => {
@@ -150,11 +146,10 @@ const Inputs = (() => {
 					}
 
 					if (elValue == '' || typeof elValue == 'undefined') {
-						event.target.parentNode.classList.remove('focused');
+						event.target.parentNode.classList.remove('form__input__group--has-value');
 						for (var child of el.parentNode.children) {
-							var siblingType = child.tagName.toLowerCase();
-							if (child !== event.target && child == 'label') {
-								child.classList.remove('no-transition');
+							if (child.classList.contains('form__label')) {
+								child.classList.remove('form__label--no-transition');
 							}
 						}
 					}

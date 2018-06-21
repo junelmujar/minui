@@ -1,0 +1,299 @@
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1">
+		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<title>MinUI</title>
+		<style>
+			body {
+				padding-bottom: 80px;
+				padding-top: 80px;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<header class="header__fixed-top header__shadow">
+			<nav>
+				<a href="#" class="nav-brand">MINUI</a>
+				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
+				<ul class="nav-items nav-items__open" id="main-nav">
+					<li class="nav-item"><a href="index.html" class="nav-item-link">Home</a></li>
+					<li class="nav-item">
+						<a href="#dropdown-about" class="nav-item-link" data-toggle="dropdown">Components</a>
+						<ul class="dropdown" id="dropdown-about">
+							<li><a href="typo.html">Typography</a></li>
+							<li><a href="layout.html">Layout</a></li>
+							<li><a href="button.html">Button</a></li>
+							<li><a href="card.html">Card</a></li>
+							<li><a href="form.html">Form</a></li>
+							<li><a href="table.html">Table</a></li>
+							<li class="divider"></li>
+							<li><a href="nav.html">Nav</a></li>
+							<li><a href="modal.html">Modal</a></li>
+							<li><a href="tab.html">Tab</a></li>
+							<li><a href="dropdown.html">Dropdown</a></li>
+							<li><a href="accordion.html">Accordion</a></li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a href="#dropdown-sample" class="nav-item-link" data-toggle="dropdown">Examples</a>
+						<ul class="dropdown" id="dropdown-sample">
+							<li><a href="example1.html">Kitchen Sink</a></li>
+							<li><a href="example2.html">Admin</a></li>
+							<li><a href="example3.html">Email</a></li>
+						</ul>
+					</li>					
+					<li class="nav-item">
+						<a href="#dropdown-blog" class="nav-item-link" data-toggle="dropdown">Hacking</a>
+						<ul class="dropdown" id="dropdown-blog">
+							<li><a href="build.html">Build Tools</a></li>
+							<li><a href="source.html">Source</a></li>
+						</ul>
+					</li>
+					<li class="nav-item"><a href="about.html" class="nav-item-link">About</a></li>
+				</ul>				
+			</nav>
+		</header>
+
+		<div class="container">
+			<h1>Table</h1>
+		
+
+			<div class="display-2">
+				Default
+			</div>
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th>Material</th>
+			      <th>Quantity</th>
+			      <th>Unit price</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>Hamburger</td>
+			      <td class="text-center">25</td>
+			      <td class="text-center">
+						85.00
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Sandwich</td>
+			      <td class="text-center">50</td>
+			      <td class="text-center">
+						75.00						      	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Pizza</td>
+			      <td class="text-center">10</td>
+			      <td class="text-center">
+						62.35						      	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Lasagna</td>
+			      <td class="text-center">10</td>
+			      <td class="text-center">
+						92.00					      	
+			      </td>
+			    </tr>					    
+			  </tbody>
+			</table>
+			<br><br>
+
+			<div class="display-2">
+				With Controls
+			</div>
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th>Material</th>
+			      <th>Quantity</th>
+			      <th>Unit price</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td><input type="text" data-toggle="tooltip" data-tooltip="This is a tooltip 1!"></td>
+			      <td class="text-center">25</td>
+			      <td class="text-center">
+						<div class="dropdown">
+						  <a class="btn small success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    	Edit
+						  </a>
+
+						  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
+						    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+						    <a class="dropdown-item" href="#">Delete</a>
+						    <div class="dropdown-divider"></div>
+						    <a class="dropdown-item" href="#">Properties</a>
+						  </div>
+						</div>	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td><input type="text" data-toggle="tooltip" data-tooltip="This is a tooltip 2!"></td>
+			      <td class="text-center">50</td>
+			      <td class="text-center">
+						<div class="dropdown">
+						  <a class="btn small" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    	Edit
+						  </a>
+
+						  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
+						    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
+						    <a class="dropdown-item" href="#">Delete</a>
+						    <div class="dropdown-divider"></div>
+						    <a class="dropdown-item" href="#">Properties</a>
+						  </div>
+						</div>								      	
+			      </td>
+			    </tr>
+			  </tbody>
+			</table>
+			<br><br>			
+
+			<div class="display-2">
+				Striped
+			</div>
+			<table class="table table--striped">
+			  <thead>
+			    <tr>
+			      <th>Material</th>
+			      <th>Quantity</th>
+			      <th>Unit price</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>Hamburger</td>
+			      <td class="text-center">25</td>
+			      <td class="text-center">
+						85.00
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Sandwich</td>
+			      <td class="text-center">50</td>
+			      <td class="text-center">
+						75.00						      	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Pizza</td>
+			      <td class="text-center">10</td>
+			      <td class="text-center">
+						62.35						      	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Lasagna</td>
+			      <td class="text-center">10</td>
+			      <td class="text-center">
+						92.00					      	
+			      </td>
+			    </tr>					    
+			  </tbody>
+			</table>
+			<br><br>
+
+			<div class="display-2">
+				Bordered
+			</div>
+			<table class="table table--bordered">
+			  <thead>
+			    <tr>
+			      <th>Material</th>
+			      <th>Quantity</th>
+			      <th>Unit price</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>Hamburger</td>
+			      <td class="text-center">25</td>
+			      <td class="text-center">
+						85.00
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Sandwich</td>
+			      <td class="text-center">50</td>
+			      <td class="text-center">
+						75.00						      	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Pizza</td>
+			      <td class="text-center">10</td>
+			      <td class="text-center">
+						62.35						      	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Lasagna</td>
+			      <td class="text-center">10</td>
+			      <td class="text-center">
+						92.00					      	
+			      </td>
+			    </tr>					    
+			  </tbody>
+			</table>
+			<br><br>
+
+			<div class="display-2">
+				Bordered & Striped
+			</div>
+			<table class="table table--bordered table--striped">
+			  <thead>
+			    <tr>
+			      <th>Material</th>
+			      <th>Quantity</th>
+			      <th>Unit price</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>Hamburger</td>
+			      <td class="text-center">25</td>
+			      <td class="text-center">
+						85.00
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Sandwich</td>
+			      <td class="text-center">50</td>
+			      <td class="text-center">
+						75.00						      	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Pizza</td>
+			      <td class="text-center">10</td>
+			      <td class="text-center">
+						62.35						      	
+			      </td>
+			    </tr>
+			    <tr>
+			      <td>Lasagna</td>
+			      <td class="text-center">10</td>
+			      <td class="text-center">
+						92.00					      	
+			      </td>
+			    </tr>					    
+			  </tbody>
+			</table>			
+		</div>
+
+		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
+		<script src="dist/js/minui.min.js"></script>
+
+		
+
+	</body>
+</html>

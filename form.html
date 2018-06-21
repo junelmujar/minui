@@ -4,13 +4,11 @@
 		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/minui.min.css">
-		<link rel="stylesheet" href="css/prism.css">
 		<title>MinUI</title>
 		<style>
 			body {
 
 				padding-top: 80px;
-				padding-bottom: 80px;
 			}
 		</style>
 	</head>
@@ -60,19 +58,34 @@
 		</header>
 
 		<div class="container">
-			<h1>Cards</h1>
-			<br>
-	
-			<div class="display-2">Basic</div>
+			<h1>Form</h1>
+		
+
 			<div class="card">
+				<div class="card__header">Default Style</div>
 				<div class="card__block">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					<form class="form">
+						<div class="card__title">Login Form</div>
+						<br>
+				        <div class="form__input__group">
+				        	<label class="form__label" for="name"><i class="icon ion-md-person"></i> Username</label>
+				            <input id="name" class="form__input" type="email" placeholder="Enter username" value="asfasf" />
+				            
+				        </div>
+
+				        <div class="form__input__group">
+				        	<label class="form__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+				            <input id="name1" class="form__input" type="password" placeholder="Enter password" value="asfasf" />
+				        </div>
+						<div class="form__input__group text-center">
+							<button class="btn primary large block"> Login</button>
+						</div>									    
+					</form>
 				</div>
 			</div>
-			<br>
 
-			<div class="display-2">With Title</div>
-			<div class="card shadow-2dp">
+			<div class="card">
+				<div class="card__header">Material Design Style</div>
 				<div class="card__block">
 					<form class="form">
 						<div class="card__title">Login Form</div>
@@ -89,52 +102,15 @@
 						<div class="form__input__group text-center">
 							<button class="btn primary large block"> Login</button>
 						</div>									    
-					</form>								    
+					</form>
 				</div>
 			</div>
-			<br>
-
-			<div class="display-2">Inverse</div>
-			<div class="card card--inverse">
-				<div class="card__block">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-			</div>
-			<br>
-	
-			<div class="display-2">With Header & Footer</div>
-			<div class="card">
-				<div class="card__header">
-					Header
-				</div>
-				<div class="card__block">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</div>
-				<div class="card__footer">
-					Footer
-				</div>
-			</div>
-			<br>
 			
-			<div class="display-2">With Card Image</div>
-			<div class="card">
-				<div class="card__image" style="background-image: url(https://placeimg.com/640/480/nature)">
-					<div class="card__image__caption card__image__caption--dark">
-						Card Image
-					</div>
-				</div>
-				<div class="card__block">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae aliquid quo minima sit voluptatum saepe quos nostrum provident ex quisquam, hic, odio repellendus atque porro distinctio quae id laboriosam facilis.
-					</p>
-				</div>
-
-			</div>
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
 		<script src="dist/js/minui.min.js"></script>
-		<script src="js/prism.js"></script>
 
 		
 
