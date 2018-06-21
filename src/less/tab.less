@@ -1,11 +1,15 @@
+/* Tab Styles */
 .tab {
-	.card;
-	.tab-nav {
-		background: #fff;
+	background: #fff;
+	&__nav {
 		list-style: none;
 		padding: 0;
-		margin: 0 0 0 4px;
-		.tab-item {
+		margin: 0 0 0 0px;		
+		border-bottom: 1px solid rgba(0,0,0,0.05);
+		display: block;
+		white-space: nowrap; 
+		overflow-y: auto;
+		&__item {
 			display: inline-block;
 			margin-left: -4px;
 			a {
@@ -19,23 +23,22 @@
 					color: darken(@font-color, 20);
 				}
 			}
-			&.tab-item__active {
+			&--active {
 				a {
 					background: #fff;
 					border-bottom: 2px solid darken(@default-color, 40);
 					color: darken(@font-color, 20);
-				}
-			}		
+				}				
+			}			
 		}
 	}
-}
-.tab-content {
-	.tab-panel {
-		border-top: 1px solid @default-color;
-		padding: 25px;
-		display: none;
-		&.tab-panel__active {
-			display: block;
+	&__content {
+		&__panel {
+			padding: 25px;
+			display: none;
+			&--active {
+				display: block;		
+			}			
 		}
 	}
 }
