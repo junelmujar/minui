@@ -3,6 +3,7 @@
 }
 
 .modal {
+
 	opacity: 0;
 	visibility: hidden;
 	display: flex;
@@ -16,14 +17,21 @@
 	transition: opacity ease-in-out 0.25s;
 
     &__content {
+
 		opacity: 0;
 		visibility: hidden;    	
+		
 		background:white;
+		
 		max-height: 100%;
 		max-width: 100%;
 		transform: scale(1.1);
 		transition: opacity 0.25s 0s, transform 0.25s, scale 0.25s;
 		z-index: 1001;
+
+		display: flex;
+		flex-direction: column;
+
 		&--small {
 			max-width: 35%;
 		}
@@ -31,14 +39,21 @@
 			max-width: 75%;
 		}
 		.shadow-3dp;
-		border-radius: @component-border-radius;
+		
     }
 
     &__header {
+		
+		display: flex;	
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;  
+		  	
     	font-weight: bold;
     	padding: 1.25rem 1.5rem;
     	font-size: 18px;
     	border-bottom: 1px solid rgba(0,0,0,0.1);
+    	
     }
     &__footer {
     	padding: 10px;
@@ -46,14 +61,13 @@
     }        
     &__block {
     	padding: 1.5rem;
-    	height: 30%;
+    	// max-height: 40%;
     }        
     &--show {
 	    opacity: 1;
 	    visibility: visible;    	
 	    .modal__content {
 			opacity: 1;
-
 			visibility: visible;	    	
 			transform: scale(1);
 			transition: opacity 0.25s 0s, transform 0.25s, scale 0.25s;
@@ -79,6 +93,7 @@
 		&__content {
 			max-width: 50%;
 			max-height: 70%;
+			border-radius: @component-border-radius;
 		}
 	}
 }
@@ -87,7 +102,8 @@
 	.modal {
 		&__content {
 			max-width: 50%;
-			max-height: 80%;
+			max-height: 90%;
+			border-radius: @component-border-radius;
 		}
 	}
 }
@@ -96,7 +112,8 @@
 	.modal {
 		&__content {
 			max-width: 50%;
-			max-height: 80%;
+			max-height: 90%;
+			border-radius: @component-border-radius;
 		}
 	}
 }

@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -78,53 +78,102 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__inputs__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tooltips__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dropdowns__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__navs__ = __webpack_require__(6);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Tabs", function() { return __WEBPACK_IMPORTED_MODULE_2__tabs__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Inputs", function() { return __WEBPACK_IMPORTED_MODULE_0__inputs__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Modals", function() { return __WEBPACK_IMPORTED_MODULE_3__modals__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Dropdowns", function() { return __WEBPACK_IMPORTED_MODULE_4__dropdowns__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Navs", function() { return __WEBPACK_IMPORTED_MODULE_5__navs__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Tooltips", function() { return __WEBPACK_IMPORTED_MODULE_1__tooltips__["a"]; });
+/*
+	Class: Base
+	Author: Junel Mujar
+	Description: Base class for all the components; includes utility methods 
+	for iterating through arrays/NodeList, creating unique component ids and
+	sending custom events to the window object
+*/
 
+class Base {
 
+	constructor() {}
 
+	/*
+ 	IE/Edge Iterator alternative
+ 	forEach method, could be shipped as part of an Object Literal/Module
+ 	https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/
+ */
+	_forEach(array, callback, scope) {
+		for (var i = 0; i < array.length; i++) {
+			callback.call(scope, i, array[i]); // passes back stuff we need
+		}
+	}
 
+	// Ref: https://gist.github.com/gordonbrander/2230317
+	// Math.random should be unique because of its seeding algorithm.
+	// Convert it to base 36 (numbers + letters), and grab the first 9 characters
+	// after the decimal.
+	_id() {
+		return '_' + Math.random().toString(36).substr(2, 9);
+	}
 
-
-
-new __WEBPACK_IMPORTED_MODULE_1__tooltips__["a" /* default */]();
-new __WEBPACK_IMPORTED_MODULE_0__inputs__["a" /* default */]();
-new __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* default */]();
-new __WEBPACK_IMPORTED_MODULE_3__modals__["a" /* default */]();
-new __WEBPACK_IMPORTED_MODULE_4__dropdowns__["a" /* default */]();
-new __WEBPACK_IMPORTED_MODULE_5__navs__["a" /* default */]();
-
-
-
-function htmlEntities(str) {
-	return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	_sendEvent(action, obj) {
+		window.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));
+	}
 }
+/* harmony export (immutable) */ __webpack_exports__["a"] = Base;
 
-var code = document.querySelectorAll('code');
-code.forEach(function (el, i) {
-	el.innerHTML = htmlEntities(el.innerHTML);
-});
 
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__inputs__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tooltips__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dropdowns__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__navs__ = __webpack_require__(7);
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+	function forEach(array, callback, scope) {
+		for (var i = 0; i < array.length; i++) {
+			callback.call(scope, i, array[i]); // passes back stuff we need
+		}
+	};
+
+	new __WEBPACK_IMPORTED_MODULE_1__tooltips__["a" /* default */]();
+	new __WEBPACK_IMPORTED_MODULE_0__inputs__["a" /* default */]();
+	new __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* default */]();
+	new __WEBPACK_IMPORTED_MODULE_3__modals__["a" /* default */]();
+	new __WEBPACK_IMPORTED_MODULE_4__dropdowns__["a" /* default */]();
+	new __WEBPACK_IMPORTED_MODULE_5__navs__["a" /* default */]();
+
+	function htmlEntities(str) {
+		return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	}
+
+	var code = document.querySelectorAll('code');
+	code.forEach(function (el, i) {
+		el.innerHTML = htmlEntities(el.innerHTML);
+	});
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base__ = __webpack_require__(0);
+
+
 const Inputs = (() => {
 
-	class Inputs {
+	class Inputs extends __WEBPACK_IMPORTED_MODULE_0__base__["a" /* default */] {
+
 		constructor() {
+			super();
 			this._md_inputs = document.querySelectorAll(".form__input__group--md .form__input");
 			if (typeof this._md_inputs !== 'undefined' && this._md_inputs) {
 				this.setup();
@@ -133,15 +182,15 @@ const Inputs = (() => {
 
 		setup() {
 
-			this._md_inputs.forEach((el, index) => {
+			this._forEach(this._md_inputs, (index, el) => {
 
 				if (el.value != '' && typeof el.value !== 'undefined') {
 					el.parentNode.classList.add('form__input__group--has-value');
-					for (var child of el.parentNode.children) {
+					this._forEach(el.parentNode.children, function (index, child) {
 						if (child.classList.contains('form__label')) {
 							child.classList.add('form__label--no-transition');
 						}
-					}
+					});
 				}
 
 				el.addEventListener('click', event => {
@@ -164,11 +213,11 @@ const Inputs = (() => {
 
 					if (elValue == '' || typeof elValue == 'undefined') {
 						event.target.parentNode.classList.remove('form__input__group--has-value');
-						for (var child of el.parentNode.children) {
+						this._forEach(el.parentNode.children, function (index, child) {
 							if (child.classList.contains('form__label')) {
 								child.classList.remove('form__label--no-transition');
 							}
-						}
+						});
 					}
 				});
 			});
@@ -181,7 +230,7 @@ const Inputs = (() => {
 /* harmony default export */ __webpack_exports__["a"] = (Inputs);
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -227,23 +276,28 @@ const Tooltips = (() => {
 /* harmony default export */ __webpack_exports__["a"] = (Tooltips);
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base__ = __webpack_require__(0);
+
+
 const Tabs = (() => {
 
 	const Data = {
 		TOGGLE: 'tab',
-		TARGET: 'href'
+		TARGET: 'data-target'
 	};
 
-	class Tabs {
+	class Tabs extends __WEBPACK_IMPORTED_MODULE_0__base__["a" /* default */] {
 
 		// Initialize all found tabs
 		constructor() {
+			super();
 			this._tabs = document.querySelectorAll('[data-toggle=' + Data.TOGGLE + ']');
 			this._activeTabs = document.querySelectorAll('.tab__nav__item--active');
+
 			if (typeof this._tabs !== 'undefined' && this._tabs) {
 				this.setup();
 				this.bindListeners();
@@ -253,18 +307,12 @@ const Tabs = (() => {
 		// Show panels if there are tab item(s) marked as active
 		setup() {
 			var that = this;
-			this._activeTabs.forEach(function (el, i) {
-				if (typeof el.children !== 'undefined' && el.children) {
-					for (var child of el.children) {
-						var target = that.getTarget(child);
-						that.showPanel(child, target);
-					}
-				}
+			this._forEach(this._activeTabs, function (index, tab) {
+				that._forEach(tab.children, function (index, child) {
+					var target = that.getTarget(child);
+					that.showPanel(child, target);
+				});
 			});
-		}
-
-		_sendEvent(action, obj) {
-			document.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));
 		}
 
 		// Get target panel
@@ -292,12 +340,11 @@ const Tabs = (() => {
 
 					targetTabPanel.parentNode.classList.add('tab__content--active');
 
-					for (var child of targetTabPanel.parentNode.children) {
-						var siblingType = child.tagName.toLowerCase();
+					this._forEach(targetTabPanel.parentNode.children, function (index, child) {
 						if (child !== targetTabPanel) {
 							child.classList.remove('tab__content__panel--active');
 						}
-					}
+					});
 
 					targetTabPanel.classList.add('tab__content__panel--active');
 				}
@@ -309,16 +356,15 @@ const Tabs = (() => {
 		// Remove any active state on sibling elements
 		clearActive(tab) {
 			if (typeof tab.parentNode.parentNode.children !== 'undefined' && tab.parentNode.parentNode.children) {
-				for (var child of tab.parentNode.parentNode.children) {
+				this._forEach(tab.parentNode.parentNode.children, function (index, child) {
 					child.classList.remove('tab__nav__item--active');
-				}
+				});
 			}
 		}
 
 		// Bind tab item click event listener
 		bindListeners() {
-			var that = this;
-			this._tabs.forEach(function (el, i) {
+			this._tabs.forEach((el, i) => {
 
 				// Show our tab
 				el.addEventListener('click', event => {
@@ -329,15 +375,15 @@ const Tabs = (() => {
 					var tab = event.target;
 
 					// Clear previous or currently selected tab
-					that.clearActive(tab);
+					this.clearActive(tab);
 
 					// Get target panel
-					var target = that.getTarget(event.target);
+					var target = this.getTarget(event.target);
 
 					// Make current tab item active and show tab panel
-					that.showPanel(tab, target);
+					this.showPanel(tab, target);
 
-					that._sendEvent('minui.tab.clicked', event);
+					this._sendEvent('minui.tab.clicked', event);
 				});
 			});
 		}
@@ -349,14 +395,20 @@ const Tabs = (() => {
 /* harmony default export */ __webpack_exports__["a"] = (Tabs);
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base__ = __webpack_require__(0);
+
+
 const Modals = (() => {
-    class Modals {
+
+    class Modals extends __WEBPACK_IMPORTED_MODULE_0__base__["a" /* default */] {
 
         constructor() {
+
+            super();
 
             // Initial modals and triggers
             this._modals = document.querySelectorAll(".modal");
@@ -367,10 +419,6 @@ const Modals = (() => {
                 this.setup();
                 this.bindListeners();
             }
-        }
-
-        _sendEvent(action, obj) {
-            document.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));
         }
 
         setup() {
@@ -444,15 +492,20 @@ const Modals = (() => {
 /* harmony default export */ __webpack_exports__["a"] = (Modals);
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base__ = __webpack_require__(0);
+
+
 const Dropdowns = (() => {
 
-	class Dropdowns {
+	class Dropdowns extends __WEBPACK_IMPORTED_MODULE_0__base__["a" /* default */] {
 
 		constructor() {
+
+			super();
 
 			// Initialize all found dropdowns
 			this._dropdowns = document.querySelectorAll('[data-toggle=dropdown]');
@@ -463,35 +516,32 @@ const Dropdowns = (() => {
 			}
 		}
 
+		hideDropdowns(ref) {
+			// Dropdowns: Close all visible dropdowns if there's any
+			ref._forEach(ref._dropdowns, (index, p) => {
+				if (p.nextElementSibling.classList.contains('dropdown-menu')) {
+					if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
+						p.nextElementSibling.classList.remove('dropdown-menu__visible');
+					}
+				}
+			});
+		}
+
 		bindListeners() {
 
 			var that = this;
 
 			// Document listeners
-			document.addEventListener('click', function (event) {
-
-				// Dropdowns: Close all visible dropdowns if there's any
-				that._dropdowns.forEach((p, index) => {
-					if (p.nextElementSibling.classList.contains('dropdown-menu')) {
-						if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
-							p.nextElementSibling.classList.remove('dropdown-menu__visible');
-						}
-					}
-				});
+			document.addEventListener('click', event => {
+				this.hideDropdowns(that);
 			});
 
 			// Document listeners
-			document.addEventListener('keyup', function (event) {
+			document.addEventListener('keyup', event => {
 				// Dropdowns: Close all visible dropdowns if there's any
 				if (event.keyCode == 27) {
 					if (typeof that._dropdowns !== 'undefined' && that._dropdowns) {
-						that._dropdowns.forEach((p, index) => {
-							if (p.nextElementSibling.classList.contains('dropdown-menu')) {
-								if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
-									p.nextElementSibling.classList.remove('dropdown-menu__visible');
-								}
-							}
-						});
+						this.hideDropdowns(that);
 					}
 				}
 			});
@@ -510,7 +560,7 @@ const Dropdowns = (() => {
 					event.stopPropagation();
 
 					// Close all other open 
-					that._dropdowns.forEach((dropdown, i) => {
+					that._forEach(that._dropdowns, (index, dropdown) => {
 						if (dropdown != el) {
 							if (dropdown.nextElementSibling.classList.contains('dropdown-menu')) {
 								if (dropdown.nextElementSibling.classList.contains('dropdown-menu__visible')) {
@@ -563,10 +613,13 @@ const Dropdowns = (() => {
 /* harmony default export */ __webpack_exports__["a"] = (Dropdowns);
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base__ = __webpack_require__(0);
+
+
 const Navs = (() => {
 
 	const Data = {
@@ -574,9 +627,12 @@ const Navs = (() => {
 		LINK: '.nav-item-link'
 	};
 
-	class Navs {
+	class Navs extends __WEBPACK_IMPORTED_MODULE_0__base__["a" /* default */] {
 
 		constructor() {
+
+			super();
+
 			// Initialize all found tabs
 			this._toggles = document.querySelectorAll(Data.TOGGLE);
 			this._links = document.querySelectorAll(Data.LINK);
@@ -585,14 +641,6 @@ const Navs = (() => {
 				this.setup();
 				this.bindListeners();
 			}
-		}
-
-		_id() {
-			// Ref: https://gist.github.com/gordonbrander/2230317
-			// Math.random should be unique because of its seeding algorithm.
-			// Convert it to base 36 (numbers + letters), and grab the first 9 characters
-			// after the decimal.
-			return '_' + Math.random().toString(36).substr(2, 9);
 		}
 
 		setup() {
@@ -612,31 +660,32 @@ const Navs = (() => {
 
 			// Links
 			var ctr = 1;
-			this._links.forEach(function (el, i) {
+			this._links.forEach((el, i) => {
 
 				var id = that._id();
+
 				el.parentNode.setAttribute('_id', id);
 				if (el.parentNode.classList.contains('nav-item__active')) {
 					that.activeId = id;
 				}
 
-				el.addEventListener('click', function (event) {
+				el.addEventListener('click', event => {
 
 					// Get current active nav item
 					var previous = document.querySelector('[_id=' + that.activeId + ']');
 
-					if (that.activeId == event.target.parentNode.getAttribute('_id')) {
+					if (this.activeId == event.target.parentNode.getAttribute('_id')) {
 						event.target.parentNode.classList.toggle('nav-item__active');
 						event.target.nextElementSibling.classList.toggle('dropdown__visible');
 					} else {
-						if (previous) {
+						if (previous && previous !== 'undefined') {
 							previous.classList.remove('nav-item__active');
 							if (previous.children) {
-								for (var child of previous.children) {
+								this._forEach(previous.children, function (index, child) {
 									if (child.classList.contains('dropdown__visible')) {
 										child.classList.remove('dropdown__visible');
 									}
-								}
+								});
 							}
 						}
 						event.target.parentNode.classList.toggle('nav-item__active');
@@ -644,25 +693,25 @@ const Navs = (() => {
 					}
 
 					// Set new active id
-					that.activeId = event.target.parentNode.getAttribute('_id');
+					this.activeId = event.target.parentNode.getAttribute('_id');
 				});
 			});
 		}
 
-		hideDropdowns() {
+		hideDropdowns(ref) {
 			var navItems = document.querySelectorAll('.nav-item');
-			navItems.forEach(function (el, i) {
+			ref._forEach(navItems, function (index, el) {
 				if (typeof el !== 'undefined') {
 					if (el.nextElementSibling) {
 						el.classList.remove('nav-item__active');
 						if (typeof el.children !== 'undefined') {
-							for (var child of el.children) {
+							ref._forEach(el.children, function (index, child) {
 								if (typeof child !== 'undefined') {
 									if (child.classList.contains('dropdown')) {
 										child.classList.remove('dropdown__visible');
 									}
 								}
-							}
+							});
 						}
 					}
 				}
@@ -674,14 +723,14 @@ const Navs = (() => {
 			var that = this;
 
 			// Hide dropdowns on Esc and document click
-			document.addEventListener('keyup', function (event) {
+			document.addEventListener('keyup', event => {
 				if (event.keyCode == 27) {
-					that.hideDropdowns();
+					this.hideDropdowns(this);
 				}
 			});
 
-			document.addEventListener('click', function (event) {
-				that.hideDropdowns();
+			document.addEventListener('click', event => {
+				this.hideDropdowns(this);
 			});
 
 			// Mobile

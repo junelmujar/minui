@@ -1,8 +1,13 @@
+import Base from './base'
+
 const Modals = (() => {
-    class Modals {    
+
+    class Modals extends Base {    
 
         constructor() {
 
+            super();
+            
         	// Initial modals and triggers
         	this._modals               = document.querySelectorAll(".modal");
         	this._modalTriggers        = document.querySelectorAll("[data-toggle=modal]");
@@ -12,10 +17,6 @@ const Modals = (() => {
                 this.setup();
                 this.bindListeners();
             }
-        }
-
-        _sendEvent(action, obj) {
-            document.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));               
         }
 
         setup() {

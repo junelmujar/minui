@@ -5,27 +5,27 @@ import Modals from './modals'
 import Dropdowns from './dropdowns'
 import Navs from './navs'
 
-new Tooltips;
-new Inputs;
-new Tabs;
-new Modals;
-new Dropdowns;
-new Navs;
+document.addEventListener("DOMContentLoaded", function(){
 
-export {
-	Tabs,
-	Inputs,
-	Modals,
-	Dropdowns,
-	Navs,
-	Tooltips
-}
+	function forEach(array, callback, scope) {
+	  	for (var i = 0; i < array.length; i++) {
+	    	callback.call(scope, i, array[i]); // passes back stuff we need
+	  	}
+	};
 
-function htmlEntities(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
+	new Tooltips;
+	new Inputs;
+	new Tabs;
+	new Modals;
+	new Dropdowns;
+	new Navs;
 
-var code = document.querySelectorAll('code');
-code.forEach(function(el, i) {
-	el.innerHTML = htmlEntities(el.innerHTML);
+	function htmlEntities(str) {
+	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+	}
+
+	var code = document.querySelectorAll('code');
+	code.forEach(function(el, i) {
+		el.innerHTML = htmlEntities(el.innerHTML);
+	});
 });

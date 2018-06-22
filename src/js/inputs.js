@@ -1,7 +1,11 @@
+import Base from './base'
+
 const Inputs = (() => {
 
-	class Inputs {	
+	class Inputs extends Base {	
+
 	    constructor() {
+	    	super();
 		  	this._md_inputs = document.querySelectorAll(".form__input__group--md .form__input");
 		  	if (typeof this._md_inputs !== 'undefined' && this._md_inputs) {
 		  		this.setup();
@@ -10,15 +14,15 @@ const Inputs = (() => {
 
 	    setup() {
 
-	  		this._md_inputs.forEach((el, index) => {
+	  		this._forEach(this._md_inputs, (index, el) => {
 	  			
 				if (el.value != '' && typeof el.value !== 'undefined') {
 					el.parentNode.classList.add('form__input__group--has-value');
-					for (var child of el.parentNode.children) {
+					this._forEach(el.parentNode.children, function(index, child) {
 						if (child.classList.contains('form__label')) {
 							child.classList.add('form__label--no-transition');
 						}
-					}
+					});
 				}	  			
 
 				el.addEventListener('click', (event) => {
@@ -41,11 +45,11 @@ const Inputs = (() => {
 					
 					if (elValue == '' || typeof elValue == 'undefined') {
 						event.target.parentNode.classList.remove('form__input__group--has-value');
-						for (var child of el.parentNode.children) {
+						this._forEach(el.parentNode.children, function(index, child) {
 							if (child.classList.contains('form__label')) {
 								child.classList.remove('form__label--no-transition');
 							}							
-						}
+						});
 					}
 
 				});				

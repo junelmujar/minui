@@ -1,8 +1,12 @@
+import Base from './base'
+
 const Dropdowns = (() => {
 	
-	class Dropdowns {	
+	class Dropdowns extends Base {	
 
 	    constructor() {
+
+	    	super();
 
 			// Initialize all found dropdowns
 			this._dropdowns = document.querySelectorAll('[data-toggle=dropdown]');
@@ -14,36 +18,32 @@ const Dropdowns = (() => {
 
 		}
 
+		hideDropdowns(ref) {
+			// Dropdowns: Close all visible dropdowns if there's any
+			ref._forEach(ref._dropdowns, (index, p) => {
+		    	if (p.nextElementSibling.classList.contains('dropdown-menu')) {
+		    		if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
+						p.nextElementSibling.classList.remove('dropdown-menu__visible');
+					}
+		    	}
+			});
+		}
+
 		bindListeners() {
 
 			var that = this;
 
 			// Document listeners
-			document.addEventListener('click', function(event) {
-
-				// Dropdowns: Close all visible dropdowns if there's any
-				that._dropdowns.forEach((p, index) => {
-			    	if (p.nextElementSibling.classList.contains('dropdown-menu')) {
-			    		if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
-							p.nextElementSibling.classList.remove('dropdown-menu__visible');
-						}
-			    	}
-				});
-
+			document.addEventListener('click', (event) => {
+				this.hideDropdowns(that);
 			});
 
 			// Document listeners
-			document.addEventListener('keyup', function(event) {
+			document.addEventListener('keyup', (event) => {
 				// Dropdowns: Close all visible dropdowns if there's any
 				if (event.keyCode == 27) {
 				    if (typeof that._dropdowns !== 'undefined' && that._dropdowns) {
-						that._dropdowns.forEach((p, index) => {
-					    	if (p.nextElementSibling.classList.contains('dropdown-menu')) {
-					    		if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
-									p.nextElementSibling.classList.remove('dropdown-menu__visible');
-								}
-					    	}
-						});
+						this.hideDropdowns(that);
 					}
 				}
 			});		
@@ -62,7 +62,7 @@ const Dropdowns = (() => {
 					event.stopPropagation();
 
 					// Close all other open 
-					that._dropdowns.forEach((dropdown, i) => {
+					that._forEach(that._dropdowns, (index, dropdown) => {
 						if (dropdown != el) {
 					    	if (dropdown.nextElementSibling.classList.contains('dropdown-menu')) {
 					    		if (dropdown.nextElementSibling.classList.contains('dropdown-menu__visible')) {

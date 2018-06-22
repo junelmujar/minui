@@ -66,11 +66,11 @@
 			<div class="tab shadow-2dp">
 
 				<ul class="tab__nav">
-					<li class="tab__nav__item"><a href="one:one" data-toggle="tab">Pasta</a></li>
-					<li class="tab__nav__item"><a href="one:two" data-toggle="tab">Burger</a></li>
-					<li class="tab__nav__item"><a href="one:three" data-toggle="tab">Chips</a></li>
-					<li class="tab__nav__item"><a href="one:four" data-toggle="tab">Ham Sandwich</a></li>
-					<li class="tab__nav__item tab__nav__item--active"><a href="one:five" data-toggle="tab">Meat Balls</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="one:one" data-toggle="tab">Pasta</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="one:two" data-toggle="tab">Burger</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="one:three" data-toggle="tab">Chips</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="one:four" data-toggle="tab">Ham Sandwich</a></li>
+					<li class="tab__nav__item tab__nav__item--active"><a href="#" data-target="one:five" data-toggle="tab">Meat Balls</a></li>
 				</ul>
 				<div class="tab__content" data-panel-id="one">
 					<div class="tab__content__panel tab__content__panel--active" data-id="one">
@@ -103,14 +103,14 @@
 			<br><br>
 	
 			<div class="display-2">Languages</div>
-			<div class="tab shadow-2dp">
+			<div class="tab tab--theme-hipster shadow-2dp">
 
 				<ul class="tab__nav">
-					<li class="tab__nav__item"><a href="two:one" data-toggle="tab">PHP</a></li>
-					<li class="tab__nav__item tab__nav__item--active"><a href="two:two" data-toggle="tab">Javascript</a></li>
-					<li class="tab__nav__item"><a href="two:three" data-toggle="tab">Python</a></li>
-					<li class="tab__nav__item"><a href="two:four" data-toggle="tab">.Net</a></li>
-					<li class="tab__nav__item"><a href="two" data-toggle="tab">Golang</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="two:one" data-toggle="tab">PHP</a></li>
+					<li class="tab__nav__item tab__nav__item--active"><a href="#" data-target="two:two" data-toggle="tab">Javascript</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="two:three" data-toggle="tab">Python</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="two:four" data-toggle="tab">.Net</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="two" data-toggle="tab">Golang</a></li>
 				</ul>
 				<div class="tab__content" data-panel-id="two">
 					<div class="tab__content__panel tab__content__panel--active" data-id="one" style="max-height: 200px; overflow-y: auto;">
@@ -158,10 +158,11 @@
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
-		<script src="dist/js/minui.min.js"></script>
+		<script src="https://polyfill.io/v2/polyfill.js=features=default,es5,es6"></script>
+		<script src="build/js/minui.js"></script>
 		<script src="js/prism.js"></script>
 		<script>
-			document.addEventListener('minui.tab.clicked', function(event) {
+			window.addEventListener('minui.tab.clicked', function(event) {
 		        console.log(event.detail.target);
 		    });
 		</script>

@@ -4,7 +4,7 @@
 .card  {
 	
 	background: @card-background-color;
-	box-shadow: @component-shadow;
+	
 	margin-bottom: @component-bottom-margin;
 	border-radius: 2px;
 
@@ -21,6 +21,10 @@
 
 	&__block {
 		line-height: 1.5rem;
+	}
+
+	&--shadow {
+		box-shadow: @component-shadow;		
 	}
 
 	&--inverse {

@@ -1,9 +1,9 @@
 /* ALERT */
 .section {
+	.component;
 	background: @default-color;
 	color: @font-color;
 	padding: 1rem;
-	border-radius: @component-border-radius;
 	h1,h2,h3,h4,h5,h6 {
 		&:first-child {
 			margin-top: 0;
@@ -15,14 +15,14 @@
 }
 
 .alert {
+	.component;
 
-	border-radius: @component-border-radius;
 	background: rgba(0,0,0,0.05);
 	border: 1px solid rgba(0,0,0,0.05);
 	padding: 1rem;
+
 	font-size: 0.9rem;
 	line-height: 1.1rem;
-	margin-bottom: @component-bottom-margin;
 
 	h1,h2,h3,h4,h5,h6 {
 		&:first-child {
@@ -53,4 +53,5 @@
 		background: @danger-color;
 		color: lighten(negation(@font-color, @danger-color), 30);
 	}	
+
 }

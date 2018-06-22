@@ -99,12 +99,12 @@
 						<button class="btn" data-toggle="modal" data-target="one">Modal #1</button>
 						<button class="btn" data-toggle="modal" data-target="two">Modal #2</button>	
 					</div>						
+					<br>
+
 					<pre>
 						<code class="language-markup">
-	<div>
-		<button class="btn" data-toggle="modal" data-target="one">Modal #1</button>
-		<button class="btn" data-toggle="modal" data-target="two">Modal #2</button>
-	</div></code>
+	<button class="btn" data-toggle="modal" data-target="one">Modal #1</button>
+	<button class="btn" data-toggle="modal" data-target="two">Modal #2</button></code>
 					</pre>
 				</div>
 			</div>
@@ -140,7 +140,7 @@
 	<div class="modal" data-modal-id="one" data-close-esc="true" data-close-overlay="true">
         <div class="modal__content">
         	<div class="modal__header">
-            	Modal #1 <a href="#" class="float-right" data-dismiss="modal">&times;</a>
+            	Modal #1 <a href="#" data-dismiss="modal">&times;</a>
             </div>
             <div class="modal__block">
 				...
@@ -151,7 +151,7 @@
 	<div class="modal" data-modal-id="two">
         <div class="modal__content">
         	<div class="modal__content__header">
-            	Modal #2 <a href="#" class="float-right" data-dismiss="modal">&times;</a>
+            	Modal #2 <a href="#" data-dismiss="modal">&times;</a>
             </div>
             <div class="modal__content__block">
 				...
@@ -176,7 +176,7 @@
 
 			<pre>
 			<code class="language-javascript">
-		<script>
+
 			document.addEventListener('minui.modal.open', function(event) {
 				console.log('Modal opened', event.detail.target);
 			});
@@ -189,7 +189,7 @@
 			document.addEventListener('minui.modal.esc.dismissed', function(event) {
 				console.log('Dismissed by Esc key', event.detail);
 			});			
-		</script>
+
 			</code></pre>
 
 	</div>
@@ -200,7 +200,7 @@
 	        <div class="modal__content">
 
 				<div class="modal__header">
-					Modal #1 <a href="#" class="float-right" data-dismiss="modal">&times;</a>
+					Modal #1<a href="#" class="float-right" data-dismiss="modal">&times;</a>
 				</div>
 				<div class="modal__block">
 	            
@@ -341,16 +341,16 @@
 		<script src="js/prism.js"></script>
 
 		<script>
-			document.addEventListener('minui.modal.open', function(event) {
+			window.addEventListener('minui.modal.open', function(event) {
 				console.log('Modal opened', event.detail.target);
 			});
-			document.addEventListener('minui.modal.dismissed', function(event) {
+			window.addEventListener('minui.modal.dismissed', function(event) {
 				console.log('Dismissed by close button', event.detail.target);
 			});
-			document.addEventListener('minui.modal.overlay.dismissed', function(event) {
+			window.addEventListener('minui.modal.overlay.dismissed', function(event) {
 				console.log('Dismissed by overlay', event.detail.target);
 			});
-			document.addEventListener('minui.modal.esc.dismissed', function(event) {
+			window.addEventListener('minui.modal.esc.dismissed', function(event) {
 				console.log('Dismissed by Esc key', event.detail);
 			});			
 		</script>

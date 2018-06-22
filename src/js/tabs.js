@@ -1,16 +1,20 @@
+import Base from './base'
+
 const Tabs = (() => {
 
 	const Data = {
 		TOGGLE: 'tab',
-		TARGET: 'href'
+		TARGET: 'data-target'
 	}
 
-	class Tabs {	
+	class Tabs extends Base {	
 
 		// Initialize all found tabs
 	    constructor() {
+	    	super();
 			this._tabs = document.querySelectorAll('[data-toggle='+Data.TOGGLE+']');
 			this._activeTabs = document.querySelectorAll('.tab__nav__item--active');
+
 			if (typeof this._tabs !== 'undefined' && this._tabs) {
 				this.setup();
 				this.bindListeners();
@@ -20,19 +24,13 @@ const Tabs = (() => {
 		// Show panels if there are tab item(s) marked as active
 		setup() {
 			var that = this;
-			this._activeTabs.forEach(function(el, i) {
-				if (typeof el.children !== 'undefined' && el.children) {
-					for (var child of el.children) {
-						var target  = that.getTarget(child);
-						that.showPanel(child, target);
-					}
-				}
+			this._forEach(this._activeTabs, function(index, tab) {
+				that._forEach(tab.children, function(index, child) {
+					var target = that.getTarget(child);
+					that.showPanel(child, target);
+				});
 			});
 		}	
-
-        _sendEvent(action, obj) {
-            document.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));               
-        }
 
 		// Get target panel
 		getTarget(tab) {
@@ -59,13 +57,12 @@ const Tabs = (() => {
 
 					targetTabPanel.parentNode.classList.add('tab__content--active');
 
-					for (var child of targetTabPanel.parentNode.children) {
-						var siblingType = child.tagName.toLowerCase();
+					this._forEach(targetTabPanel.parentNode.children, function(index, child) {
 						if (child !== targetTabPanel) {
 							child.classList.remove('tab__content__panel--active');
-						}						
-					}
-						
+						}	
+					});
+
 					targetTabPanel.classList.add('tab__content__panel--active');
 				}
 			} else {
@@ -77,16 +74,15 @@ const Tabs = (() => {
 		clearActive(tab) {
 			if (typeof tab.parentNode.parentNode.children !== 'undefined' 
 				&& tab.parentNode.parentNode.children) {
-				for (var child of tab.parentNode.parentNode.children) {
+				this._forEach(tab.parentNode.parentNode.children, function(index, child) {
 			    	child.classList.remove('tab__nav__item--active');
-				}
+				});
 			}
 		}
 
 		// Bind tab item click event listener
 		bindListeners() {
-			var that = this;
-			this._tabs.forEach(function(el, i) {
+			this._tabs.forEach((el, i) => {
 
 				// Show our tab
 				el.addEventListener('click', (event) => {
@@ -97,15 +93,15 @@ const Tabs = (() => {
 					var tab = event.target;
 
 					// Clear previous or currently selected tab
-					that.clearActive(tab);
+					this.clearActive(tab);
 
 					// Get target panel
-					var target = that.getTarget(event.target);
+					var target = this.getTarget(event.target);
 
 					// Make current tab item active and show tab panel
-					that.showPanel(tab, target);
+					this.showPanel(tab, target);
 
-					that._sendEvent('minui.tab.clicked', event);
+					this._sendEvent('minui.tab.clicked', event);
 
 				});
 			});		

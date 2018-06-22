@@ -1,3 +1,5 @@
+import Base from './base'
+
 const Navs = (() => {
 
 	const Data = {
@@ -5,9 +7,12 @@ const Navs = (() => {
 		LINK: '.nav-item-link'
 	}
 
-	class Navs {	
+	class Navs extends Base {	
 
 	    constructor() {
+
+	    	super();
+
 			// Initialize all found tabs
 			this._toggles   = document.querySelectorAll(Data.TOGGLE);
 			this._links     = document.querySelectorAll(Data.LINK);
@@ -16,14 +21,6 @@ const Navs = (() => {
 				this.setup();
 				this.bindListeners();
 			}
-		}
-
-		_id() {
-			// Ref: https://gist.github.com/gordonbrander/2230317
-			// Math.random should be unique because of its seeding algorithm.
-			// Convert it to base 36 (numbers + letters), and grab the first 9 characters
-			// after the decimal.
-		  	return '_' + Math.random().toString(36).substr(2, 9);
 		}
 		
 		setup() {
@@ -43,31 +40,32 @@ const Navs = (() => {
 
 			// Links
 			var ctr = 1;
-			this._links.forEach(function(el, i) {
+			this._links.forEach((el, i) => {
 
 				var id = that._id();
+				
 				el.parentNode.setAttribute('_id', id);
 				if (el.parentNode.classList.contains('nav-item__active')) {
 					that.activeId = id;
 				}
 
-				el.addEventListener('click', function(event) {
+				el.addEventListener('click', (event) => {
 
 					// Get current active nav item
 					var previous = document.querySelector('[_id='+that.activeId+']');
 
-					if (that.activeId == event.target.parentNode.getAttribute('_id')) {
+					if (this.activeId == event.target.parentNode.getAttribute('_id')) {
 						event.target.parentNode.classList.toggle('nav-item__active');
 						event.target.nextElementSibling.classList.toggle('dropdown__visible');
 					} else {
-						if (previous) {
+						if (previous && previous !== 'undefined') {
 							previous.classList.remove('nav-item__active');
 							if (previous.children) {
-								for (var child of previous.children) {
+								this._forEach(previous.children, function(index, child) {
 									if (child.classList.contains('dropdown__visible')) {
 										child.classList.remove('dropdown__visible');
 									}
-								}						
+								});
 							}	
 						}
 						event.target.parentNode.classList.toggle('nav-item__active');
@@ -75,29 +73,29 @@ const Navs = (() => {
 					}
 
 					// Set new active id
-					that.activeId = event.target.parentNode.getAttribute('_id');
+					this.activeId = event.target.parentNode.getAttribute('_id');
 				});
 			});				
 		}	
 
-		hideDropdowns() {
+		hideDropdowns(ref) {
 			var navItems = document.querySelectorAll('.nav-item');
-			navItems.forEach(function(el, i) {
+			ref._forEach(navItems, function(index, el) {
 				if (typeof el !== 'undefined') {
 					if (el.nextElementSibling) {
-					el.classList.remove('nav-item__active');
-					if (typeof el.children !== 'undefined') {
-						for (var child of el.children) {
-							if (typeof child !== 'undefined') {
-								if (child.classList.contains('dropdown')) {
-									child.classList.remove('dropdown__visible');
+						el.classList.remove('nav-item__active');
+						if (typeof el.children !== 'undefined') {
+							ref._forEach(el.children, function(index, child) {
+								if (typeof child !== 'undefined') {
+									if (child.classList.contains('dropdown')) {
+										child.classList.remove('dropdown__visible');
+									}
 								}
-							}
+							});
 						}
 					}
-					}
 				}
-			});					
+			});			
 		}
 
 		bindListeners() {
@@ -105,14 +103,14 @@ const Navs = (() => {
 			var that = this;
 
 			// Hide dropdowns on Esc and document click
-            document.addEventListener('keyup', function(event) {
+            document.addEventListener('keyup', (event) => {
                 if (event.keyCode == 27) {
-					that.hideDropdowns();	
+					this.hideDropdowns(this);	
 				}
 			});
 
-            document.addEventListener('click', function(event) {
-            	that.hideDropdowns();
+            document.addEventListener('click', (event) => {
+            	this.hideDropdowns(this);
 			});
 
 			// Mobile
