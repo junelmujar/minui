@@ -15,6 +15,11 @@
 	background: rgba(0,0,0,0.5);
 	z-index: 1000;
 	transition: opacity ease-in-out 0.25s;
+	
+	&__dismiss {
+		text-decoration: none;
+		display: inline-block;
+	}
 
     &__content {
 
@@ -44,24 +49,67 @@
 
     &__header {
 		
+		&--bold {
+			font-weight: bold;
+		}
+
 		display: flex;	
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;  
+		align-content: flex-end;
 		  	
-    	font-weight: bold;
-    	padding: 1.25rem 1.5rem;
+    	padding: 1rem 1.5rem;
     	font-size: 18px;
     	border-bottom: 1px solid rgba(0,0,0,0.1);
-    	
+
+    	position: relative;
+
+    	min-height: 1rem;
+
+    	.modal__dismiss {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			border-left: 1px solid rgba(0,0,0,0.1);
+			display: flex;
+			align-items: center;
+			text-align: center;
+			background: rgba(0,0,0,0.025);
+			&:hover {
+				background: rgba(0,0,0,0.05);
+			}
+			* {
+				padding: 15px 20px;
+				color: @font-color;
+				font-size: 20px;
+				display: block;
+				text-align: center;
+			}
+    	}
+
     }
     &__footer {
     	padding: 10px;
     	border-top: 1px solid rgba(0,0,0,0.1);
     }        
     &__block {
+
+		p,h1,h2,h3,h4,h5,h6 {
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+		p,h1,h2,h3,h4,h5,h6 {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		line-height: 1.5rem;
     	padding: 1.5rem;
-    	// max-height: 40%;
+
     }        
     &--show {
 	    opacity: 1;
@@ -76,6 +124,7 @@
 		    overflow: auto;  
 	    }
 	}
+
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -118,8 +167,9 @@
 	}
 }
 
-
-[data-dismiss=modal] {
+/* Default styling for elements dismissing a modal; exclude those with .btn class */
+[data-dismiss="modal"]:not(.btn) {
 	text-decoration: none;
 	display: inline-block;
+	color: inherit;
 }

@@ -1233,10 +1233,10 @@ h6.contained {
   border-bottom: 2px solid #c62828;
 }
 .tooltip {
-  background: #000;
+  background: #333;
   color: #fff;
   border-radius: 5px;
-  padding: 8px 8px 5px;
+  padding: 6px 8px 5px;
   font-size: 14px;
   line-height: 16px;
   position: relative;
@@ -1505,6 +1505,10 @@ h6.contained {
   z-index: 1000;
   transition: opacity ease-in-out 0.25s;
 }
+.modal__dismiss {
+  text-decoration: none;
+  display: inline-block;
+}
 .modal__content {
   opacity: 0;
   visibility: hidden;
@@ -1529,17 +1533,62 @@ h6.contained {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  font-weight: bold;
-  padding: 1.25rem 1.5rem;
+  align-content: flex-end;
+  padding: 1rem 1.5rem;
   font-size: 18px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 1rem;
+}
+.modal__header--bold {
+  font-weight: bold;
+}
+.modal__header .modal__dismiss {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.025);
+}
+.modal__header .modal__dismiss:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+.modal__header .modal__dismiss * {
+  padding: 15px 20px;
+  color: #333;
+  font-size: 20px;
+  display: block;
+  text-align: center;
 }
 .modal__footer {
   padding: 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .modal__block {
+  line-height: 1.5rem;
   padding: 1.5rem;
+}
+.modal__block p:first-child,
+.modal__block h1:first-child,
+.modal__block h2:first-child,
+.modal__block h3:first-child,
+.modal__block h4:first-child,
+.modal__block h5:first-child,
+.modal__block h6:first-child {
+  margin-top: 0;
+}
+.modal__block p:last-child,
+.modal__block h1:last-child,
+.modal__block h2:last-child,
+.modal__block h3:last-child,
+.modal__block h4:last-child,
+.modal__block h5:last-child,
+.modal__block h6:last-child {
+  margin-bottom: 0;
 }
 .modal--show {
   opacity: 1;
@@ -1581,9 +1630,11 @@ h6.contained {
     border-radius: 3px;
   }
 }
-[data-dismiss=modal] {
+/* Default styling for elements dismissing a modal; exclude those with .btn class */
+[data-dismiss="modal"]:not(.btn) {
   text-decoration: none;
   display: inline-block;
+  color: inherit;
 }
 header,
 .header {
