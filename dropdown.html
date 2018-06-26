@@ -7,14 +7,14 @@
 		<title>MinUI</title>
 		<style>
 			body {
-				padding-top: 80px;
+				padding-top: 45px;
 				padding-bottom: 80px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header header--fixed-top header--shadow">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -57,55 +57,195 @@
 			</nav>
 		</header>
 
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Dropdown</div>
+			</div>
+		</div>
+		<br>
+
 		<div class="container">
-			<h1>Dropdown</h1>
-			<br>
 
 			<div class="section">
-			<div class="dropdown">
-			  <a class="btn btn--primary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Centered 
-			  </a>
 
-			  <div class="dropdown-menu icons keys center" aria-labelledby="dropdownMenuLink">
-			    <a class="dropdown-item" href="google.com" target="_new">
-			    	<i class="icon ion-md-person leading-icon"></i> Action
-			    </a>
-			    <a class="dropdown-item" href="#"><i class="icon ion-md-cog leading-icon"></i> Another action <span class="modifier-key">Ctrl + A</span></a>
-			    <div class="dropdown-divider"></div>
-			    <a class="dropdown-item" href="#"><i class="icon ion-md-list leading-icon"></i> Something else here asfasf asfasfas</a>
-			  </div>
-			</div>
-			&nbsp;&nbsp;&nbsp;
+				<div class="dropdown">
+				  	<a class="btn btn--primary" href="#" role="button" data-toggle="dropdown">
+				    	Centered 
+				  	</a>
 
-			<div class="dropdown">
-			  <a class="btn btn--warning" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Left Aligned 
-			  </a>
+				  	<div class="menu menu--icons menu--keys menu--center">
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-cog menu__item__icon"></i> 
+					    	<span>Item 1</span>
+					    	<span class="menu__item__key">Ctrl + 1</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<span>Item 2</span>
+					    	<span class="menu__item__key">Ctrl + 3</span>
+					    </a>
+					    <div class="menu__divider"></div>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span>Item 3</span>
+					    	<span class="menu__item__key">Ctrl + 3</span>
+					    </a>
+				  	</div>
+				</div>
+				&nbsp;&nbsp;&nbsp;
 
-			  <div class="dropdown-menu keys icons" aria-labelledby="dropdownMenuLink">
-			    <a class="dropdown-item" href="google.com" target="_new">
-			    	<i class="icon ion-md-person leading-icon"></i> Action
-			    </a>
-			    <a class="dropdown-item" href="#"><i class="icon ion-md-cog leading-icon"></i> Another action</a>
-			    <div class="dropdown-divider"></div>
-			    <a class="dropdown-item" href="#"><i class="icon ion-md-list  leading-icon"></i> Something else here asfasf asfasfas</a>
-			  </div>
-			</div>
-			&nbsp;&nbsp;&nbsp;
+				<div class="dropdown">
+				  	<a class="btn btn--warning" href="#" role="button" data-toggle="dropdown">
+				    	Left Aligned 
+				  	</a>
 
-			<div class="dropdown">
-			  <a class="btn btn--success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Right Aligned 
-			  </a>
+				  	<div class="menu menu--keys menu--icons">
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-cog menu__item__icon"></i> 
+					    	<span>Item 1</span>
+					    	<span class="menu__item__key">Ctrl + 1</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<span>Item 2</span>
+					    	<span class="menu__item__key">Ctrl + 3</span>
+					    </a>
+					    <div class="menu__divider"></div>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span>Item 3</span>
+					    	<span class="menu__item__key">Ctrl + 3</span>
+					    </a>
+				  	</div>
+				</div>
+				&nbsp;&nbsp;&nbsp;
 
-			  <div class="dropdown-menu right" aria-labelledby="dropdownMenuLink">
-			    <a class="dropdown-item" href="google.com" target="_new">Action asfas af asf as</a>
-			    <a class="dropdown-item" href="#">Another action asfasf</a>
-			    <div class="dropdown-divider"></div>
-			    <a class="dropdown-item" href="#">Something else here asfas asfas</a>
-			  </div>
-			</div>										
+				<div class="dropdown">
+				  	<a class="btn btn--success" href="#" role="button"data-toggle="dropdown" >
+				    	Right Aligned 
+				  	</a>
+
+				  	<div class="menu menu--right">
+					    <a class="menu__item" href="#">
+					    	<span>Item 1</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<span>Item 2</span>
+					    </a>
+					    <div class="menu__divider"></div>
+					    <a class="menu__item" href="#">
+					    	<span>Item 3</span>
+					    </a>
+				  	</div>
+				</div>		
+				&nbsp;&nbsp;&nbsp;	
+
+				<div class="dropdown">
+				  	<a class="btn btn--primary" href="#" role="button" data-toggle="dropdown">
+				    	Icon Grid
+				  	</a>
+				  	<div class="menu menu--grid menu--center menu--tail shadow-2dp">
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-cog menu__item__icon"></i> 
+					    	<span class="menu__item__text">People</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<span class="menu__item__text">Contacts</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span class="menu__item__text">Customers</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-cog menu__item__icon"></i> 
+					    	<span class="menu__item__text">Tickets</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<span class="menu__item__text">Feedback</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span class="menu__item__text">Settings</span>
+					    </a>			
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span class="menu__item__text">Presets</span>
+					    </a>						    		    
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span class="menu__item__text">Help</span>
+					    </a>		
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span class="menu__item__text">About</span>
+					    </a>	
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-cog menu__item__icon"></i> 
+					    	<span class="menu__item__text">People</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<span class="menu__item__text">Contacts</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span class="menu__item__text">Customers</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-cog menu__item__icon"></i> 
+					    	<span class="menu__item__text">Tickets</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<span class="menu__item__text">Feedback</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span class="menu__item__text">Settings</span>
+					    </a>			
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span class="menu__item__text">Presets</span>
+					    </a>						    		    
+
+				  	</div>
+				</div>
+				&nbsp;&nbsp;&nbsp;	
+
+				<div class="dropdown">
+				  	<a class="btn btn--primary" href="#" role="button" data-toggle="dropdown">
+				    	Icon List
+				  	</a>
+				  	<div class="menu menu--icon-list menu--tail shadow-2dp">
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-cog menu__item__icon"></i> 
+					    	<div class="menu__item__text">
+					    		<span class="display-1">People</span>
+					    		<div>
+					    			 Reprehenderit sapiente alias, blanditiis, numquam dolorem, quam esse at eius minus.
+					    		</div>
+					    	</div>
+					    </a>
+					    <div class="menu__item__divider"></div>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<div class="menu__item__text">
+					    		<span class="display-1">Contacts</span>
+					    		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+					    	</div>
+					    </a>
+					    <div class="menu__item__divider"></div>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<div class="menu__item__text">
+					    		<span class="display-1">Leads</span>
+					    		<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+					    	</div>
+					    </a>					    
+				  	</div>
+				</div>
 			</div>
 		</div>
 

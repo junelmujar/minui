@@ -8,13 +8,13 @@
 		<style>
 			body {
 				padding-bottom: 80px;
-				padding-top: 80px;
+				padding-top: 45px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header header--fixed-top header--shadow">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -57,45 +57,51 @@
 			</nav>
 		</header>
 
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Table</div>
+			</div>
+		</div>
+		<br>
+
 		<div class="container">
-			<h1>Table</h1>
-		
+
 
 			<div class="display-2">
 				Default
 			</div>
-			<table class="table">
+			<table class="table table--theme-material shadow-2dp">
 			  <thead>
 			    <tr>
-			      <th>Material</th>
+			      <th class="table__cell--non-numeric">Material</th>
 			      <th>Quantity</th>
 			      <th>Unit price</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <td>Hamburger</td>
+			    <tr class="table__row--selected">
+			      <td class="table__cell--non-numeric">Hamburger</td>
 			      <td class="text-center">25</td>
 			      <td class="text-center">
 						85.00
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Sandwich</td>
+			      <td class="table__cell--non-numeric">Sandwich</td>
 			      <td class="text-center">50</td>
 			      <td class="text-center">
 						75.00						      	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Pizza</td>
+			      <td class="table__cell--non-numeric">Pizza</td>
 			      <td class="text-center">10</td>
 			      <td class="text-center">
 						62.35						      	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Lasagna</td>
+			      <td class="table__cell--non-numeric">Lasagna</td>
 			      <td class="text-center">10</td>
 			      <td class="text-center">
 						92.00					      	
@@ -108,52 +114,57 @@
 			<div class="display-2">
 				With Controls
 			</div>
-			<table class="table">
+			<table class="table table--shadow">
 			  <thead>
 			    <tr>
-			      <th>Material</th>
+			      <th class="table__cell--non-numeric">Material</th>
 			      <th>Quantity</th>
-			      <th>Unit price</th>
+			      <th class="table__cell--component" width="100">Action</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
-			      <td><input type="text" data-toggle="tooltip" data-tooltip="This is a tooltip 1!"></td>
+			      <td class="table__cell--non-numeric"><input type="text" class="form__input" data-toggle="tooltip" data-tooltip="This is a tooltip 1!" value="Chicken"></td>
 			      <td class="text-center">25</td>
-			      <td class="text-center">
+			      <td class="table__cell--component">
 						<div class="dropdown">
-						  <a class="btn small success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <a class="btn btn--success" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    	Edit
 						  </a>
 
-						  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
-						    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
-						    <a class="dropdown-item" href="#">Delete</a>
+						  <div class="menu menu--right" aria-labelledby="dropdownMenuLink">
+						    <a class="menu__item" href="#">Edit</a>
+						    <a class="menu__item" href="#">Delete</a>
 						    <div class="dropdown-divider"></div>
-						    <a class="dropdown-item" href="#">Properties</a>
+						    <a class="menu__item" href="#">Properties</a>
 						  </div>
 						</div>	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td><input type="text" data-toggle="tooltip" data-tooltip="This is a tooltip 2!"></td>
+			      <td class="table__cell--non-numeric"><input type="text" class="form__input" data-toggle="tooltip" data-tooltip="This is a tooltip 2!" value="Pork" ></td>
 			      <td class="text-center">50</td>
-			      <td class="text-center">
+			      <td class="table__cell--component">
 						<div class="dropdown">
-						  <a class="btn small" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <a class="btn btn--danger" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    	Edit
 						  </a>
 
-						  <div class="dropdown-menu center" aria-labelledby="dropdownMenuLink">
-						    <a class="dropdown-item" href="google.com" target="_new">Edit</a>
-						    <a class="dropdown-item" href="#">Delete</a>
+						  <div class="menu menu--right" aria-labelledby="dropdownMenuLink">
+						    <a class="menu__item" href="#">Edit</a>
+						    <a class="menu__item" href="#">Delete</a>
 						    <div class="dropdown-divider"></div>
-						    <a class="dropdown-item" href="#">Properties</a>
+						    <a class="menu__item" href="#">Properties</a>
 						  </div>
 						</div>								      	
 			      </td>
 			    </tr>
 			  </tbody>
+			  <tfoot>
+			  	<tr>
+			  		<th colspan="3" class="text-left">Total: <strong>2</strong></th>
+			  	</tr>
+			  </tfoot>
 			</table>
 			<br><br>			
 
@@ -163,35 +174,35 @@
 			<table class="table table--striped">
 			  <thead>
 			    <tr>
-			      <th>Material</th>
+			      <th class="table__cell--non-numeric">Material</th>
 			      <th>Quantity</th>
 			      <th>Unit price</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
-			      <td>Hamburger</td>
+			      <td class="table__cell--non-numeric">Hamburger</td>
 			      <td class="text-center">25</td>
 			      <td class="text-center">
 						85.00
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Sandwich</td>
+			      <td class="table__cell--non-numeric">Sandwich</td>
 			      <td class="text-center">50</td>
 			      <td class="text-center">
 						75.00						      	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Pizza</td>
+			      <td class="table__cell--non-numeric">Pizza</td>
 			      <td class="text-center">10</td>
 			      <td class="text-center">
 						62.35						      	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Lasagna</td>
+			      <td class="table__cell--non-numeric">Lasagna</td>
 			      <td class="text-center">10</td>
 			      <td class="text-center">
 						92.00					      	
@@ -207,35 +218,35 @@
 			<table class="table table--bordered">
 			  <thead>
 			    <tr>
-			      <th>Material</th>
+			      <th class="table__cell--non-numeric">Material</th>
 			      <th>Quantity</th>
 			      <th>Unit price</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
-			      <td>Hamburger</td>
+			      <td class="table__cell--non-numeric">Hamburger</td>
 			      <td class="text-center">25</td>
 			      <td class="text-center">
 						85.00
 			      </td>
 			    </tr>
-			    <tr>
-			      <td>Sandwich</td>
+			    <tr class="table__row--selected">
+			      <td class="table__cell--non-numeric">Sandwich</td>
 			      <td class="text-center">50</td>
 			      <td class="text-center">
 						75.00						      	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Pizza</td>
+			      <td class="table__cell--non-numeric">Pizza</td>
 			      <td class="text-center">10</td>
 			      <td class="text-center">
 						62.35						      	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Lasagna</td>
+			      <td class="table__cell--non-numeric">Lasagna</td>
 			      <td class="text-center">10</td>
 			      <td class="text-center">
 						92.00					      	
@@ -251,35 +262,35 @@
 			<table class="table table--bordered table--striped">
 			  <thead>
 			    <tr>
-			      <th>Material</th>
+			      <th class="table__cell--non-numeric">Material</th>
 			      <th>Quantity</th>
 			      <th>Unit price</th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr>
-			      <td>Hamburger</td>
+			      <td class="table__cell--non-numeric">Hamburger</td>
 			      <td class="text-center">25</td>
 			      <td class="text-center">
 						85.00
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Sandwich</td>
+			      <td class="table__cell--non-numeric">Sandwich</td>
 			      <td class="text-center">50</td>
 			      <td class="text-center">
 						75.00						      	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Pizza</td>
+			      <td class="table__cell--non-numeric">Pizza</td>
 			      <td class="text-center">10</td>
 			      <td class="text-center">
 						62.35						      	
 			      </td>
 			    </tr>
 			    <tr>
-			      <td>Lasagna</td>
+			      <td class="table__cell--non-numeric">Lasagna</td>
 			      <td class="text-center">10</td>
 			      <td class="text-center">
 						92.00					      	

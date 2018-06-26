@@ -14,7 +14,7 @@
 	top: 0; left: 0; right: 0; bottom: 0;
 	background: rgba(0,0,0,0.5);
 	z-index: 1000;
-	transition: opacity ease-in-out 0.25s;
+	transition: all ease-in-out 0.25s;
 	
 	&__dismiss {
 		text-decoration: none;
@@ -48,10 +48,6 @@
     }
 
     &__header {
-		
-		&--bold {
-			font-weight: bold;
-		}
 
 		display: flex;	
 		flex-wrap: wrap;
@@ -61,7 +57,7 @@
 		  	
     	padding: 1rem 1.5rem;
     	font-size: 18px;
-    	border-bottom: 1px solid rgba(0,0,0,0.1);
+    	box-shadow: 0 2px 4px -1px rgba(0,0,0,0.15);		
 
     	position: relative;
 
@@ -124,7 +120,6 @@
 		    overflow: auto;  
 	    }
 	}
-
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -172,4 +167,29 @@
 	text-decoration: none;
 	display: inline-block;
 	color: inherit;
+}
+
+
+
+.modal.modal--theme-material {
+	background: rgba(4, 1, 10, 0.5);
+	.modal__content {
+		.modal__header {
+			background: #6200EE;
+			border-bottom: 0;
+			box-shadow: 0 2px 5px 0px rgba(0,0,0,0.25);	
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+			color: #fff;
+			.modal__dismiss {
+				transition: background 0.25s;
+				&:hover {
+					background: rgba(0,0,0,0.25);
+				}
+				* {
+					color: #fff;
+				}
+			}
+		}
+	}
 }

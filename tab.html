@@ -8,14 +8,14 @@
 		<title>MinUI</title>
 		<style>
 			body {
-				padding-top: 80px;
+				padding-top: 45px;
 				padding-bottom: 80px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header header--fixed-top header--shadow">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -58,19 +58,23 @@
 			</nav>
 		</header>
 
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Tab</div>
+			</div>
+		</div>
+		<br>
+
 		<div class="container">
-			<h1>Tab</h1>
-			<br>
+			<div class="display-2">Default Style & Justified</div>
+			<div class="tab">
 
-			<div class="display-2">Recipes</div>
-			<div class="tab shadow-2dp">
-
-				<ul class="tab__nav">
-					<li class="tab__nav__item"><a href="#" data-target="one:one" data-toggle="tab">Pasta</a></li>
+				<ul class="tab__nav tab__nav--justified">
+					<li class="tab__nav__item tab__nav__item--active"><a href="#" data-target="one:one" data-toggle="tab">Pasta</a></li>
 					<li class="tab__nav__item"><a href="#" data-target="one:two" data-toggle="tab">Burger</a></li>
 					<li class="tab__nav__item"><a href="#" data-target="one:three" data-toggle="tab">Chips</a></li>
 					<li class="tab__nav__item"><a href="#" data-target="one:four" data-toggle="tab">Ham Sandwich</a></li>
-					<li class="tab__nav__item tab__nav__item--active"><a href="#" data-target="one:five" data-toggle="tab">Meat Balls</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="one:five" data-toggle="tab">Meat Balls</a></li>
 				</ul>
 				<div class="tab__content" data-panel-id="one">
 					<div class="tab__content__panel tab__content__panel--active" data-id="one">
@@ -100,9 +104,9 @@
 				</div>
 	
 			</div>
-			<br><br>
+			<br><br><br>
 	
-			<div class="display-2">Languages</div>
+			<div class="display-2">Default Style with Inner Tab (Themed)</div>
 			<div class="tab ">
 
 				<ul class="tab__nav">
@@ -152,7 +156,48 @@
 				</div>
 	
 			</div>	
-			<br><br>
+			<br><br><br>
+
+			<div class="display-2">Material Design Theme & Shadow</div>
+			<div class="tab tab--theme-material shadow-2dp">
+
+				<ul class="tab__nav tab__nav--justified">
+					<li class="tab__nav__item tab__nav__item--active"><a href="#" data-target="four:one" data-toggle="tab">Pasta</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="four:two" data-toggle="tab">Burger</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="four:three" data-toggle="tab">Chips</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="four:four" data-toggle="tab">Ham Sandwich</a></li>
+					<li class="tab__nav__item"><a href="#" data-target="four:five" data-toggle="tab">Meat Balls</a></li>
+				</ul>
+				<div class="tab__content" data-panel-id="four">
+					<div class="tab__content__panel tab__content__panel--active" data-id="one">
+						<h2 class="contained">Lorem Ipsum</h2>
+						<p>
+							Lorem ipsum dolor sit amet, vix ad latine scripta molestie, homero diceret nusquam ea ius. Labitur admodum his ea, habeo postea conclusionemque et eum. Illud dolores tacimates has no. Vix ceteros perpetua ne, facete oportere assentior usu no. Nam ea delenit explicari, quas assum inani his in.
+						</p>
+						<p>
+							Stet semper dissentias eos ut. Per equidem expetendis dissentiet ne. Delectus ocurreret sententiae his ut, duo ex erat aperiam omittam. Te explicari dissentiunt vel. Invidunt deterruisset per te, in est purto epicurei mediocritatem.
+						</p>
+						<h3>Lorem Ipsum</h3>
+						<p>
+							Lorem ipsum dolor sit amet, vix ad latine scripta molestie, homero diceret nusquam ea ius. Labitur admodum his ea, habeo postea conclusionemque et eum. Illud dolores tacimates has no. Vix ceteros perpetua ne, facete oportere assentior usu no. Nam ea delenit explicari, quas assum inani his in.
+						</p>
+						<p>
+							Stet semper dissentias eos ut. Per equidem expetendis dissentiet ne. Delectus ocurreret sententiae his ut, duo ex erat aperiam omittam. Te explicari dissentiunt vel. Invidunt deterruisset per te, in est purto epicurei mediocritatem.
+						</p>								
+					</div>
+					<div class="tab__content__panel" data-id="two">Sed quod inimicus mnesarchum ne. Ferri delicatissimi te cum, quo eu putent blandit accommodare. Mei melius nostrum et, quod eirmod reprehendunt pri ne. Magna appellantur nec ea, eu patrioque scribentur sea, euripidis neglegentur an cum. Eu latine conclusionemque sea, usu diam esse te, vix eius corpora id. Reque facilis dolores ius ne.
+</div>
+					<div class="tab__content__panel" data-id="three">Vel ei placerat insolens, ut fastidii philosophia sea. Verear meliore senserit quo et, enim lorem accumsan eu sit. Qui persius principes eu, te minim verear accumsan eos. Sea et odio copiosae. Velit ceteros ne ius, sea te ridens verear, at sed idque mentitum.</div>
+					<div class="tab__content__panel" data-id="four">Four</div>
+					<div class="tab__content__panel" data-id="five">
+						<div class="display-2">Meat Balls</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, laborum. Labore voluptates totam at, aut nemo deserunt rem magni pariatur, reprehenderit perspiciatis, atque eveniet unde laborum ipsum, in cupiditate voluptas.</p>
+					</div>
+				</div>
+	
+			</div>
+			<br><br><br>
+
 
 			<div class="display-2">Event</div>
 			<p>

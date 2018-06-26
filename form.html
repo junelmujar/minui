@@ -4,17 +4,18 @@
 		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<link rel="stylesheet" href="css/prism.css">
 		<title>MinUI</title>
 		<style>
 			body {
-
-				padding-top: 80px;
+				padding-top: 45px;
+				padding-bottom: 80px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header header--fixed-top header--shadow">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -57,60 +58,215 @@
 			</nav>
 		</header>
 
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Inputs</div>
+			</div>
+		</div>
+		<br>
+
 		<div class="container">
-			<h1>Form</h1>
+
+			<div class="display-2">
+				Default Style
+			</div>	
+			<div class="col__group">
+				<div class="col-6">
+					<br>
+					<form class="section" target="#">
 		
+				        <div class="field">
+				        	<label class="field__label" for="name"><i class="icon ion-md-person"></i> Username</label>
+				            <input id="name" class="field__input" type="email" placeholder="Enter username" />
+				            
+				        </div>
+				        <div class="field">
+				        	<label class="field__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+				            <input id="name1" class="field__input" type="password" placeholder="Enter password"/>
+				        </div>
+						<div class="field text-center">
+							<button class="btn btn--primary btn--large btn--block">Login</button>
+						</div>									    
+					</form>
+				</div>
+				<div class="col-6">
+			<pre>
+			<code class="language-markup">
+    <div class="field">
+    	<label class="field__label" for="name"><i class="icon ion-md-person"></i> Username</label>
+        <input id="name" class="field__input" type="email" placeholder="Enter username" value="asfasf" />
+        
+    </div>
+    <div class="field">
+    	<label class="field__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+        <input id="name1" class="field__input" type="password" placeholder="Enter password" value="asfasf" />
+    </div>
+	<div class="field text-center">
+		<button class="btn btn--primary btn--large btn--block">Login</button>
+			</code></pre>
+				</div>
+			</div>
+			<br><br><br>
 
-			<div class="card">
-				<div class="card__header">Default Style</div>
-				<div class="card__block">
-					<form class="form">
-						<div class="card__title">Login Form</div>
+			<div class="display-2">
+				Input group
+			</div>
+			<div class="col__group">
+				<div class="col-6">
+
+					<div class="section">
+
+						<p>
+							Prefix & Suffix (with Button)
+						</p>
+						<div class="field__group">
+							<span class="field__prefix">
+								<span class="field__prefix__text"><i class="icon ion-md-search"></i></span>
+							</span>
+							<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+							<span class="field__suffix">
+								<a href="" class="btn btn--danger">Submit</a>
+							</span>
+						</div>	
 						<br>
-				        <div class="form__input__group">
-				        	<label class="form__label" for="name"><i class="icon ion-md-person"></i> Username</label>
-				            <input id="name" class="form__input" type="email" placeholder="Enter username" value="asfasf" />
-				            
-				        </div>
 
-				        <div class="form__input__group">
-				        	<label class="form__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
-				            <input id="name1" class="form__input" type="password" placeholder="Enter password" value="asfasf" />
-				        </div>
-						<div class="form__input__group text-center">
-							<button class="btn primary large block"> Login</button>
-						</div>									    
-					</form>
+						<p>
+							Prefix & Suffix
+						</p>
+						<div class="field__group">
+							<span class="field__prefix">
+								<span class="field__prefix__text"><i class="icon ion-md-search"></i></span>
+							</span>
+							<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+							<span class="field__suffix">
+								<span class="field__prefix__text">Yes a suffix</span>
+							</span>
+						</div>		
+						<br>
+
+						<p>
+							Prefix only
+						</p>
+						<div class="field__group">
+							<span class="field__prefix">
+								<span class="field__prefix__text">Prefix</span>
+							</span>
+							<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+						</div>		
+						<br>
+
+						<p>
+							Suffix only
+						</p>
+						<div class="field__group">
+							<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+							<span class="field__suffix">
+								<a href="" class="btn"><i class="icon ion-md-search"></i> Go</a>
+							</span>
+						</div>	
+																					
+					</div>					
+				</div>
+				<div class="col-6">
+			<pre>
+			<code class="language-markup">
+	<div class="field__group">
+		<span class="field__prefix">
+			<span class="field__prefix__text"><i class="icon ion-md-search"></i></span>
+		</span>
+		<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+		<span class="field__suffix">
+			<a href="" class="btn btn--danger">Submit</a>
+		</span>
+	</div>	
+	<br>
+
+	<div class="field__group">
+		<span class="field__prefix">
+			<span class="field__prefix__text"><i class="icon ion-md-search"></i></span>
+		</span>
+		<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+		<span class="field__suffix">
+			<span class="field__prefix__text">Yes a suffix</span>
+		</span>
+	</div>		
+	<br>
+
+	<div class="field__group">
+		<span class="field__prefix">
+			<span class="field__prefix__text">Prefix</span>
+		</span>
+		<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+	</div>		
+	<br>
+
+	<div class="field__group">
+		<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+		<span class="field__suffix">
+			<a href="" class="btn"><i class="icon ion-md-search"></i> Go</a>
+		</span>
+	</div>	
+			</code></pre>
 				</div>
 			</div>
+			<br><br><br>
 
-			<div class="card">
-				<div class="card__header">Material Design Style</div>
-				<div class="card__block">
-					<form class="form">
-						<div class="card__title">Login Form</div>
-				        <div class="form__input__group form__input__group--md">
-				        	<label class="form__label" for="name"><i class="icon ion-md-person"></i> Username</label>
-				            <input id="name" class="form__input" type="email" placeholder="Enter username" value="john.doe@mail.com" />
-				            
-				        </div>
-
-				        <div class="form__input__group form__input__group--md">
-				        	<label class="form__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
-				            <input id="name1" class="form__input" type="password" placeholder="Enter password" />
-				        </div>
-						<div class="form__input__group text-center">
-							<button class="btn primary large block"> Login</button>
-						</div>									    
-					</form>
+			<div class="display-2">Material Design</div>
+			<div class="col__group">
+				<div class="col-6">
+					
+					<div class="card card--theme-material">
+						<div class="card__header">APP LOGIN</div>
+						<div class="card__block">
+							<form target="#">
+								<div class="card__title">Login Form</div>
+						        <div class="field field--md">
+						        	<label class="field__label" for="name"><i class="icon ion-md-person"></i> Username</label>
+						            <input id="name" class="field__input" type="email" placeholder="Enter username" value="john.doe@mail.com" />
+						            
+						        </div>
+						        <div class="field field--md">
+						        	<label class="field__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+						            <input id="name1" class="field__input" type="password" placeholder="Enter password" />
+						        </div>
+								<div class="field text-center">
+									<button class="btn btn--large btn--block">Login</button>
+								</div>									    
+							</form>
+						</div>
+					</div>
 				</div>
-			</div>
+				<div class="col-6">
+			<pre>
+			<code class="language-markup">
+	<form target="#">
+		<div class="card__title">Login Form</div>
+        <div class="field field--md">
+        	<label class="field__label" for="name"><i class="icon ion-md-person"></i> Username</label>
+            <input id="name" class="field__input" type="email" placeholder="Enter username" value="john.doe@mail.com" />
+            
+        </div>
+        <div class="field field--md">
+        	<label class="field__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+            <input id="name1" class="field__input" type="password" placeholder="Enter password" />
+        </div>
+		<div class="field text-center">
+			<button class="btn btn--large btn--block">Login</button>
+		</div>									    
+	</form>				
+			</code>
+			</pre>
+				</div>
+			</div>		
+
+
 			
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
 		<script src="dist/js/minui.min.js"></script>
+		<script src="js/prism.js"></script>
 
 		
 

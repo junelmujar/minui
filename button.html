@@ -9,13 +9,13 @@
 		<style>
 			body {
 
-				padding-top: 80px;
+				padding-top: 45px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header header--fixed-top header--shadow">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -58,36 +58,52 @@
 			</nav>
 		</header>
 
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Buttons</div>
+			</div>
+		</div>
+		<br>
+
 		<div class="container">
-			<h1>Buttons</h1>
 
 			<div class="display-2">Button Styles</div>
 			<div class="section">
-				<a href="" class="btn">Default</a>
-				<a href="" class="btn btn--primary">Primary</a>
-				<a href="" class="btn btn--success">Success</a>
-				<a href="" class="btn btn--info">Info</a>
-				<a href="" class="btn btn--warning">Warning</a>
-				<a href="" class="btn btn--danger">Danger</a>
-				<a href="" class="btn btn--disabled">Disabled</a>
+				<a href="#" class="btn">Default</a>
+				<a href="#" class="btn btn--primary">Primary</a>
+				<a href="#" class="btn btn--success">Success</a>
+				<a href="#" class="btn btn--info">Info</a>
+				<a href="#" class="btn btn--warning">Warning</a>
+				<a href="#" class="btn btn--danger">Danger</a>
+				<a href="#" class="btn btn--disabled">Disabled</a>
 			</div>
 			<br><br>
 
 			<div class="display-2">Dropdown Button</div>
 			<div class="section">
 				<div class="dropdown">
-				  <a class="btn btn--warning" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Left Aligned 
-				  </a>
+				  	<a class="btn btn--warning" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    	Left Aligned 
+				  	</a>
 
-				  <div class="dropdown-menu keys icons" aria-labelledby="dropdownMenuLink">
-				    <a class="dropdown-item" href="google.com" target="_new">
-				    	<i class="icon ion-md-person leading-icon"></i> Action
-				    </a>
-				    <a class="dropdown-item" href="#"><i class="icon ion-md-cog leading-icon"></i> Another action</a>
-				    <div class="dropdown-divider"></div>
-				    <a class="dropdown-item" href="#"><i class="icon ion-md-list  leading-icon"></i> Something else here asfasf asfasfas</a>
-				  </div>
+				 	<div class="menu menu--keys menu--icons" aria-labelledby="dropdownMenuLink">
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-cog menu__item__icon"></i> 
+					    	<span>Item 1</span>
+					    	<span class="menu__item__key">Ctrl + 1</span>
+					    </a>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-list menu__item__icon"></i> 
+					    	<span>Item 2</span>
+					    	<span class="menu__item__key">Ctrl + 3</span>
+					    </a>
+					    <div class="menu__divider"></div>
+					    <a class="menu__item" href="#">
+					    	<i class="icon ion-md-person menu__item__icon"></i> 
+					    	<span>Item 3</span>
+					    	<span class="menu__item__key">Ctrl + 3</span>
+					    </a>
+				  	</div>
 				</div>
 			</div>
 			

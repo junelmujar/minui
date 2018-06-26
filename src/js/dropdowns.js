@@ -21,12 +21,32 @@ const Dropdowns = (() => {
 		hideDropdowns(ref) {
 			// Dropdowns: Close all visible dropdowns if there's any
 			ref._forEach(ref._dropdowns, (index, p) => {
-		    	if (p.nextElementSibling.classList.contains('dropdown-menu')) {
-		    		if (p.nextElementSibling.classList.contains('dropdown-menu__visible')) {
-						p.nextElementSibling.classList.remove('dropdown-menu__visible');
+		    	if (p.nextElementSibling.classList.contains('menu')) {
+		    		if (p.nextElementSibling.classList.contains('menu--visible')) {
+						p.nextElementSibling.classList.remove('menu--visible');
 					}
 		    	}
 			});
+		}
+
+		hideNavMenus(ref) {
+			var navItems = document.querySelectorAll('.nav-item');
+			ref._forEach(navItems, function(index, el) {
+				if (typeof el !== 'undefined') {
+					if (el.nextElementSibling) {
+						el.classList.remove('nav-item__active');
+						if (typeof el.children !== 'undefined') {
+							ref._forEach(el.children, function(index, child) {
+								if (typeof child !== 'undefined') {
+									if (child.classList.contains('dropdown')) {
+										child.classList.remove('dropdown__visible');
+									}
+								}
+							});
+						}
+					}
+				}
+			});				
 		}
 
 		bindListeners() {
@@ -35,7 +55,9 @@ const Dropdowns = (() => {
 
 			// Document listeners
 			document.addEventListener('click', (event) => {
-				this.hideDropdowns(that);
+				setTimeout(function(){ 
+					that.hideDropdowns(that);
+				}, 250);				
 			});
 
 			// Document listeners
@@ -64,27 +86,30 @@ const Dropdowns = (() => {
 					// Close all other open 
 					that._forEach(that._dropdowns, (index, dropdown) => {
 						if (dropdown != el) {
-					    	if (dropdown.nextElementSibling.classList.contains('dropdown-menu')) {
-					    		if (dropdown.nextElementSibling.classList.contains('dropdown-menu__visible')) {
-									dropdown.nextElementSibling.classList.remove('dropdown-menu__visible');
+					    	if (dropdown.nextElementSibling.classList.contains('menu')) {
+					    		if (dropdown.nextElementSibling.classList.contains('menu--visible')) {
+									dropdown.nextElementSibling.classList.remove('menu--visible');
 								}
 					    	}
 				    	}
 					});
+				
+					// Hide nav menus if there's any
+					that.hideNavMenus(that);
 
 					// Toggle visibility
-					if (event.target.nextElementSibling.classList.contains('dropdown-menu')) {
+					if (event.target.nextElementSibling.classList.contains('menu')) {
 
-						if (event.target.nextElementSibling.classList.contains('dropdown-menu__visible')) {
-							event.target.nextElementSibling.classList.remove('dropdown-menu__visible');
+						if (event.target.nextElementSibling.classList.contains('menu--visible')) {
+							event.target.nextElementSibling.classList.remove('menu--visible');
 						} else {
 							
 							var placement = 'bottom-start'; // bottom left
 							
-							if (event.target.nextElementSibling.classList.contains('center')) 	placement = 'bottom'; 		// bottom centered
-							if (event.target.nextElementSibling.classList.contains('right')) 	placement = 'bottom-end'; 	// bottom right
+							if (event.target.nextElementSibling.classList.contains('menu--center')) 	placement = 'bottom'; 		// bottom centered
+							if (event.target.nextElementSibling.classList.contains('menu--right')) 	placement = 'bottom-end'; 	// bottom right
 
-							event.target.nextElementSibling.classList.add('dropdown-menu__visible');
+							event.target.nextElementSibling.classList.add('menu--visible');
 
 					        /**
 					         * Check for Popper dependency
@@ -96,7 +121,12 @@ const Dropdowns = (() => {
 								const Default = {
 									placement: placement,
 									modifiers: {
-										preventOverflow: { enabled: true }
+										preventOverflow: { 
+											enabled: true 
+										},
+										flip : {
+											enabled: false
+										}
 									}
 								}												        	
 								// Create the popper object and perform placement

@@ -8,14 +8,14 @@
 		<title>MinUI</title>
 		<style>
 			body {
-
-				padding-top: 80px;
+				padding-top: 45px;
+				padding-bottom: 80px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header header--fixed-top header--shadow">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -58,10 +58,16 @@
 			</nav>
 		</header>
 
-		<div class="container">
-			<h1>Typography</h1>
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Typography</div>
+			</div>
+		</div>
+		<br>
 
-			<div class="card">
+		<div class="container">
+		
+			<div class="card card--pad-medium">
 				<div class="card__header">Headers</div>
 				<div class="card__block">
 					<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h1>
@@ -73,7 +79,7 @@
 				</div>
 			</div>
 
-			<div class="card">
+			<div class="card card--pad-medium">
 				<div class="card__header">Paragraph</div>
 				<div class="card__block">
 					<p class="text__lead">
@@ -88,7 +94,7 @@
 				</div>
 			</div>
 			
-			<div class="card">
+			<div class="card card--pad-medium">
 				<div class="card__header">Lists</div>
 				<div class="card__block">
 					<ol>

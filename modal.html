@@ -8,14 +8,14 @@
 		<title>MinUI</title>
 		<style>
 			body {
-				padding-top: 80px;
+				padding-top: 45px;
 				padding-bottom: 80px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header header--fixed-top header--shadow">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -58,11 +58,14 @@
 			</nav>
 		</header>
 
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Modals</div>
+			</div>
+		</div>
+		<br>
+
 		<div class="container">
-			<h1>Modals</h1>
-			<br>
-
-
 			<div class="display-2">Modal Triggers</div>
 			<div class="col__group">
 				<div class="col-6">
@@ -162,6 +165,17 @@
     </div>	
 	</code>
 					</pre>			
+					<br><br>
+
+		<div class="display-2">Modifiers</div>			
+		<div class="section">
+			<ul>
+				<li>
+					modal.<strong>tab--theme-material</strong>
+				</li>
+			</ul>
+		</div>
+
 
 					<br><br>
 
@@ -198,10 +212,10 @@
 
 
 
-		<div class="modal" data-modal-id="one" data-close-esc="true" data-close-overlay="true">
+		<div class="modal modal--theme-material" data-modal-id="one" data-close-esc="true" data-close-overlay="true">
 	        <div class="modal__content">
 
-				<div class="modal__header modal__header--bold">
+				<div class="modal__header">
 					Modal Title 
 					<a href="#" class="modal__dismiss" class="float-right" data-dismiss="modal">
 						<span>&times;</span>
@@ -219,7 +233,7 @@
 
 	            </div>
 				<div class="modal__footer text-right">
-	            	<button class="btn btn--primary" data-dismiss="modal">Close</button>       
+	            	<button class="btn" data-dismiss="modal">Close</button>       
 	            </div>
 	        </div>
 	    </div>		

@@ -7,14 +7,14 @@
 		<title>MinUI</title>
 		<style>
 			body {
-				padding-top: 80px;
+				padding-top: 45px;
 				padding-bottom: 80px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header--fixed-top">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -57,9 +57,17 @@
 			</nav>
 		</header>
 
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Nav</div>
+			</div>
+		</div>
+		<br>
+
 		<div class="container">
-			<h1>Nav</h1>
-			<br>
+			<div class="display-2">
+				Default Style
+			</div>
 			<div class="header shadow">
 				<div class="nav">
 					<a href="#secondary-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -87,6 +95,123 @@
 					
 				</div>
 			</div>
+			<br><br>
+
+			<div class="display-2">
+				Material Design Theme
+			</div>
+			<div class="header header--theme-material">
+				<div class="nav">
+					<a href="#secondary-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
+					<ul class="nav-items nav-items__collapse" id="secondary-nav">
+						<li class="nav-item"><a href="#" class="nav-item-link">Home</a></li>
+						<li class="nav-item">
+							<a href="#dropdown-about" class="nav-item-link" data-toggle="dropdown">About</a>
+							<ul class="dropdown" id="dropdown-about">
+								<li><a href="">One</a></li>
+								<li><a href="">Two</a></li>
+								<li><a href="">Three</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a href="#dropdown-blog" class="nav-item-link" data-toggle="dropdown">Blog</a>
+							<ul class="dropdown" id="dropdown-blog">
+								<li><a href="">One</a></li>
+								<li><a href="">Two</a></li>
+								<li><a href="">Three</a></li>
+							</ul>
+						</li>
+						<li class="nav-item"><a href="#" class="nav-item-link">Forum</a></li>
+						<li class="nav-item"><a href="#" class="nav-item-link">Help</a></li>
+					</ul>
+					
+				</div>
+			</div>	
+
+			<br><br>
+
+			<div class="display-2">
+				Nav List
+			</div>
+	
+			<div class="col__group">
+				<div class="col-dt-4">
+
+					
+					<div class="display-1">
+						Basic List
+					</div>
+					<div class="nav__list">
+						<a class="nav__list__item" href="#">
+							<span class="nav__list__item-text">Test 0</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<span class="nav__list__item-text">Item 1</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<span class="nav__list__item-text">Item 1</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<span class="nav__list__item-text">Item 1</span>
+						</a>																		
+					</div>	
+					<br><br>
+
+					<div class="display-1">
+						With Icons
+					</div>
+					<div class="nav__list">
+						<a class="nav__list__item" href="#">
+							<i class="icon ion-md-list nav__list__item-icon"></i> 
+							<span class="nav__list__item-text">Test 0</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<i class="icon ion-md-list nav__list__item-icon"></i> 
+							<span class="nav__list__item-text">Item 1</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<i class="icon ion-md-list nav__list__item-icon"></i> 
+							<span class="nav__list__item-text">Item 1</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<i class="icon ion-md-list nav__list__item-icon"></i> 
+							<span class="nav__list__item-text">Item 1</span>
+						</a>																		
+					</div>
+					<br><br>
+
+					<div class="display-1">
+						With icons, title and description
+					</div>
+					<div class="nav__list">
+						<a class="nav__list__item" href="#">
+							<i class="icon ion-md-list nav__list__item-icon"></i> 
+							<span class="nav__list__item-text">
+								<span class="nav__list__item-title">Settings</span>
+								<span>Configure your system preferences</span>
+							</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<i class="icon ion-md-list nav__list__item-icon"></i> 
+							<span class="nav__list__item-text">Item 1</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<i class="icon ion-md-list nav__list__item-icon"></i> 
+							<span class="nav__list__item-text">Item 1</span>
+						</a>
+						<a class="nav__list__item" href="#">
+							<i class="icon ion-md-list nav__list__item-icon"></i> 
+							<span class="nav__list__item-text">Item 1</span>
+						</a>																		
+					</div>
+
+				</div>
+				<div class="col-dt-8">
+					
+				</div>
+			</div>
+			
+
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>

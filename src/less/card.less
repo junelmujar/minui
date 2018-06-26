@@ -4,9 +4,9 @@
 .card  {
 	
 	background: @card-background-color;
-	
+	box-shadow: @component-shadow;
+
 	margin-bottom: @component-bottom-margin;
-	border-radius: 2px;
 
 	p,h1,h2,h3,h4,h5,h6 {
 		&:first-child {
@@ -21,10 +21,17 @@
 
 	&__block {
 		line-height: 1.5rem;
+		form {
+			margin-bottom: 0;
+		}
 	}
 
 	&--shadow {
-		box-shadow: @component-shadow;		
+		box-shadow: @component-shadow-2dp;		
+	}
+
+	&--rounded {
+		border-radius: @component-border-radius;
 	}
 
 	&--inverse {
@@ -48,6 +55,7 @@
 		}
 	}
 
+
 	&--table {
 		& > .card__block {
 			padding: 0;
@@ -70,10 +78,16 @@
 
 	&__header {
 		border-bottom: 1px solid rgba(0,0,0,0.05);
+		&--centered {
+			text-align: center;
+		}
 	}
 
 	&__footer {
 		border-top: 1px solid rgba(0,0,0,0.1);
+		&--centered {
+			text-align: center;
+		}		
 	}
 
 	&__image {
@@ -120,7 +134,91 @@
 		.card__footer,
 		.card__block,
 		.card__header {
-			padding: 1.5rem;
+			padding: 1rem 1.5rem;
 		}
 	}	
+
+
+	&--danger {
+		background: @danger-color;
+		color: lighten(negation(@danger-color, @font-color), 20);
+		.card__header {
+			border-bottom: 1px solid rgba(0,0,0,0.15);
+			color: lighten(negation(@warning-color, @font-color), 40);
+		}		
+		.card__footer {
+			border-top: 1px solid rgba(0,0,0,0.15);
+		}		
+	}
+
+
+	&--warning {
+		background: @warning-color;
+		color: desaturate(softlight(@danger-color, @font-color), 50%);
+		.card__header {
+			border-bottom: 1px solid fade(softlight(@danger-color, @font-color), 15%);
+			color: desaturate(softlight(@danger-color, @font-color), 50%);
+		}		
+		.card__footer {
+			border-top: 1px solid fade(softlight(@danger-color, @font-color), 15%);
+		}		
+	}
+
+	&--success {
+		background: @success-color;
+		color: lighten(negation(@success-color, @font-color), 20);
+		.card__header {
+			border-bottom: 1px solid fade(softlight(@success-color, @font-color), 35%);
+			color: lighten(negation(@warning-color, @font-color), 40);
+		}		
+		.card__footer {
+			border-top: 1px solid fade(softlight(@success-color, @font-color), 35%);
+		}		
+	}	
+
+	&--primary {
+		background: @primary-color;
+		color: lighten(negation(@primary-color, @font-color), 20);
+		.card__header {
+			border-bottom: 1px solid fade(softlight(@primary-color, @font-color), 35%);
+			color: lighten(negation(@primary-color, @font-color), 40);
+		}		
+		.card__footer {
+			border-top: 1px solid fade(softlight(@primary-color, @font-color), 35%);
+		}		
+	}		
+
+	&--info {
+		background: @info-color;
+		color: lighten(multiply(@info-color, @font-color), 20);
+		.card__header {
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+			color: lighten(multiply(@info-color, @font-color), 10);
+		}		
+		.card__footer {
+			border-top: 1px solid rgba(0,0,0,0.1);
+		}		
+	}		
+
 }
+
+.card.card--theme-material {
+	&.card--rounded {
+		.card__header {
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;		
+		}
+	}
+	.card__header {
+		background: #6200EE;
+		border-bottom: 0;
+		color: #fff;
+		box-shadow: 0 2px 8px -2px rgba(0,0,0,0.5);
+		& + .card__image {
+			border: 0;
+			border-radius: 0;
+			box-shadow: inset 0 8px 8px -4px rgba(0,0,0,0.5);
+		}
+	}	
+}		
+

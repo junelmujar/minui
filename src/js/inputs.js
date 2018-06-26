@@ -6,27 +6,28 @@ const Inputs = (() => {
 
 	    constructor() {
 	    	super();
-		  	this._md_inputs = document.querySelectorAll(".form__input__group--md .form__input");
-		  	if (typeof this._md_inputs !== 'undefined' && this._md_inputs) {
+		  	this._inputs = document.querySelectorAll("form .field__input");
+		  	if (typeof this._inputs !== 'undefined' && this._inputs) {
+		  		console.log(this._inputs);
 		  		this.setup();
 			}
 	    }
 
 	    setup() {
 
-	  		this._forEach(this._md_inputs, (index, el) => {
+	  		this._forEach(this._inputs, (index, el) => {
 	  			
 				if (el.value != '' && typeof el.value !== 'undefined') {
-					el.parentNode.classList.add('form__input__group--has-value');
+					el.parentNode.classList.add('field--has-value');
 					this._forEach(el.parentNode.children, function(index, child) {
-						if (child.classList.contains('form__label')) {
-							child.classList.add('form__label--no-transition');
+						if (child.classList.contains('field_label')) {
+							child.classList.add('field_label--no-transition');
 						}
 					});
 				}	  			
 
 				el.addEventListener('click', (event) => {
-					event.target.parentNode.classList.add('form__input__group--has-value');
+					event.target.parentNode.classList.add('field--has-value');
 				});
 
 				el.addEventListener('blur', (event) => {
@@ -44,10 +45,10 @@ const Inputs = (() => {
 					}
 					
 					if (elValue == '' || typeof elValue == 'undefined') {
-						event.target.parentNode.classList.remove('form__input__group--has-value');
+						event.target.parentNode.classList.remove('field--has-value');
 						this._forEach(el.parentNode.children, function(index, child) {
-							if (child.classList.contains('form__label')) {
-								child.classList.remove('form__label--no-transition');
+							if (child.classList.contains('field_label')) {
+								child.classList.remove('field_label--no-transition');
 							}							
 						});
 					}

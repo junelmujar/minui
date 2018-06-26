@@ -11,109 +11,42 @@
 @warning-hover-color: darken(@warning-color, 10);
 @warning-ripple-color: lighten(@warning-color, 20);
 
-/* BUTTON */
 .btn {
+	.nav-component;
+	.ripple;
+
+	background: #f0f0f0;
+	color: @font-color;
 
 	display: inline-block;
 	border: none;
 	border-radius: @component-border-radius;
 
 	position: relative;
-	padding: 12px 18px;
+	padding: 0.75rem 0.95rem 0.75rem;
 
-	font-size: @font-size;
-	text-transform: uppercase;
-	cursor: pointer;
-	color: @font-color;
-
-	background-color: lighten(@default-color, 5);
-	background-position: center;
-
-	box-shadow: 0 2px 4px -2px rgba(0,0,0,0.5);
-	outline: none;	
-
-	transition: background 0.25s ease-in-out;	
+	text-align: center;
 	text-decoration: none;
 
-	* {
-		pointer-events: none;
-	}
-
-	&.small {
-		padding: 8px 10px;
-		font-size: @font-size - 2;
-	}
-
-	&.large {
-		padding: 15px 20px;
-		font-size: @font-size + 2;
-	}
-
-	&.block {
-		width: 100%;
-		display: block;
-	}
-
-	&.fab {
-	    border-radius: 50%;
-	    font-size: 24px;
-	    height: 56px;
-	    margin: auto;
-	    min-width: 56px;
-	    width: 56px;
-	    padding: 0;
-	    overflow: hidden;
-	    background: rgba(158,158,158,.2);
-	    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.24);
-	    position: relative;
-	    line-height: normal;		
-	    .fab-icon {
-	    	display: block;
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    right: 0;
-		    bottom: 0;
-		    text-align:  center;
-		    padding-top: calc(50% - 24px);
-	    }	
-	}
+	cursor: pointer;
 
 	&:hover {
-		display: inline-block;
-		// transform: translateY(-1px);
-		background: @default-hover-color radial-gradient(circle, transparent 1%, @default-hover-color 1%) center/15000%;
-	}
-
-	&:active {
-	  	background-color: @default-ripple-color;
-	  	background-size: 100%;
-	  	transition: background 0s;
+		background: @default-hover-color;
 	}
 
 	&--primary {
 		background: @primary-color;
 		color: white; 
 		&:hover {
-			background: @primary-hover-color radial-gradient(circle, transparent 1%, @primary-hover-color 1%) center/15000%;
+			background: darken(@primary-color, 10%);
 		}
-		&:active {
-		  	background-color: @primary-ripple-color;
-		  	background-size: 100%;
-		  	transition: background 0s;
-		}		
 	}
 
 	&--success {
 		background: @success-color;
 		color: white; 
 		&:hover {
-			background: @success-hover-color radial-gradient(circle, transparent 1%, @success-hover-color 1%) center/15000%;
-		}
-		&:active {
-		  	background-color: @success-ripple-color;
-		  	background-size: 100%;
-		  	transition: background 0s;
+			background: darken(@success-color, 10%);
 		}		
 	}
 
@@ -121,12 +54,7 @@
 		background: @info-color;
 		color: @font-color; 
 		&:hover {
-			background: @info-hover-color radial-gradient(circle, transparent 1%, @info-hover-color 1%) center/15000%;
-		}
-		&:active {
-		  	background-color: @info-ripple-color;
-		  	background-size: 100%;
-		  	transition: background 0s;
+			background: darken(@info-color, 10%);
 		}		
 	}
 
@@ -134,30 +62,39 @@
 		background: @danger-color;
 		color: white; 
 		&:hover {
-			background: @danger-hover-color radial-gradient(circle, transparent 1%, @danger-hover-color 1%) center/15000%;
-		}
-		&:active {
-		  	background-color: @danger-ripple-color;
-		  	background-size: 100%;
-		  	transition: background 0s;
-		}		
+			background: darken(@danger-color, 10%);
+		}				
 	}		
 
 	&--warning {
 		background: @warning-color;
 		color: white; 
 		&:hover {
-			background: @warning-hover-color radial-gradient(circle, transparent 1%, @warning-hover-color 1%) center/15000%;
-		}
-		&:active {
-		  	background-color: @warning-ripple-color;
-		  	background-size: 100%;
-		  	transition: background 0s;
+			background: darken(@warning-color, 10%);
 		}		
 	}		
 
 	&--disabled {
 		pointer-events: none;
 		color: lighten(@font-color, 30);
+	}
+
+	* {
+		pointer-events: none;
+	}
+
+	&--small {
+		padding: 8px 10px;
+		font-size: @font-size - 2;
+	}
+
+	&--large {
+		padding: 15px 20px;
+		font-size: @font-size + 2;
+	}
+
+	&--block {
+		width: 100%;
+		display: block;
 	}
 }

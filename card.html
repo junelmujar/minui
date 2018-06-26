@@ -8,15 +8,14 @@
 		<title>MinUI</title>
 		<style>
 			body {
-
-				padding-top: 80px;
+				padding-top: 45px;
 				padding-bottom: 80px;
 			}
 		</style>
 	</head>
 	<body>
 	
-		<header class="header__fixed-top header__shadow">
+		<header class="header header--fixed-top header--shadow">
 			<nav>
 				<a href="#" class="nav-brand">MINUI</a>
 				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
@@ -59,11 +58,16 @@
 			</nav>
 		</header>
 
-		<div class="container">
-			<h1>Cards</h1>
-			<br>
+		<div class="layout__header layout__header--doc-header">
+			<div class="container">
+				<div class="display-3">Cards</div>
+			</div>
+		</div>
+		<br>
 
-			<div class="display-2">Basic</div>
+		<div class="container">
+
+			<div class="display-2">Default Style</div>
 			<div class="col__group">
 				<div class="col-6">
 					<div class="card">
@@ -89,22 +93,24 @@
 
 			<div class="col__group">
 				<div class="col-6">
-					<div class="card card--shadow">
+					<div class="card card--shadow card--theme-material card--rounded">
+						<div class="card__header card__header--centered">
+							APP LOGIN
+						</div>
 						<div class="card__block">
 							<div class="card__title">Login Form</div>
-							<form class="form">
-						        <div class="form__input__group form__input__group--md">
-						        	<label class="form__label" for="name"><i class="icon ion-md-person"></i> Username</label>
-						            <input id="name" class="form__input" type="email" placeholder="Enter username" value="john.doe@mail.com" />
-						            
+							<form class="form" target="#">
+						        <div class="field field--md">
+						        	<label class="field__label" for="name"><i class="icon ion-md-person"></i> Username</label>
+						            <input id="name" class="field__input" type="email" placeholder="Enter username" value="john.doe@mail.com" />
 						        </div>
 
-						        <div class="form__input__group form__input__group--md">
-						        	<label class="form__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
-						            <input id="name1" class="form__input" type="password" placeholder="Enter password" />
+						        <div class="field field--md">
+						        	<label class="field__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+						            <input id="name1" class="field__input" type="password" placeholder="Enter password" />
 						        </div>
-								<div class="form__input__group text-center">
-									<button class="btn btn--primary large block"> Login</button>
+								<div class="field text-center">
+									<button class="btn btn--large btn--block"> Login</button>
 								</div>									    
 							</form>								    
 						</div>
@@ -113,21 +119,20 @@
 				<div class="col-6">
 					<pre>
 						<code class="language-markup">
-	<div class="card shadow-2dp">
+	<div class="card card--shadow">
 		<div class="card__block">
 			<div class="card__title">Login Form</div>
 			<form class="form">
-		        <div class="form__input__group form__input__group--md">
-		        	<label class="form__label" for="name"><i class="icon ion-md-person"></i> Username</label>
-		            <input id="name" class="form__input" type="email" placeholder="Enter username" value="john.doe@mail.com" />
+		        <div class="field field--md">
+		        	<label class="field__label" for="name"><i class="icon ion-md-person"></i> Username</label>
+		            <input id="name" class="field__input" type="email" placeholder="Enter username" value="john.doe@mail.com" />
 		            
 		        </div>
-
-		        <div class="form__input__group form__input__group--md">
-		        	<label class="form__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
-		            <input id="name1" class="form__input" type="password" placeholder="Enter password" />
+		        <div class="field field--md">
+		        	<label class="field__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+		            <input id="name1" class="field__input" type="password" placeholder="Enter password" />
 		        </div>
-				<div class="form__input__group text-center">
+				<div class="field text-center">
 					<button class="btn primary large block"> Login</button>
 				</div>									    
 			</form>								    
@@ -166,13 +171,13 @@
 			<div class="col__group">
 				<div class="col-6">
 			<div class="card">
-				<div class="card__header">
+				<div class="card__header card__header--centered">
 					Header
 				</div>
 				<div class="card__block">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</div>
-				<div class="card__footer">
+				<div class="card__footer card__footer--centered">
 					Footer
 				</div>
 			</div>				
@@ -200,13 +205,17 @@
 
 			<div class="col__group">
 				<div class="col-6">
-					<div class="card">
+					<div class="card card--theme-material card--shadow">
+						<div class="card__header">
+							A Card Header
+						</div>
 						<div class="card__image" style="background-image: url(https://placeimg.com/640/480/nature)">
 							<div class="card__image__caption card__image__caption--dark">
 								Card Image
 							</div>
 						</div>
 						<div class="card__block">
+							<div class="card__title">A Card Title</div>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae aliquid quo minima sit voluptatum saepe quos nostrum provident ex quisquam, hic, odio repellendus atque porro distinctio quae id laboriosam facilis.
 							</p>
 						</div>
