@@ -31,7 +31,7 @@ gulp.task('build-css', ['build-less'], () => {
     ] )
     .pipe( concatCss("./dist/css/minui.min.css") )
     .pipe( gulp.dest('./') )
-    .pipe( cleanCSS({compatibility: 'ie8'}) )
+    .pipe( cleanCSS() )
     .pipe( gulp.dest('./') );
 });
 

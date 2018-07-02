@@ -112,6 +112,27 @@ class Base {
 	_sendEvent(action, obj) {
 		window.dispatchEvent(new CustomEvent(action, { bubbles: true, detail: obj }));
 	}
+
+	// Ref: https://gomakethings.com/how-to-get-the-closest-parent-element-with-a-matching-selector-using-vanilla-javascript/
+	// Get the closest parent element with a matching selector
+	_getClosest(elem, selector) {
+
+		// Element.matches() polyfill
+		if (!Element.prototype.matches) {
+			Element.prototype.matches = Element.prototype.matchesSelector || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.webkitMatchesSelector || function (s) {
+				var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+				    i = matches.length;
+				while (--i >= 0 && matches.item(i) !== this) {}
+				return i > -1;
+			};
+		}
+
+		// Get the closest matching element
+		for (; elem && elem !== document; elem = elem.parentNode) {
+			if (elem.matches(selector)) return elem;
+		}
+		return null;
+	}
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Base;
 
@@ -554,6 +575,9 @@ const Dropdowns = (() => {
 
 			// Document listeners
 			document.addEventListener('click', event => {
+				if (event.target.classList.contains('menu') || event.target.parentNode.classList.contains('menu__html')) {
+					return false;
+				}
 				setTimeout(function () {
 					that.hideDropdowns(that);
 				}, 250);
@@ -654,8 +678,8 @@ const Dropdowns = (() => {
 const Navs = (() => {
 
 	const Data = {
-		TOGGLE: '[data-toggle=nav]',
-		LINK: '.nav-item-link'
+		TOGGLE: '.navbar__toggle',
+		LINK: '.nav__item-link'
 	};
 
 	class Navs extends __WEBPACK_IMPORTED_MODULE_0__base__["a" /* default */] {
@@ -667,6 +691,7 @@ const Navs = (() => {
 			// Initialize all found tabs
 			this._toggles = document.querySelectorAll(Data.TOGGLE);
 			this._links = document.querySelectorAll(Data.LINK);
+			this._activeId = '';
 
 			if (typeof this._toggles !== 'undefined' && this._toggles) {
 				this.setup();
@@ -677,119 +702,67 @@ const Navs = (() => {
 		setup() {
 
 			var that = this;
-
-			// Toggle menu on smaller devices
-			this._toggles.forEach(function (el, i) {
-				el.addEventListener('click', function (event) {
+			this._forEach(this._toggles, function (index, toggle) {
+				toggle.addEventListener('click', function (event) {
 					event.preventDefault();
-					var targetNavID = this.getAttribute('href');
-					var targetNav = document.querySelector(targetNavID);
-					event.target.classList.toggle('nav-item__active');
-					targetNav.classList.toggle('nav-items__open');
+					event.stopPropagation();
+					var targetId = event.target.getAttribute('data-id');
+					var target = document.querySelector('[for=' + targetId + ']');
+					target.classList.toggle('nav--collapsed');
 				});
 			});
 
-			// Links
-			var ctr = 1;
-			this._links.forEach((el, i) => {
-
-				var id = that._id();
-
-				el.parentNode.setAttribute('_id', id);
-				if (el.parentNode.classList.contains('nav-item__active')) {
-					that.activeId = id;
-				}
-
-				el.addEventListener('click', event => {
-
-					// Get current active nav item
-					var previous = document.querySelector('[_id=' + that.activeId + ']');
-
-					if (this.activeId == event.target.parentNode.getAttribute('_id')) {
-						event.target.parentNode.classList.toggle('nav-item__active');
-						event.target.nextElementSibling.classList.toggle('dropdown__visible');
-					} else {
-						if (previous && previous !== 'undefined') {
-							previous.classList.remove('nav-item__active');
-							if (previous.children) {
-								this._forEach(previous.children, function (index, child) {
-									if (child.classList.contains('dropdown__visible')) {
-										child.classList.remove('dropdown__visible');
-									}
-								});
-							}
+			// Dropdown
+			this._forEach(this._links, function (index, link) {
+				link.addEventListener('click', function (event) {
+					var parent = that._getClosest(event.target, '.nav__item-link');
+					if (typeof parent !== undefined && parent) {
+						var targetId = parent.getAttribute('data-id');
+						var target = document.querySelector('.nav__item-menu[for=' + targetId + ']');
+						that._activeId = targetId;
+						if (typeof target !== undefined && target) {
+							event.preventDefault();
+							event.stopPropagation();
+							target.classList.toggle('nav__item-menu--visible');
+							that.hideDropdowns();
 						}
-						event.target.parentNode.classList.toggle('nav-item__active');
-						event.target.nextElementSibling.classList.toggle('dropdown__visible');
 					}
-
-					// Set new active id
-					this.activeId = event.target.parentNode.getAttribute('_id');
 				});
 			});
 		}
 
 		hideDropdowns(ref) {
-			var navItems = document.querySelectorAll('.nav-item');
-			ref._forEach(navItems, function (index, el) {
-				if (typeof el !== 'undefined') {
-					if (el.nextElementSibling) {
-						el.classList.remove('nav-item__active');
-						if (typeof el.children !== 'undefined') {
-							ref._forEach(el.children, function (index, child) {
-								if (typeof child !== 'undefined') {
-									if (child.classList.contains('dropdown')) {
-										child.classList.remove('dropdown__visible');
-									}
-								}
-							});
-						}
-					}
+			var that = this;
+			var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
+			this._forEach(dropdowns, function (index, dropdown) {
+				var dropdownId = dropdown.getAttribute('for');
+				if (dropdownId != that._activeId) {
+					dropdown.classList.remove('nav__item-menu--visible');
 				}
 			});
 		}
 
 		bindListeners() {
-
 			var that = this;
-
-			// Hide dropdowns on Esc and document click
-			document.addEventListener('keyup', event => {
+			document.addEventListener('click', function (event) {
+				var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
+				that._forEach(dropdowns, function (index, dropdown) {
+					dropdown.classList.remove('nav__item-menu--visible');
+				});
+			});
+			document.addEventListener('keyup', function (event) {
 				if (event.keyCode == 27) {
-					this.hideDropdowns(this);
+					var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
+					that._forEach(dropdowns, function (index, dropdown) {
+						dropdown.classList.remove('nav__item-menu--visible');
+					});
 				}
 			});
-
-			document.addEventListener('click', event => {
-				this.hideDropdowns(this);
-			});
-
-			// Mobile
-			var togglers = document.querySelectorAll(Data.TOGGLE);
-			if (window.outerWidth <= 768) {
-				togglers.forEach(function (el, i) {
-					el.parentNode.classList.add('nav__collapsed');
-					el.nextElementSibling.classList.remove('nav-items__open');
-				});
-			} else {
-				togglers.forEach(function (el, i) {
-					el.parentNode.classList.remove('nav__collapsed');
-				});
-			}
-
 			window.addEventListener('resize', function (event) {
-				if (typeof event.target !== undefined) {
-					if (event.target.outerWidth <= 768) {
-						togglers.forEach(function (el, i) {
-							el.parentNode.classList.add('nav__collapsed');
-							el.nextElementSibling.classList.remove('nav-items__open');
-						});
-					} else {
-						togglers.forEach(function (el, i) {
-							el.parentNode.classList.remove('nav__collapsed');
-						});
-					}
-				}
+				var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
+				that._forEach(dropdowns, function (index, dropdown) {
+					dropdown.classList.remove('nav__item-menu--visible');
+				});
 			});
 		}
 

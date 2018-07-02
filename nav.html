@@ -13,49 +13,65 @@
 		</style>
 	</head>
 	<body>
+		<div class="navbar navbar--collapsible navbar--fixed-top navbar--shadow">
+			<div class="navbar__drawer">
+				<span class="navbar__brand">MINUI</span>
+				<a href="#" class="navbar__toggle" data-id="main-nav">
+					<i class="icon ion-ios-menu"></i>
+				</a>
+			</div>		
+			<ul class="nav nav--collapsible nav--collapsed" for="main-nav">
+				<li class="nav__item">
+					<a href="index.html" class="nav__item-link">
+						<span class="nav__item-link__text">
+							Home
+						</span>
+					</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="nav__item-link" data-id="components">
+						<span class="nav__item-link__text">
+							Components
+						</span>
+					</a>
+					<ul class="nav__item-menu visible" id="dropdown-about" for="components">
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="typo.html">Typography</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="layout.html">Layout</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="button.html">Button</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="card.html">Card</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="form.html">Form</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="table.html">Table</a></li>
+						<li class="nav__item-menu__item-divider"></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="nav.html">Nav</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="modal.html">Modal</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="tab.html">Tab</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="dropdown.html">Dropdown</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="accordion.html">Accordion</a></li>
+					</ul>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="nav__item-link" data-id="hacking">
+						<span class="nav__item-link__text">
+							Hacking
+						</span>
+					</a>
+					<ul class="nav__item-menu " id="dropdown-about" for="hacking">
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="build.html">Build</a></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="source.html">Source</a></li>
+						<li class="nav__item-menu__item-divider"></li>
+						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="attribution.html">Attributions</a></li>
+					</ul>
+				</li>
+				<li class="nav__item">
+					<a href="about.html" class="nav__item-link">
+						<span class="nav__item-link__text">
+							About
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
 	
-		<header class="header--fixed-top">
-			<nav>
-				<a href="#" class="nav-brand">MINUI</a>
-				<a href="#main-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
-				<ul class="nav-items nav-items__open" id="main-nav">
-					<li class="nav-item"><a href="index.html" class="nav-item-link">Home</a></li>
-					<li class="nav-item">
-						<a href="#dropdown-about" class="nav-item-link" data-toggle="dropdown">Components</a>
-						<ul class="dropdown" id="dropdown-about">
-							<li><a href="typo.html">Typography</a></li>
-							<li><a href="layout.html">Layout</a></li>
-							<li><a href="button.html">Button</a></li>
-							<li><a href="card.html">Card</a></li>
-							<li><a href="form.html">Form</a></li>
-							<li><a href="table.html">Table</a></li>
-							<li class="divider"></li>
-							<li><a href="nav.html">Nav</a></li>
-							<li><a href="modal.html">Modal</a></li>
-							<li><a href="tab.html">Tab</a></li>
-							<li><a href="dropdown.html">Dropdown</a></li>
-							<li><a href="accordion.html">Accordion</a></li>
-						</ul>
-					</li>
-					<li class="nav-item">
-						<a href="#dropdown-sample" class="nav-item-link" data-toggle="dropdown">Examples</a>
-						<ul class="dropdown" id="dropdown-sample">
-							<li><a href="example1.html">Kitchen Sink</a></li>
-							<li><a href="example2.html">Admin</a></li>
-							<li><a href="example3.html">Email</a></li>
-						</ul>
-					</li>					
-					<li class="nav-item">
-						<a href="#dropdown-blog" class="nav-item-link" data-toggle="dropdown">Hacking</a>
-						<ul class="dropdown" id="dropdown-blog">
-							<li><a href="build.html">Build Tools</a></li>
-							<li><a href="source.html">Source</a></li>
-						</ul>
-					</li>
-					<li class="nav-item"><a href="about.html" class="nav-item-link">About</a></li>
-				</ul>				
-			</nav>
-		</header>
 
 		<div class="layout__header layout__header--doc-header">
 			<div class="container">
@@ -65,158 +81,336 @@
 		<br>
 
 		<div class="container">
-			<div class="display-2">
-				Default Style
-			</div>
-			<div class="header shadow">
-				<div class="nav">
-					<a href="#secondary-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
-					<ul class="nav-items nav-items__collapse" id="secondary-nav">
-						<li class="nav-item"><a href="#" class="nav-item-link">Home</a></li>
-						<li class="nav-item">
-							<a href="#dropdown-about" class="nav-item-link" data-toggle="dropdown">About</a>
-							<ul class="dropdown" id="dropdown-about">
-								<li><a href="">One</a></li>
-								<li><a href="">Two</a></li>
-								<li><a href="">Three</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a href="#dropdown-blog" class="nav-item-link" data-toggle="dropdown">Blog</a>
-							<ul class="dropdown" id="dropdown-blog">
-								<li><a href="">One</a></li>
-								<li><a href="">Two</a></li>
-								<li><a href="">Three</a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a href="#" class="nav-item-link">Forum</a></li>
-						<li class="nav-item"><a href="#" class="nav-item-link">Help</a></li>
-					</ul>
-					
-				</div>
-			</div>
-			<br><br>
 
-			<div class="display-2">
-				Material Design Theme
-			</div>
-			<div class="header header--theme-material">
-				<div class="nav">
-					<a href="#secondary-nav" data-toggle="nav" class="nav-item-toggle"><i class="icon ion-md-menu"></i></a>
-					<ul class="nav-items nav-items__collapse" id="secondary-nav">
-						<li class="nav-item"><a href="#" class="nav-item-link">Home</a></li>
-						<li class="nav-item">
-							<a href="#dropdown-about" class="nav-item-link" data-toggle="dropdown">About</a>
-							<ul class="dropdown" id="dropdown-about">
-								<li><a href="">One</a></li>
-								<li><a href="">Two</a></li>
-								<li><a href="">Three</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a href="#dropdown-blog" class="nav-item-link" data-toggle="dropdown">Blog</a>
-							<ul class="dropdown" id="dropdown-blog">
-								<li><a href="">One</a></li>
-								<li><a href="">Two</a></li>
-								<li><a href="">Three</a></li>
-							</ul>
-						</li>
-						<li class="nav-item"><a href="#" class="nav-item-link">Forum</a></li>
-						<li class="nav-item"><a href="#" class="nav-item-link">Help</a></li>
-					</ul>
-					
-				</div>
-			</div>	
-
-			<br><br>
-
-			<div class="display-2">
-				Nav List
-			</div>
-	
-			<div class="col__group">
-				<div class="col-dt-4">
-
-					
-					<div class="display-1">
-						Basic List
-					</div>
-					<div class="nav__list">
-						<a class="nav__list__item" href="#">
-							<span class="nav__list__item-text">Test 0</span>
-						</a>
-						<a class="nav__list__item" href="#">
-							<span class="nav__list__item-text">Item 1</span>
-						</a>
-						<a class="nav__list__item" href="#">
-							<span class="nav__list__item-text">Item 1</span>
-						</a>
-						<a class="nav__list__item" href="#">
-							<span class="nav__list__item-text">Item 1</span>
-						</a>																		
-					</div>	
-					<br><br>
-
-					<div class="display-1">
-						With Icons
-					</div>
-					<div class="nav__list">
-						<a class="nav__list__item" href="#">
-							<i class="icon ion-md-list nav__list__item-icon"></i> 
-							<span class="nav__list__item-text">Test 0</span>
-						</a>
-						<a class="nav__list__item" href="#">
-							<i class="icon ion-md-list nav__list__item-icon"></i> 
-							<span class="nav__list__item-text">Item 1</span>
-						</a>
-						<a class="nav__list__item" href="#">
-							<i class="icon ion-md-list nav__list__item-icon"></i> 
-							<span class="nav__list__item-text">Item 1</span>
-						</a>
-						<a class="nav__list__item" href="#">
-							<i class="icon ion-md-list nav__list__item-icon"></i> 
-							<span class="nav__list__item-text">Item 1</span>
-						</a>																		
-					</div>
-					<br><br>
-
-					<div class="display-1">
-						With icons, title and description
-					</div>
-					<div class="nav__list">
-						<a class="nav__list__item" href="#">
-							<i class="icon ion-md-list nav__list__item-icon"></i> 
-							<span class="nav__list__item-text">
-								<span class="nav__list__item-title">Settings</span>
-								<span>Configure your system preferences</span>
+			<div class="navbar navbar--shadow navbar">
+				<div class="navbar__drawer">
+					<span class="navbar__text">Toolbar</span>
+					<a href="#" class="navbar__toggle" data-id="main-nav2">
+						<i class="icon ion-ios-menu"></i>
+					</a>
+				</div>		
+				<ul class="nav nav--collapsible nav--collapsed" for="main-nav2">
+					<li class="nav__item">
+						<a href="index.html" class="nav__item-link">
+							<span class="nav__item-link__text">
+								Home
 							</span>
 						</a>
-						<a class="nav__list__item" href="#">
-							<i class="icon ion-md-list nav__list__item-icon"></i> 
-							<span class="nav__list__item-text">Item 1</span>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link" data-id="components2">
+							<span class="nav__item-link__text">
+								Components
+							</span>
 						</a>
-						<a class="nav__list__item" href="#">
-							<i class="icon ion-md-list nav__list__item-icon"></i> 
-							<span class="nav__list__item-text">Item 1</span>
+						<ul class="nav__item-menu" id="dropdown-about" for="components2">
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="typo.html">Typography</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="layout.html">Layout</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="button.html">Button</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="card.html">Card</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="form.html">Form</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="table.html">Table</a></li>
+							<li class="nav__item-menu__item-divider"></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="nav.html">Nav</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="modal.html">Modal</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="tab.html">Tab</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="dropdown.html">Dropdown</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="accordion.html">Accordion</a></li>
+						</ul>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link" data-id="hacking2">
+							<span class="nav__item-link__text">
+								Hacking
+							</span>
 						</a>
-						<a class="nav__list__item" href="#">
-							<i class="icon ion-md-list nav__list__item-icon"></i> 
-							<span class="nav__list__item-text">Item 1</span>
-						</a>																		
-					</div>
-
-				</div>
-				<div class="col-dt-8">
-					
-				</div>
+						<ul class="nav__item-menu" id="dropdown-about" for="hacking2">
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="build.html">Build</a></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="source.html">Source</a></li>
+							<li class="nav__item-menu__item-divider"></li>
+							<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="attribution.html">Attributions</a></li>
+						</ul>
+					</li>
+					<li class="nav__item">
+						<a href="about.html" class="nav__item-link">
+							<span class="nav__item-link__text">
+								About
+							</span>
+						</a>
+					</li>
+				</ul>
 			</div>
+			<br>
+			<br>
+			<br>
+
+			<div class="display-1">Default Style</div>
+
+			<div class="navbar">
+			<ul class="nav">
+				<li class="nav__item">
+					<a href="index.html" class="nav__item-link">
+						<span class="nav__item-link__text">
+							Home
+						</span>
+					</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="nav__item-link">
+						<span class="nav__item-link__text">
+							Components
+						</span>
+					</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="nav__item-link">
+						<span class="nav__item-link__text">
+							Hacking
+						</span>
+					</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="nav__item-link">
+						<span class="nav__item-link__text">
+							About
+						</span>
+					</a>
+				</li>
+			</ul>
+			</div>
+			<br>
+			<br>
+			<br>
+
 			
+			<div class="display-1">
+				Material Design
+			</div>
+			<div class="navbar navbar--md">
+			<ul class="nav">
+				<li class="nav__item">
+					<a href="#" class="nav__item-link">
+						<span class="nav__item-link__text">
+							Home
+						</span>
+					</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="nav__item-link">
+						<span class="nav__item-link__text">
+							Components
+						</span>
+					</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="nav__item-link">
+						<span class="nav__item-link__text">
+							Hacking
+						</span>
+					</a>
+				</li>
+				<li class="nav__item">
+					<a href="#" class="nav__item-link">
+						<span class="nav__item-link__text">
+							About
+						</span>
+					</a>
+				</li>
+			</ul>
+			</div>
+
+			<br>
+			<br>
+			<br>
+
+			<div class="display-1">
+				With Icons
+			</div>
+			<div class="navbar navbar--shadow">
+				<ul class="nav">
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-list nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Home
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-list nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Components
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-list nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Hacking
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-list nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								About
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<br>
+			<br>
+			<br>
+
+			<div class="display-1">
+				Toolbar
+			</div>
+			<div class="navbar navbar--toolbar navbar--shadow">
+				<ul class="nav nav--icons-large">
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-list nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Home
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-clipboard nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Components
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-mail-unread nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Hacking
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-options nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								About
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<br>
+			<br>
+			<br>
+
+			<div class="display-1">
+				List with medium size icons
+			</div>
+			<div class="navbar navbar--list navbar--shadow">
+				<ul class="nav nav--icons-medium">
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-list nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Home
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-clipboard nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Components
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-mail-unread nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								Hacking
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-options nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								About
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<br>
+			<br>
+			<br>
+
+			<div class="display-1">
+				List with description, with bigger icons
+			</div>
+			<div class="navbar navbar--list navbar--shadow navbar--md">
+				<ul class="nav nav--icons-large">
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-list nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								<div class="display-1">Item</div>
+								<div class="display-0">
+									Illum maiores fugiat consectetur aperiam sapiente quaerat recusandae sed earum dolorum dolore ex quos, sit, eum unde velit quisquam labore magnam distinctio.
+								</div>
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-clipboard nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								<div class="display-1">Item</div>
+								<div class="display-0">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+								</div>
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-home nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								<div class="display-1">Item</div>
+								<div class="display-0">
+									Nulla non arcu lacinia neque faucibus fringilla. Duis pulvinar. Morbi leo mi, nonummy eget tristique non, rhoncus non leo.
+								</div>
+							</span>
+						</a>
+					</li>
+					<li class="nav__item">
+						<a href="#" class="nav__item-link">
+							<i class="icon ion-md-cog nav__item-link__icon"></i> 
+							<span class="nav__item-link__text">
+								<div class="display-1">Item</div>
+								<div class="display-0">
+									Aliquam ornare wisi eu metus. Suspendisse nisl. Nullam faucibus mi quis velit. Maecenas libero. Praesent in mauris eu tortor porttitor accumsan.
+								</div>
+							</span>
+						</a>
+					</li>
+				</ul>
+			</div>
 
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
-		<script src="dist/js/minui.min.js"></script>
+		<script src="build/js/minui.js"></script>
 
 		
 
