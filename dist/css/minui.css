@@ -1912,12 +1912,18 @@ h6.contained {
   padding: 1rem;
   font-size: 1.25rem;
 }
+.navbar .navbar__drawer .navbar__brand {
+  color: #6200EE;
+}
 .navbar .navbar__drawer .navbar__toggle {
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
   font-size: 1.75rem;
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem;
+  transition: all 0.25s;
+  border-radius: 50%;
 }
 .navbar .navbar__drawer .navbar__toggle:after {
   content: "";
@@ -1943,6 +1949,7 @@ h6.contained {
 .navbar .navbar__drawer .navbar__toggle * {
   pointer-events: none;
 }
+.navbar .navbar__drawer .navbar__toggle:focus,
 .navbar .navbar__drawer .navbar__toggle:hover {
   background: rgba(0, 0, 0, 0.05);
 }
@@ -1972,7 +1979,7 @@ h6.contained {
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.75rem 1rem;
+  padding: 1rem;
   color: #808080;
   transition: color ease 0.25s;
 }
@@ -2051,6 +2058,9 @@ h6.contained {
 .nav__item-menu__item-link:hover {
   background: rgba(0, 0, 0, 0.05);
   color: #333;
+}
+.nav__item-menu__item-divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .nav__item-menu--visible {
   display: flex;

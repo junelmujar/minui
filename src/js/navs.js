@@ -32,7 +32,7 @@ const Navs = (() => {
 					event.preventDefault();
 					event.stopPropagation();
 					var targetId = event.target.getAttribute('data-id');
-					var target = document.querySelector('[for='+targetId+']');
+					var target = document.querySelector(`[for='${targetId}'`);
 					target.classList.toggle('nav--collapsed');
 				});
 			});
@@ -43,7 +43,7 @@ const Navs = (() => {
 					var parent = that._getClosest(event.target, '.nav__item-link');
 					if (typeof parent !== undefined && parent) {
 						var targetId = parent.getAttribute('data-id');
-						var target = document.querySelector('.nav__item-menu[for='+targetId+']');
+						var target = document.querySelector(`.nav__item-menu[for=${targetId}]`);
 						that._activeId = targetId;
 						if (typeof target !== undefined && target) {
 							event.preventDefault();
@@ -77,6 +77,10 @@ const Navs = (() => {
 			});
 			document.addEventListener('keyup', function(event) {
 				if (event.keyCode == 27) {
+					var navs = document.querySelectorAll('.nav--collapsible');
+					that._forEach(navs, function(index, nav) {
+						nav.classList.add('nav--collapsed');
+					});	
 					var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
 					that._forEach(dropdowns, function(index, dropdown) {
 						dropdown.classList.remove('nav__item-menu--visible');
