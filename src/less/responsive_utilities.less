@@ -1,0 +1,54 @@
+
+.hidden-xs, .hidden-sm, .hidden-md, .hidden-lg, 
+.visible-xs, .visible-sm, .visible-md, .visible-lg {
+  display: inherit;
+}
+
+/* Small screens */
+@media (min-width: 768px) and (max-width:991px) {
+    .hidden-sm, .visible-xs, .visible-md, .visible-lg {
+        display: none !important;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 992px) and (max-width:1199px) {
+    .hidden-md, .visible-xs, .visible-sm, .visible-lg {
+        display: none !important;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .hidden-lg, .visible-xs, .visible-sm, .visible-md {
+        display: none !important;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 767px) {
+    .hidden-xs, .visible-sm, .visible-md, .visible-lg {
+        display: none !important;
+    }
+}
+
+/* Small screens */
+@media (min-width: 768px) and (max-width:991px) {
+    .hidden-sm, .visible-xs, .visible-md, .visible-lg {
+        display: none !important;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 992px) and (max-width:1199px) {
+    .hidden-md, .visible-xs, .visible-sm, .visible-lg {
+        visibility: hidden !important;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .hidden-lg, .visible-xs, .visible-sm, .visible-md {
+        visibility: hidden !important;
+    }
+}

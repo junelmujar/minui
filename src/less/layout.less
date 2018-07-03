@@ -1,0 +1,116 @@
+.layout {
+	background: rgba(0,0,0,0.1);
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	position: relative;
+	&__sidebar {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		max-width: 250px;
+		min-width: 200px;
+		overflow-y: auto;
+		box-shadow: 10px 0px 15px -10px rgba(0,0,0,0.5);
+		z-index: 1003;
+		&-header {
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+			flex-grow: 1;
+			flex-shrink: 0;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+			background: rgba(0,0,0,0.025);
+			&__title {
+				flex: 1;
+				padding: 0.625rem 0rem;
+				margin-left: 1rem;
+				font-weight: bold;
+			}			
+		}
+		&-open {
+			display: block;
+		}
+	}
+	&__content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
+		min-height: 500px;
+		background: #fff;
+		&-footer,
+		&-header {
+			flex-grow: 1;
+			flex-shrink: 0;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+			background: rgba(0,0,0,0.025);
+			&__title {
+				padding: 0.625rem 0;
+				margin-left: 0.65rem;
+			}
+		}
+		&-header {
+			border-bottom: 1px solid rgba(0,0,0,0.1);			
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+			box-shadow: 0px 5px 10px -5px rgba(0,0,0,0.1);
+		}
+		&-footer {
+			border-top: 1px solid rgba(0,0,0,0.1);
+			box-shadow: 0px -5px 10px -5px rgba(0,0,0,0.1);
+		}
+		&-block {
+			padding: 1.5rem;
+			overflow-y: auto;
+		}
+	}
+}
+
+.sidebar__toggle {
+	.ripple;
+	display: inline-block;
+	font-size: 1.75rem;
+	padding: 0.5rem 1rem;
+	color: lighten(@font-color, 20%); 
+	text-decoration: none;
+	border-right: 1px solid rgba(0, 0, 0, 0.1);
+	&:hover {
+		background: rgba(0, 0, 0, 0.025);
+		color: @font-color; 
+	}
+	* {
+		pointer-events: none;
+	}
+}
+
+
+&.layout--theme-md {
+	.layout__sidebar {
+		background: @material-color;
+		.layout__sidebar-header__title,
+		.sidebar__toggle {
+			color: #fff;
+		}		
+	}
+}
+
+
+@media (min-width: 992px) {
+	.layout {	
+		&__sidebar {
+			position: relative;	
+		}
+	}
+	.layout__sidebar--open {
+		display: block;
+
+	}
+
+}

@@ -4,6 +4,7 @@
 		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<link rel="stylesheet" href="css/prism.css">
 		<title>MinUI</title>
 		<style>
 			body {
@@ -72,38 +73,40 @@
 				</li>
 			</ul>
 		</div>
-		
+
 		<div class="layout__header layout__header--doc-header">
 			<div class="container">
-				<div class="display-3">About</div>
+				<div class="display-3">Grid System</div>
 			</div>
 		</div>
 		<br>
-
-		<div class="container">
 		
-			<p class="text__lead">
-				MINUI - A minimalist UI framework inspired by Material Design Lite and Bootstrap
-			</p>
-			<br>
+		<div class="container">
 
-			<h3>Why another UI library?</h3>
-			<p>
-				This library was created as an exercise / experiment for the author. The goal was to emulate the best bits of MD and Bootstrap in a simplified form and at the same not use jQuery for the Javascript bits.
-			</p>
-			<br>
-
-			<h3>Fork It!</h3>
-			<p>
-				Want to contribute? Feel free to fork and send me pull requests. <a href="https://github.com/junelmujar/minui" target="_blank" class="btn success small">Get MinUI</a>
-			</p>
-			
+			<pre class="section">
+			<code class="language-markup">
+	<div class="col__group">
+		<article class="col-8 col-dt-4 col-mb-8 col-dt-offset-0">
+			<div class="col__group">
+				<div class="col-6">
+					...
+				</div>
+				<div class="col-6">
+					...
+				</div>
+			</div>
+		</article>
+		<aside class="col-4 col-dt-8 col-mb-4">
+			...
+		</aside>
+	</div></code>
+			</pre>
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
 		<script src="dist/js/minui.min.js"></script>
-
+		<script src="js/prism.js"></script>
 		
 
 	</body>

@@ -4,6 +4,7 @@
 		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<link rel="stylesheet" href="css/prism.css">
 		<title>MinUI</title>
 		<style>
 			body {
@@ -72,39 +73,96 @@
 				</li>
 			</ul>
 		</div>
-		
+
 		<div class="layout__header layout__header--doc-header">
 			<div class="container">
-				<div class="display-3">About</div>
+				<div class="display-3">Attributions</div>
 			</div>
 		</div>
 		<br>
-
-		<div class="container">
 		
-			<p class="text__lead">
-				MINUI - A minimalist UI framework inspired by Material Design Lite and Bootstrap
+		<div class="container">
+			<h2>Libraries</h2>
+			<div class="display-2">
+				Positioning 
+			</div>
+			<p class="section">
+				MINUI uses <a href="https://popper.js.org" target="_blank">POPPER.JS</a> for positioning dropdown menus and tooltips.
 			</p>
 			<br>
 
-			<h3>Why another UI library?</h3>
-			<p>
-				This library was created as an exercise / experiment for the author. The goal was to emulate the best bits of MD and Bootstrap in a simplified form and at the same not use jQuery for the Javascript bits.
+			<div class="display-2">
+				Responsive Grid System
+			</div>
+			<p class="section">
+				MINUI uses the lightweight <a href="https://popper.js.org" target="_blank">Fluidable</a> grid system for your responsive layout needs.
 			</p>
 			<br>
 
-			<h3>Fork It!</h3>
-			<p>
-				Want to contribute? Feel free to fork and send me pull requests. <a href="https://github.com/junelmujar/minui" target="_blank" class="btn success small">Get MinUI</a>
+			<div class="display-2">
+				Icons
+			</div>
+			<p class="section">
+				MINUI uses the awesome <a href="https://ionicons.com/" target="_blank">Ionicons</a> by default, but feel free to use your preferred icon set.
 			</p>
-			
+			<br>
+			<br>
+
+			<h2>Code Gists</h2>
+			<div class="display-2">
+				IE/Edge Iterator alternative. forEach method, could be shipped as part of an Object Literal/Module
+			</div>
+			<p class="section">
+				<a href="https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/" target="_blank">https://toddmotto.com/ditch-the-array-foreach-call-nodelist-hack/</a>
+			</p>
+			<pre>
+			<code class="language-javascript">
+	_forEach(array, callback, scope) {
+	  	for (var i = 0; i < array.length; i++) {
+	    	callback.call(scope, i, array[i]); // passes back stuff we need
+	  	}
+	}</code>				
+			</pre>	
+			<br><br>	
+
+			<div class="display-2">Get the closest parent element with a matching selector</div>
+			<p class="section">
+			URL: <a href="https://gomakethings.com/how-to-get-the-closest-parent-element-with-a-matching-selector-using-vanilla-javascript/" target="_blank">https://gomakethings.com/how-to-get-the-closest-parent-element-with-a-matching-selector-using-vanilla-javascript/</a>
+			</p>
+			<pre>
+			<code class="language-javascript">
+	_getClosest(elem, selector) {
+
+		// Element.matches() polyfill
+		if (!Element.prototype.matches) {
+		    Element.prototype.matches =
+		        Element.prototype.matchesSelector ||
+		        Element.prototype.mozMatchesSelector ||
+		        Element.prototype.msMatchesSelector ||
+		        Element.prototype.oMatchesSelector ||
+		        Element.prototype.webkitMatchesSelector ||
+		        function(s) {
+		            var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+		                i = matches.length;
+		            while (--i >= 0 && matches.item(i) !== this) {}
+		            return i > -1;
+		        };
+		}
+
+		// Get the closest matching element
+		for ( ; elem && elem !== document; elem = elem.parentNode ) {
+			if ( elem.matches( selector ) ) return elem;
+		}
+		return null;
+
+	};
+			</code>				
+			</pre>			
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
 		<script src="dist/js/minui.min.js"></script>
-
-		
-
+		<script src="js/prism.js"></script>
 	</body>
 </html>

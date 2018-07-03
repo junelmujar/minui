@@ -1,16 +1,3 @@
-@default-hover-color: darken(@default-color, 10);
-@default-ripple-color: lighten(@default-color, 20);
-@primary-hover-color: darken(@primary-color, 10);
-@primary-ripple-color: lighten(@primary-color, 20);
-@success-hover-color: darken(@success-color, 10);
-@success-ripple-color: lighten(@success-color, 20);
-@info-hover-color: darken(@info-color, 10);
-@info-ripple-color: lighten(@info-color, 20);
-@danger-hover-color: darken(@danger-color, 10);
-@danger-ripple-color: lighten(@danger-color, 20);
-@warning-hover-color: darken(@warning-color, 10);
-@warning-ripple-color: lighten(@warning-color, 20);
-
 .btn {
 	.nav-component;
 	.ripple;
@@ -31,13 +18,15 @@
 	cursor: pointer;
 
 	&:hover {
-		background: @default-hover-color;
+		color: @font-color;
+		background: darken(#f0f0f0, 10%);
 	}
 
 	&--primary {
 		background: @primary-color;
 		color: white; 
 		&:hover {
+			color: white; 
 			background: darken(@primary-color, 10%);
 		}
 	}
@@ -46,6 +35,7 @@
 		background: @success-color;
 		color: white; 
 		&:hover {
+			color: white; 
 			background: darken(@success-color, 10%);
 		}		
 	}
@@ -62,6 +52,7 @@
 		background: @danger-color;
 		color: white; 
 		&:hover {
+			color: white; 
 			background: darken(@danger-color, 10%);
 		}				
 	}		
