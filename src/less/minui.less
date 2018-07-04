@@ -26,7 +26,12 @@ body {
     line-height: 1.5;
     color: #212529;
     text-align: left;
-    background-color: #fff;
+    background-color: #f8f8f8;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .component {
@@ -47,7 +52,6 @@ a {
 
 /* components */
 @import "fluidable.less";
-@import "typography.less";
 @import "alert.less";
 @import "button.less"; 
 @import "table.less";
@@ -59,13 +63,13 @@ a {
 @import "modal.less";
 @import "nav.less";
 @import "tab.less";
-@import "utilities.less";
 @import "layout.less";
 @import "responsive_utilities.less";
+@import "typography.less";
+@import "utilities.less";
 
 .layout__header {
 	background: #3F51B5;
-
     width: 100%;
     margin: 0;
     padding: 1rem 0;

@@ -6,7 +6,7 @@
 	&__label {
 		display: block;
 		margin-bottom: 0.25rem;
-		color: lighten(@font-color, 25%);
+		color: lighten(@font-color, 20%);
 		&--no-transition {
 			transition: none !important;
 		}
@@ -14,10 +14,14 @@
 
 	&__input {
 		border: 1px solid rgba(0,0,0,0.15);
-		border-radius: 3px;
 		display: block;
 		width: 100%; 
 		padding: 0.65rem 0.75rem;
+	}
+
+	&__text {
+		color: lighten(@font-color, 30%);
+		margin-top: 0.25rem;
 	}
 
 	&--md {
@@ -65,12 +69,21 @@
 			pointer-events:none;
 			transition: all .15s ease-in-out;
 		} 
+
 		
 	}
 
-
 	&:last-child {
 		margin-bottom: 0;
+	}
+
+	&--error {
+		.field__input {
+			border: 1px solid @danger-color;
+		}
+		.field__text {
+			color: @danger-color;
+		}
 	}
 
 }
@@ -109,7 +122,7 @@
     .field__prefix {
     	display: flex;
     	&__text {
-    		padding: 0.65rem 1rem;
+    		padding: 0.5rem 1rem;
     	}
     }
     .field__prefix {
@@ -121,6 +134,7 @@
     		border-top-left-radius: 0;
     		border-bottom-left-radius: 0;
     		box-shadow: none;
+    		padding: 0.5rem 1rem;
     	}
     }    
     .field__input {
@@ -130,6 +144,7 @@
 	    width: 1%;
 	    margin-bottom: 0;    
 	    border: 0;	
+	    padding: 0.5rem 1rem;
 	    &:last-child {
     		border-top-right-radius: 3px;
     		border-bottom-right-radius: 3px;	    	
