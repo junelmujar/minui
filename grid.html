@@ -15,13 +15,13 @@
 	</head>
 	<body>
 	
-		<div class="navbar navbar--theme-teal navbar--fixed-top" style="display: none;">
-<!-- 			<div class="navbar__drawer">
+		<div class="navbar navbar--theme-teal navbar--fixed-top">
+			<div class="navbar__drawer">
 				<span class="navbar__brand">MINUI</span>
 				<a href="#" class="navbar__toggle" data-id="main-nav">
 					<i class="icon ion-ios-menu"></i>
 				</a>
-			</div>	 -->	
+			</div>		
 			<ul class="nav nav--collapsible nav--collapsed" for="main-nav">
 				<li class="nav__item">
 					<a href="index.html" class="nav__item-link">
@@ -73,31 +73,46 @@
 				</li>
 			</ul>
 		</div>
-<!-- 
+
 		<div class="layout__header layout__header--doc-header">
 			<div class="container">
 				<div class="display-3">Grid System</div>
 			</div>
 		</div>
-		<br> -->
+		<br>
 
 		<style>
-			[class*="col"] {
-				background: #fafafa;
+			.box {
+				background: #eee;
+				text-align: center;
+				margin-bottom: 1rem;
+				padding: 1rem;
+				border: 1px solid rgba(0,0,0,0.1);
+
 			}
 		</style>
 		
 		<div class="container">
 			<div class="row">
-				<div class="col">1</div>
-				<div class="col">2</div>
-				<div class="col">3</div>
+				<div class="col"><div class="box">2</div></div>
+				<div class="col"><div class="box">2</div></div>
+				<div class="col"><div class="box">8</div></div>
 			</div>
 			<div class="row">
-				<div class="col">2</div>
-				<div class="col">3</div>
+				<div class="col col-4"><div class="box">4</div></div>
+				<div class="col col-4"><div class="box">4</div></div>
+				<div class="col col-4"><div class="box">4</div></div>
 			</div>
-
+			<div class="row">
+				<div class="col col-sm col-md"><div class="box">1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem unde officia, ut molestiae a consequuntur aliquid esse nihil eligendi facere voluptates excepturi, dolores, inventore dolorum vero, rerum neque facilis quis.</div></div>
+				<div class="col col-sm col-md"><div class="box">
+					2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error molestias excepturi voluptate velit exercitationem temporibus expedita veniam in rem dicta reprehenderit earum, mollitia eius quaerat, sint cumque quas praesentium voluptates. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam iure numquam fugit, asperiores fugiat non magnam unde, aliquid quae odit optio similique officiis id est, quam ad dicta. Ipsa, quia.
+				</div></div>
+			</div>
+			<div class="row">
+				<div class="col col-6"><div class="box">6</div></div>
+				<div class="col col-6"><div class="box">6</div></div>
+			</div>			
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
