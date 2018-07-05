@@ -17,6 +17,7 @@
 		display: block;
 		width: 100%; 
 		padding: 0.65rem 0.75rem;
+		border-radius: 3px;
 	}
 
 	&__text {
@@ -86,6 +87,14 @@
 		}
 	}
 
+	&--success {
+		.field__input {
+			border: 1px solid @success-color;
+		}
+		.field__text {
+			color: @success-color;
+		}
+	}
 }
 
 .field--md.field--has-value {

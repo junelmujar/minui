@@ -570,6 +570,7 @@ a:hover {
   display: block;
   width: 100%;
   padding: 0.65rem 0.75rem;
+  border-radius: 3px;
 }
 .field__text {
   color: #808080;
@@ -628,6 +629,12 @@ a:hover {
 }
 .field--error .field__text {
   color: #E74C3C;
+}
+.field--success .field__input {
+  border: 1px solid #689f38;
+}
+.field--success .field__text {
+  color: #689f38;
 }
 .field--md.field--has-value .field__label {
   color: #301856;
@@ -2140,4 +2147,11 @@ h6.contained {
   padding: 3rem 0 0.5rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.layout__footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  background: #39526b;
+  color: #fff;
+  padding: 2rem 0 4rem;
+  margin-top: 2rem;
 }
