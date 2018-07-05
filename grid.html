@@ -15,13 +15,13 @@
 	</head>
 	<body>
 	
-		<div class="navbar navbar--theme-teal navbar--fixed-top">
-			<div class="navbar__drawer">
+		<div class="navbar navbar--theme-teal navbar--fixed-top" style="display: none;">
+<!-- 			<div class="navbar__drawer">
 				<span class="navbar__brand">MINUI</span>
 				<a href="#" class="navbar__toggle" data-id="main-nav">
 					<i class="icon ion-ios-menu"></i>
 				</a>
-			</div>		
+			</div>	 -->	
 			<ul class="nav nav--collapsible nav--collapsed" for="main-nav">
 				<li class="nav__item">
 					<a href="index.html" class="nav__item-link">
@@ -73,34 +73,31 @@
 				</li>
 			</ul>
 		</div>
-
+<!-- 
 		<div class="layout__header layout__header--doc-header">
 			<div class="container">
 				<div class="display-3">Grid System</div>
 			</div>
 		</div>
-		<br>
+		<br> -->
+
+		<style>
+			[class*="col"] {
+				background: #fafafa;
+			}
+		</style>
 		
 		<div class="container">
-
-			<pre class="section">
-			<code class="language-markup">
-	<div class="col__group">
-		<article class="col-8 col-dt-4 col-mb-8 col-dt-offset-0">
-			<div class="col__group">
-				<div class="col-6">
-					...
-				</div>
-				<div class="col-6">
-					...
-				</div>
+			<div class="row">
+				<div class="col">1</div>
+				<div class="col">2</div>
+				<div class="col">3</div>
 			</div>
-		</article>
-		<aside class="col-4 col-dt-8 col-mb-4">
-			...
-		</aside>
-	</div></code>
-			</pre>
+			<div class="row">
+				<div class="col">2</div>
+				<div class="col">3</div>
+			</div>
+
 		</div>
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>

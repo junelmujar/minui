@@ -567,12 +567,12 @@ const Dropdowns = (() => {
 
 			// Document listeners
 			document.addEventListener('click', event => {
-				if (event.target.classList.contains('menu') || event.target.parentNode.classList.contains('menu__html')) {
-					return false;
+				if (event.target != 'html') {
+					if (event.target.classList.contains('menu') || event.target.parentNode.classList.contains('menu__html')) {
+						return false;
+					}
 				}
-				setTimeout(function () {
-					that.hideDropdowns(that);
-				}, 250);
+				that.hideDropdowns(that);
 			});
 
 			// Document listeners
