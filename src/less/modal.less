@@ -53,10 +53,11 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;  
-		align-content: flex-end;
+		align-content: center;
 		  	
+		line-height: 0rem;
     	padding: 1rem 1.5rem;
-    	font-size: 18px;
+    	font-size: 1.25rem;
     	box-shadow: 0 2px 4px -1px rgba(0,0,0,0.15);		
 
     	position: relative;
@@ -68,18 +69,20 @@
 			top: 0;
 			right: 0;
 			bottom: 0;
+			padding-top: 1.35rem;
+			width: 3rem;
 			border-left: 1px solid rgba(0,0,0,0.1);
 			display: flex;
 			align-items: center;
 			text-align: center;
 			background: rgba(0,0,0,0.025);
+			line-height: 0;
 			&:hover {
 				background: rgba(0,0,0,0.05);
 			}
 			* {
-				padding: 15px 20px;
 				color: @font-color;
-				font-size: 20px;
+				font-size: 1.25rem;
 				display: block;
 				text-align: center;
 			}
@@ -137,7 +140,6 @@
 		&__content {
 			max-width: 50%;
 			max-height: 70%;
-			border-radius: @component-border-radius;
 		}
 	}
 }
@@ -147,7 +149,6 @@
 		&__content {
 			max-width: 50%;
 			max-height: 90%;
-			border-radius: @component-border-radius;
 		}
 	}
 }
@@ -157,7 +158,6 @@
 		&__content {
 			max-width: 50%;
 			max-height: 90%;
-			border-radius: @component-border-radius;
 		}
 	}
 }
@@ -170,7 +170,6 @@
 }
 
 
-
 .modal.modal--theme-material {
 	background: rgba(4, 1, 10, 0.5);
 	.modal__content {
@@ -178,8 +177,6 @@
 			background: #6200EE;
 			border-bottom: 0;
 			box-shadow: 0 2px 5px 0px rgba(0,0,0,0.25);	
-			border-top-left-radius: 3px;
-			border-top-right-radius: 3px;
 			color: #fff;
 			.modal__dismiss {
 				transition: background 0.25s;

@@ -1130,9 +1130,10 @@ a:hover {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  align-content: flex-end;
+  align-content: center;
+  line-height: 0rem;
   padding: 1rem 1.5rem;
-  font-size: 18px;
+  font-size: 1.25rem;
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.15);
   position: relative;
   min-height: 1rem;
@@ -1142,19 +1143,21 @@ a:hover {
   top: 0;
   right: 0;
   bottom: 0;
+  padding-top: 1.35rem;
+  width: 3rem;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   text-align: center;
   background: rgba(0, 0, 0, 0.025);
+  line-height: 0;
 }
 .modal__header .modal__dismiss:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 .modal__header .modal__dismiss * {
-  padding: 15px 20px;
   color: #333;
-  font-size: 20px;
+  font-size: 1.25rem;
   display: block;
   text-align: center;
 }
@@ -1207,21 +1210,18 @@ a:hover {
   .modal__content {
     max-width: 50%;
     max-height: 70%;
-    border-radius: 3px;
   }
 }
 @media (min-width: 992px) {
   .modal__content {
     max-width: 50%;
     max-height: 90%;
-    border-radius: 3px;
   }
 }
 @media (min-width: 1200px) {
   .modal__content {
     max-width: 50%;
     max-height: 90%;
-    border-radius: 3px;
   }
 }
 /* Default styling for elements dismissing a modal; exclude those with .btn class */
@@ -1237,8 +1237,6 @@ a:hover {
   background: #6200EE;
   border-bottom: 0;
   box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.25);
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   color: #fff;
 }
 .modal.modal--theme-material .modal__content .modal__header .modal__dismiss {

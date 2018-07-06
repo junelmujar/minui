@@ -421,7 +421,6 @@ const Modals = (() => {
     class Modals extends __WEBPACK_IMPORTED_MODULE_0__base__["a" /* default */] {
 
         constructor() {
-
             super();
 
             // Initial modals and triggers
@@ -431,75 +430,81 @@ const Modals = (() => {
 
             if (typeof this._modals !== 'undefined' && this._modals) {
                 this.setup();
-                this.bindListeners();
             }
         }
 
         setup() {
 
-            var that = this;
-
-            // Toggle
+            // Show modal
             this._modalTriggers.forEach((el, i) => {
-                el.addEventListener("click", function (event) {
+                el.addEventListener("click", event => {
                     event.preventDefault();
                     event.stopImmediatePropagation();
-                    var targetModalID = '[data-modal-id=' + event.target.getAttribute('data-target') + ']';
-                    var targetModal = document.querySelector(targetModalID);
-                    document.body.classList.add("modal--shown");
-                    targetModal.classList.toggle("modal--show");
-                    that._sendEvent('minui.modal.open', event);
+                    var target = event.target.getAttribute('data-target');
+                    var modal = document.querySelector(`[data-modal-id=${target}]`);
+                    this.show(modal);
                 });
             });
 
-            // Overlay
-            this._modals.forEach((el, i) => {
-                var closeOnOverlayClick = el.getAttribute('data-close-overlay');
-                if (closeOnOverlayClick === 'true') {
-                    el.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        if (event.target.classList.contains('modal--show')) {
-                            event.target.classList.toggle("modal--show");
-                            that._sendEvent('minui.modal.overlay.dismissed', event);
-                            document.body.classList.remove("modal--shown");
-                        }
-                    });
-                }
-            });
-
-            // Dismiss triggers
+            // Hide via dismiss
             this._modalDismissTriggers.forEach((el, i) => {
                 el.addEventListener("click", event => {
                     event.preventDefault();
                     event.stopImmediatePropagation();
-                    document.querySelector(".modal.modal--show").classList.remove('modal--show');
-                    document.body.classList.remove("modal--shown");
-                    that._sendEvent('minui.modal.dismissed', event);
+                    var modal = document.querySelector(".modal--show");
+                    this.hide('dismiss', modal);
                 });
             });
-        }
 
-        bindListeners() {
-            // Document listeners
-            var that = this;
-            document.addEventListener('keyup', function (event) {
+            // Hide on ESC key
+            document.addEventListener('keyup', event => {
                 if (event.keyCode == 27) {
-                    var activeModal = document.querySelector(".modal.modal--show");
-                    if (typeof activeModal !== 'undefined' && activeModal) {
-                        var closeOnEsc = activeModal.getAttribute('data-close-esc');
-                        if (closeOnEsc === 'undefined' || closeOnEsc === 'true') {
-                            if (typeof activeModal !== 'undefined' && activeModal) {
-                                activeModal.classList.remove('modal--show');
-                                document.body.classList.remove("modal--shown");
-                                that._sendEvent('minui.modal.esc.dismissed', event);
-                            }
-                        }
-                    }
+                    var modal = document.querySelector(".modal--show");
+                    this.hide('esc', modal);
                 }
             });
         }
-    }
 
+        show(modal) {
+            // Show selected modal
+            modal.classList.add("modal--show");
+
+            // Hide on overlay click
+            modal.addEventListener("click", event => {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                if (event.target.classList.contains('modal--show')) {
+                    this.hide('overlay', modal);
+                }
+            });
+        }
+
+        hide(trigger, modal) {
+            if (typeof modal !== 'undefined' && modal) {
+                switch (trigger) {
+                    case 'dismiss':
+                        modal.classList.remove("modal--show");
+                        break;
+                    case 'esc':
+                        if (modal.hasAttribute('data-close-esc')) {
+                            var action = modal.getAttribute('data-close-esc');
+                            if (action === 'true' || action !== undefined) {
+                                modal.classList.remove("modal--show");
+                            }
+                        }
+                        break;
+                    case 'overlay':
+                        if (modal.hasAttribute('data-close-overlay')) {
+                            var action = modal.getAttribute('data-close-overlay');
+                            if (action === 'true' || action !== undefined) {
+                                modal.classList.remove("modal--show");
+                            }
+                        }
+                        break;
+                }
+            }
+        }
+    }
     return Modals;
 })();
 

@@ -8,8 +8,9 @@
 
 export default class Base {
 
-	constructor() {}
-	
+	constructor() {
+	}
+
 	/*
 		IE/Edge Iterator alternative
 		forEach method, could be shipped as part of an Object Literal/Module
