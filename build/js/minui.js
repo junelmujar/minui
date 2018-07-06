@@ -705,11 +705,14 @@ const Navs = (() => {
 			// Nav
 			this._forEach(this._toggles, function (index, toggle) {
 				toggle.addEventListener('click', function (event) {
-					event.preventDefault();
-					event.stopPropagation();
-					var targetId = event.target.getAttribute('data-id');
-					var target = document.querySelector(`[for='${targetId}'`);
-					target.classList.toggle('nav--collapsed');
+					var parent = that._getClosest(event.target, '.navbar__toggle');
+					if (typeof parent !== undefined && parent) {
+						event.preventDefault();
+						event.stopPropagation();
+						var targetId = parent.getAttribute('data-id');
+						var target = document.querySelector(`[for='${targetId}'`);
+						target.classList.toggle('nav--collapsed');
+					}
 				});
 			});
 
