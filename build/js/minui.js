@@ -714,6 +714,17 @@ const Navs = (() => {
 						target.classList.toggle('nav--collapsed');
 					}
 				});
+
+				toggle.addEventListener('touchstart', function (event) {
+					var parent = that._getClosest(event.target, '.navbar__toggle');
+					if (typeof parent !== undefined && parent) {
+						event.preventDefault();
+						event.stopPropagation();
+						var targetId = parent.getAttribute('data-id');
+						var target = document.querySelector(`[for='${targetId}'`);
+						target.classList.toggle('nav--collapsed');
+					}
+				});
 			});
 
 			// Sidebars
