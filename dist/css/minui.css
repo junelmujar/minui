@@ -1319,6 +1319,7 @@ a:hover {
   padding: 0;
   list-style: none;
   list-style-type: none;
+  height: 300px;
 }
 .nav__item-link {
   position: relative;
