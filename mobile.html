@@ -14,16 +14,44 @@
 			.hide {
 				display: none;
 			}
+			ul {
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			ul li {
+				display: flex;
+				flex-grow: 0;
+				max-width: 100px;
+				flex-direction: column;
+			}
+			ul li a {
+				position: relative;
+			}
+			ul li a .drawer {
+				position: absolute;
+				max-width: 200px;
+			}
 		</style>
 	</head>
 	<body>
-		<a href="#" id="toggle">Hide / Show</a>
-		<div id="drawer">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, quam, doloribus. Similique unde, officia perspiciatis velit rerum laborum minus voluptas cum, numquam. Ipsam ratione pariatur repellat quod omnis, delectus voluptatem?
-		</div>
+		<ul>
+			<li>
+			<a href="#" id="toggle">Hide / Show</a>
+			<div class="drawer hide">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, quam, doloribus. Similique unde, officia perspiciatis velit rerum laborum minus voluptas cum, numquam. Ipsam ratione pariatur repellat quod omnis, delectus voluptatem?
+			</div>
+			</li>
+			<li>
+				<a href="">Item</a>
+			</li>
+		</ul>
 		<script>
 			var toggle = document.querySelector('#toggle');
-			var drawer = document.querySelector('#drawer');
+			var drawer = document.querySelector('.drawer');
 			toggle.addEventListener('click', function(e) {
 				e.preventDefault();
 				drawer.classList.toggle('hide');
