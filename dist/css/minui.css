@@ -1320,6 +1320,7 @@ a:hover {
   list-style: none;
   list-style-type: none;
   height: 300px;
+  z-index: 1005;
 }
 .nav__item-link {
   position: relative;
@@ -1423,7 +1424,7 @@ a:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 .nav.nav--collapsed {
-  display: none;
+  height: 0;
   border-top: 0;
 }
 .nav.nav--collapsible {
