@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Test</title>
+		<style>
+			#toggle {
+				display: inline-block;
+				padding: 2rem;
+				background: rgba(0, 0, 0, 0.25);
+			}
+			#drawer {
+				padding: 5rem;
+				border: 1px solid #ddd;
+			}
+			.hide {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#" id="toggle">Hide / Show</a>
+		<div id="drawer">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, quam, doloribus. Similique unde, officia perspiciatis velit rerum laborum minus voluptas cum, numquam. Ipsam ratione pariatur repellat quod omnis, delectus voluptatem?
+		</div>
+		<script>
+			var toggle = document.querySelector('#toggle');
+			var drawer = document.querySelector('#drawer');
+			toggle.addEventListener('click', function(e) {
+				e.preventDefault();
+				drawer.classList.toggle('hide');
+			});
+		</script>
+	</body>
+</html>
