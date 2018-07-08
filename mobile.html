@@ -42,7 +42,13 @@
 		<script>
 			var toggle = document.querySelector('.bar__toggle');
 			var menu = document.querySelector('.bar__menu');
-			toggle.addEventListener('click', function(e) {
+			var event = 'click';
+			if ('ontouchstart' in document.documentElement === true) {
+				event = 'touchstart';
+			}
+			toggle.addEventListener(event, function(e) {
+				e.preventDefault();
+				e.stopPropagation();
 				menu.classList.toggle('visible');
 			});
 		</script>
