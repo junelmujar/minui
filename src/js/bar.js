@@ -69,8 +69,14 @@ const Bar = (() => {
 				});
 			});
 
-			document.addEventListener(this.interactEvent, (e) => {
+			var documentEvent = 'click';
+			// if ('ontouchend' in document.documentElement === true) {
+			// 	documentEvent = 'touchend';
+			// }
+			
+			document.addEventListener(documentEvent, (e) => {
 				if (!this.activeDropdown) return false;
+				e.preventDefault();
 				this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 			});
 

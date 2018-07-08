@@ -1659,6 +1659,7 @@ a:hover {
   box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid #ddd;
   background: #fff;
+  overflow-y: auto;
 }
 .bar__drawer {
   display: flex;
@@ -1718,11 +1719,17 @@ a:hover {
   display: flex;
   padding: 1rem;
 }
+.bar__menu-item__dropdown li a:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
 .bar__menu-item__dropdown--visible {
   display: flex;
 }
 .bar__menu.bar__menu--visible {
   display: flex;
+}
+.bar.bar--collapsible {
+  overflow-y: visible;
 }
 .bar.bar--collapsible .bar__menu {
   display: none;
