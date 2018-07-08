@@ -1658,6 +1658,7 @@ a:hover {
   justify-content: flex-start;
   box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid #ddd;
+  background: #fff;
 }
 .bar__drawer {
   display: flex;
@@ -1675,15 +1676,13 @@ a:hover {
   padding: 1rem;
 }
 .bar__menu {
-  flex: 1;
-  display: none;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   list-style: none;
   list-style-type: none;
   padding: 0;
   margin: 0;
   background: #fff;
-  box-shadow: 0 10px 10px -2px rgba(0, 0, 0, 0.1);
 }
 .bar__menu-item {
   flex: 1;
@@ -1691,11 +1690,20 @@ a:hover {
 .bar__menu-item__link {
   display: flex;
   padding: 1rem;
+  text-decoration: none;
+  color: #333;
 }
 .bar__menu-item__link:hover {
   background: rgba(0, 0, 0, 0.1);
 }
 .bar__menu.visible {
+  display: flex;
+}
+.bar.bar--collapsible .bar__menu {
+  display: none;
+  flex-direction: column;
+}
+.bar.bar--collapsible .bar__menu.visible {
   display: flex;
 }
 .bar.bar--fixed {
@@ -1704,6 +1712,31 @@ a:hover {
   left: 0;
   right: 0;
   width: 100%;
+}
+@media (min-width: 992px) {
+  .bar {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .bar__drawer {
+    display: flex;
+    justify-content: space-between;
+  }
+  .bar__brand {
+    flex: 1;
+    background: #eee;
+    padding: 1rem;
+  }
+  .bar__toggle {
+    display: none;
+  }
+  .bar__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 /* Tab Styles */
 .tab {
