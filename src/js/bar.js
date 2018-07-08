@@ -69,7 +69,7 @@ const Bar = (() => {
 				});
 			});
 
-			document.addEventListener('click', (e) => {
+			document.addEventListener(this.interactEvent, (e) => {
 				if (!this.activeDropdown) return false;
 				this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 			});
