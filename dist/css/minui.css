@@ -1691,7 +1691,6 @@ a:hover {
 }
 .bar__menu-item {
   flex: 1;
-  position: relative;
 }
 .bar__menu-item__link {
   display: flex;
@@ -1704,7 +1703,6 @@ a:hover {
 }
 .bar__menu-item__dropdown {
   width: 100%;
-  position: absolute;
   list-style: none;
   list-style-type: none;
   margin: 0;
@@ -1806,6 +1804,12 @@ a:hover {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+  }
+  .bar.bar--collapsible .bar__menu .bar__menu-item {
+    position: relative;
+  }
+  .bar.bar--collapsible .bar__menu .bar__menu-item .bar__menu-item__dropdown {
+    position: absolute;
   }
 }
 /* Tab Styles */

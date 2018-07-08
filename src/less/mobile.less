@@ -35,7 +35,6 @@
 		background: #fff;
 		&-item {
 			flex: 1;
-			position: relative;
 			&__link {
 				display: flex;
 				padding: 1rem;
@@ -47,7 +46,6 @@
 			}
 			&__dropdown {
 				width: 100%;
-				position: absolute;
 				list-style: none;
 				list-style-type: none;
 				margin: 0;
@@ -173,6 +171,12 @@
 			flex-direction: row;
 			justify-content: flex-start;
 			align-items: center;
+			.bar__menu-item {
+				position: relative;
+				.bar__menu-item__dropdown {
+					position: absolute;
+				}
+			}
 		}
 	}
 
