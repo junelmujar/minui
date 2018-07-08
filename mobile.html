@@ -20,13 +20,20 @@
 				<a class="bar__brand">
 					Brand
 				</a>
-				<a href="#" class="bar__toggle" data-id="nav">
+				<a href="#" class="bar__toggle" data-toggle="bar" data-id="nav">
 					Toggle
 				</a>
 			</div>
 			<ul class="bar__menu" for="nav">
 				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">One</a></li>
-				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">Two</a></li>
+				<li class="bar__menu-item">
+					<a href="#" class="bar__menu-item__link " data-toggle="bar__menu" data-id="menu1">Two</a>
+					<ul class="bar__menu-item__dropdown" for="menu1">
+						<li><a href="">1</a></li>
+						<li><a href="">2</a></li>
+						<li><a href="">3</a></li>
+					</ul>
+				</li>
 				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">Three</a></li>
 				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">Four</a></li>
 				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">Five</a></li>
@@ -38,14 +45,14 @@
 				<a class="bar__brand">
 					Brand
 				</a>
-				<a href="#" class="bar__toggle" data-id="sub">
+				<a href="#" class="bar__toggle" data-toggle="bar" data-id="sub">
 					Toggle
 				</a>
 			</div>
 			<ul class="bar__menu" for="sub">
 				<li class="bar__menu-item">
-					<a href="#" class="bar__menu-item__link">One</a>
-					<ul class="bar__menu-item__dropdown">
+					<a href="#" class="bar__menu-item__link" data-toggle="bar__menu" data-id="menu2">One</a>
+					<ul class="bar__menu-item__dropdown" for="menu2">
 						<li><a href="">1</a></li>
 						<li><a href="">2</a></li>
 						<li><a href="">3</a></li>
@@ -95,34 +102,8 @@
 
 		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
-		<script src="dist/js/minui.min.js"></script>
+		<script src="build/js/minui.js"></script>
 		<script src="js/prism.js"></script>
-		
-
-		<script>
-
-			NodeList.prototype.forEach = Array.prototype.forEach;
-			var toggles = document.querySelectorAll('.bar__toggle');
-			
-			toggles.forEach(function(toggle) {
-
-				
-				var event = 'click';
-				if ('ontouchstart' in document.documentElement === true) {
-					event = 'touchstart';
-				}
-				toggle.addEventListener(event, function(e) {
-					e.preventDefault();
-					e.stopPropagation();
-					var target = this.getAttribute('data-id');
-					var menu = document.querySelector(`[for=${target}]`);
-					console.log(menu);
-	
-					menu.classList.toggle('visible');
-				});
-			});
-			
-		</script>
 
 	</body>
 </html>

@@ -4,6 +4,7 @@ import Tabs from './tabs'
 import Modals from './modals'
 import Dropdowns from './dropdowns'
 import Navs from './navs'
+import Bar from './bar'
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -12,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function(){
 	    	callback.call(scope, i, array[i]); // passes back stuff we need
 	  	}
 	};
-
 	new Tooltips;
 	new Inputs;
 	new Tabs;
 	new Modals;
 	new Dropdowns;
 	new Navs;
+	new Bar();
 
 	function htmlEntities(str) {
 	    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

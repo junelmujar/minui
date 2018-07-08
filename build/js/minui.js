@@ -88,7 +88,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 class Base {
 
-	constructor() {}
+	constructor() {
+
+		this.interactEvent = 'click';
+		if ('ontouchstart' in document.documentElement === true) {
+			this.interactEvent = 'touchstart';
+		}
+	}
 
 	/*
  	IE/Edge Iterator alternative
@@ -141,6 +147,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__dropdowns__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__navs__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__bar__ = __webpack_require__(8);
+
 
 
 
@@ -155,13 +163,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			callback.call(scope, i, array[i]); // passes back stuff we need
 		}
 	};
-
 	new __WEBPACK_IMPORTED_MODULE_1__tooltips__["a" /* default */]();
 	new __WEBPACK_IMPORTED_MODULE_0__inputs__["a" /* default */]();
 	new __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* default */]();
 	new __WEBPACK_IMPORTED_MODULE_3__modals__["a" /* default */]();
 	new __WEBPACK_IMPORTED_MODULE_4__dropdowns__["a" /* default */]();
 	new __WEBPACK_IMPORTED_MODULE_5__navs__["a" /* default */]();
+	new __WEBPACK_IMPORTED_MODULE_6__bar__["a" /* default */]();
 
 	function htmlEntities(str) {
 		return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -801,6 +809,65 @@ const Navs = (() => {
 })();
 
 /* harmony default export */ __webpack_exports__["a"] = (Navs);
+
+/***/ }),
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base__ = __webpack_require__(0);
+
+
+NodeList.prototype.forEach = Array.prototype.forEach;
+
+const Bar = (() => {
+
+	const Data = {
+		BAR_TOGGLE: '[data-toggle=bar]',
+		BAR_MENU_TOGGLE: '[data-toggle=bar__menu]'
+	};
+
+	class Bar extends __WEBPACK_IMPORTED_MODULE_0__base__["a" /* default */] {
+
+		constructor() {
+
+			super();
+
+			// Initialize all found tabs
+			this._bar_togglers = document.querySelectorAll(Data.BAR_TOGGLE);
+			this._menu_togglers = document.querySelectorAll(Data.BAR_MENU_TOGGLE);
+			if (typeof this._bar_togglers !== 'undefined' && this._bar_togglers) {
+				this.setup();
+			}
+		}
+
+		setup() {
+			this._bar_togglers.forEach(toggle => {
+				toggle.addEventListener(this.interactEvent, e => {
+					e.preventDefault();
+					e.stopPropagation();
+					var target = e.target.getAttribute('data-id');
+					var menu = document.querySelector(`.bar__menu[for=${target}]`);
+					menu.classList.toggle('bar__menu--visible');
+				});
+			});
+
+			this._menu_togglers.forEach(toggle => {
+				toggle.addEventListener(this.interactEvent, e => {
+					e.preventDefault();
+					e.stopPropagation();
+					var target = e.target.getAttribute('data-id');
+					var menu = document.querySelector(`.bar__menu-item__dropdown[for=${target}]`);
+					menu.classList.toggle('bar__menu-item__dropdown--visible');
+				});
+			});
+		}
+	}
+
+	return Bar;
+})();
+
+/* harmony default export */ __webpack_exports__["a"] = (Bar);
 
 /***/ })
 /******/ ]);

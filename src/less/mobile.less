@@ -19,6 +19,11 @@
 		background: #ddd;
 		width: 5rem;
 		padding: 1rem;
+		text-decoration: none;
+		color: @font-color;
+		* {
+			pointer-events: none;
+		}
 	}
 	&__menu {
 		display: flex;
@@ -49,7 +54,7 @@
 				padding: 0;
 				background: #fff;
 				min-width: 150px;
-				display: flex;
+				display: none;
 				flex-direction: column;
 				z-index: 950;
 				box-shadow: 0 5px 10px -2px rgba(0,0,0,0.05);
@@ -60,23 +65,30 @@
 					}
 				}
 			}
+			&__dropdown--visible {
+				display: flex;
+			}
 		}
 	}
-	&__menu.visible {
+	&__menu.bar__menu--visible {
 		display: flex;
 	}
+
 }
 
+// Collapsible
 .bar.bar--collapsible {
 	.bar__menu {
 		display: none;
 		flex-direction: column;
 	}
-	.bar__menu.visible {
+	.bar__menu.bar__menu--visible {
 		display: flex;
 	}
 }
 
+
+// List
 .bar.bar--list {
 
 	.bar__menu {
@@ -97,6 +109,7 @@
 	}
 }
 
+// Toolbar
 .bar.bar--toolbar {
 	.bar__menu {
 		display: flex;
@@ -118,6 +131,7 @@
 	}
 }
 
+// Fixed
 .bar.bar--fixed {
 	position: fixed;
 	top: 0;
