@@ -1686,6 +1686,7 @@ a:hover {
 }
 .bar__menu-item {
   flex: 1;
+  position: relative;
 }
 .bar__menu-item__link {
   display: flex;
@@ -1695,6 +1696,24 @@ a:hover {
 }
 .bar__menu-item__link:hover {
   background: rgba(0, 0, 0, 0.1);
+}
+.bar__menu-item__dropdown {
+  width: 100%;
+  position: absolute;
+  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  z-index: 950;
+  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.05);
+}
+.bar__menu-item__dropdown li a {
+  display: flex;
+  padding: 1rem;
 }
 .bar__menu.visible {
   display: flex;
