@@ -1706,12 +1706,46 @@ a:hover {
 .bar.bar--collapsible .bar__menu.visible {
   display: flex;
 }
+.bar.bar--list .bar__menu {
+  flex-direction: column;
+  width: 100%;
+}
+.bar.bar--list .bar__menu .bar__menu-item {
+  flex: 1 0 auto;
+  width: 100%;
+}
+.bar.bar--list .bar__menu .bar__menu-item .bar__menu-item__link {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.bar.bar--list .bar__menu .bar__menu-item .bar__menu-item__link-icon {
+  width: 2rem;
+}
+.bar.bar--toolbar .bar__menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.bar.bar--toolbar .bar__menu .bar__menu-item {
+  flex: 0 0 auto;
+}
+.bar.bar--toolbar .bar__menu .bar__menu-item .bar__menu-item__link {
+  display: flex;
+  flex-direction: column;
+}
+.bar.bar--toolbar .bar__menu .bar__menu-item .bar__menu-item__link .bar__menu-item__link-icon,
+.bar.bar--toolbar .bar__menu .bar__menu-item .bar__menu-item__link .bar__menu-item__link-text {
+  flex: 1;
+  text-align: center;
+}
 .bar.bar--fixed {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
+  z-index: 1000;
 }
 @media (min-width: 992px) {
   .bar {
@@ -1719,19 +1753,28 @@ a:hover {
     justify-content: flex-start;
     align-items: center;
   }
-  .bar__drawer {
+  .bar .bar__drawer {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
-  .bar__brand {
-    flex: 1;
-    background: #eee;
-    padding: 1rem;
-  }
-  .bar__toggle {
+  .bar .bar__toggle {
     display: none;
   }
-  .bar__menu {
+  .bar .bar__menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .bar.bar--collapsible {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .bar.bar--collapsible .bar__toggle {
+    display: none;
+  }
+  .bar.bar--collapsible .bar__menu {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
