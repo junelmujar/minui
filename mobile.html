@@ -1,61 +1,51 @@
 <html>
 	<head>
-		<title>Test</title>
+		<meta name="viewport" content="initial-scale=1">
+		<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" href="dist/css/minui.min.css">
+		<link rel="stylesheet" href="css/prism.css">
+		<title>Mobile Tester</title>
 		<style>
-			#toggle {
-				display: inline-block;
-				padding: 2rem;
-				background: rgba(0, 0, 0, 0.25);
-			}
-			#drawer {
-				padding: 5rem;
-				border: 1px solid #ddd;
-			}
-			.hide {
-				display: none;
-			}
-			ul {
-				margin: 0;
-				padding: 0;
-				display: flex;
-				flex-direction: row;
-				justify-content: flex-start;
-				align-items: center;
-			}
-			ul li {
-				display: flex;
-				flex-grow: 0;
-				max-width: 100px;
-				flex-direction: column;
-			}
-			ul li a {
-				position: relative;
-			}
-			ul li a .drawer {
-				position: absolute;
-				max-width: 200px;
+			body {
+				padding-top: 45px;
+				padding-bottom: 80px;
 			}
 		</style>
 	</head>
 	<body>
-		<ul>
-			<li>
-			<a href="#" id="toggle">Hide / Show</a>
-			<div class="drawer hide">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, quam, doloribus. Similique unde, officia perspiciatis velit rerum laborum minus voluptas cum, numquam. Ipsam ratione pariatur repellat quod omnis, delectus voluptatem?
+	
+		<div class="bar bar--fixed">
+			<div class="bar__drawer">
+				<a class="bar__brand">
+					Brand
+				</a>
+				<a href="#" class="bar__toggle">
+					Toggle
+				</a>
 			</div>
-			</li>
-			<li>
-				<a href="">Item</a>
-			</li>
-		</ul>
+			<ul class="bar__menu">
+				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">One</a></li>
+				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">Two</a></li>
+				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">Three</a></li>
+				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">Four</a></li>
+				<li class="bar__menu-item"><a href="#" class="bar__menu-item__link">Five</a></li>
+			</ul>
+		</div>
+
+		<script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+		<script src="https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js"></script>
+		<script src="dist/js/minui.min.js"></script>
+		<script src="js/prism.js"></script>
+		
+
 		<script>
-			var toggle = document.querySelector('#toggle');
-			var drawer = document.querySelector('.drawer');
+			var toggle = document.querySelector('.bar__toggle');
+			var menu = document.querySelector('.bar__menu');
 			toggle.addEventListener('click', function(e) {
-				e.preventDefault();
-				drawer.classList.toggle('hide');
+				menu.classList.toggle('visible');
 			});
 		</script>
+
 	</body>
 </html>

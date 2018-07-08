@@ -1652,6 +1652,59 @@ a:hover {
     transform: translate(0px, 0px);
   }
 }
+.bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #ddd;
+}
+.bar__drawer {
+  display: flex;
+  justify-content: space-between;
+}
+.bar__brand {
+  flex: 1;
+  background: #eee;
+  padding: 1rem;
+}
+.bar__toggle {
+  flex: 0 0 auto;
+  background: #ddd;
+  width: 5rem;
+  padding: 1rem;
+}
+.bar__menu {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  box-shadow: 0 10px 10px -2px rgba(0, 0, 0, 0.1);
+}
+.bar__menu-item {
+  flex: 1;
+}
+.bar__menu-item__link {
+  display: flex;
+  padding: 1rem;
+}
+.bar__menu-item__link:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.bar__menu.visible {
+  display: flex;
+}
+.bar.bar--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
 /* Tab Styles */
 .tab {
   background: #fff;
