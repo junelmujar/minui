@@ -887,20 +887,24 @@ const Bar = (() => {
 			});
 
 			var documentEvent = 'click';
-			// if ('ontouchend' in document.documentElement === true) {
-			// 	documentEvent = 'touchend';
-			// }
+			if ('ontouchend' in document.documentElement === true) {
+				documentEvent = 'touchend';
+			}
 
 			document.addEventListener(documentEvent, e => {
-				if (!this.activeDropdown) return false;
-				e.preventDefault();
-				this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+				if (e.type == 'click') {
+					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
+						e.preventDefault();
+						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+					}
+				}
 			});
 
 			document.addEventListener('keyup', e => {
-				if (!this.activeDropdown) return false;
 				if (e.keyCode == 27) {
-					this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
+						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+					}
 				}
 			});
 		}
