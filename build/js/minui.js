@@ -901,7 +901,7 @@ const Bar = (() => {
 						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 					}
 				}
-			});
+			}, false);
 
 			document.addEventListener('keyup', e => {
 				if (e.keyCode == 27) {
