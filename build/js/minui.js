@@ -785,22 +785,22 @@ const Navs = (() => {
 					});
 				}
 			});
-			window.addEventListener('resize', function (event) {
-				var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
-				that._forEach(dropdowns, function (index, dropdown) {
-					dropdown.classList.remove('nav__item-menu--visible');
-				});
-				if (window.width < 992) {
-					console.log('oi');
-				}
-			});
-			window.addEventListener('scroll', function (e) {
-				if (window.scrollY > 65) {
-					that._fixedNav.setAttribute('style', 'box-shadow: 0 0px 30px 5px rgba(0,0,0,0.35);');
-				} else {
-					that._fixedNav.removeAttribute('style');
-				}
-			});
+			// window.addEventListener('resize', function(event) {
+			// 	var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
+			// 	that._forEach(dropdowns, function(index, dropdown) {
+			// 		dropdown.classList.remove('nav__item-menu--visible');
+			// 	});
+			// 	if (window.width < 992) {
+			// 		console.log('oi');
+			// 	}
+			// });
+			// window.addEventListener('scroll', function(e) {
+			// 	if (window.scrollY > 65) {
+			// 		that._fixedNav.setAttribute('style', 'box-shadow: 0 0px 30px 5px rgba(0,0,0,0.35);');
+			// 	} else {
+			// 		that._fixedNav.removeAttribute('style');
+			// 	}
+			// });
 		}
 
 	}
@@ -872,7 +872,7 @@ const Bar = (() => {
 					var menu = document.querySelector(`.bar__menu-item__dropdown[for=${target}]`);
 
 					if (!menu) return false;
-
+					console.log(menu);
 					if (this.activeDropdown == menu) {
 						menu.classList.toggle('bar__menu-item__dropdown--visible');
 					} else {
@@ -886,15 +886,18 @@ const Bar = (() => {
 				});
 			});
 
-			var documentEvent = 'click';
-			if ('ontouchend' in document.documentElement === true) {
-				documentEvent = 'touchend';
-			}
+			document.addEventListener('click', e => {
+				if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
+					e.preventDefault();
+					this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+				}
+			});
 
-			document.addEventListener(documentEvent, e => {
+			document.addEventListener('touchend', e => {
 				if (e.type == 'click') {
 					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
 						e.preventDefault();
+						e.stopPropagation();
 						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 					}
 				}

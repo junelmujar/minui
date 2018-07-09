@@ -105,22 +105,22 @@ const Navs = (() => {
 					});
 				}
 			});
-			window.addEventListener('resize', function(event) {
-				var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
-				that._forEach(dropdowns, function(index, dropdown) {
-					dropdown.classList.remove('nav__item-menu--visible');
-				});
-				if (window.width < 992) {
-					console.log('oi');
-				}
-			});
-			window.addEventListener('scroll', function(e) {
-				if (window.scrollY > 65) {
-					that._fixedNav.setAttribute('style', 'box-shadow: 0 0px 30px 5px rgba(0,0,0,0.35);');
-				} else {
-					that._fixedNav.removeAttribute('style');
-				}
-			});
+			// window.addEventListener('resize', function(event) {
+			// 	var dropdowns = document.querySelectorAll('.nav__item-menu--visible');
+			// 	that._forEach(dropdowns, function(index, dropdown) {
+			// 		dropdown.classList.remove('nav__item-menu--visible');
+			// 	});
+			// 	if (window.width < 992) {
+			// 		console.log('oi');
+			// 	}
+			// });
+			// window.addEventListener('scroll', function(e) {
+			// 	if (window.scrollY > 65) {
+			// 		that._fixedNav.setAttribute('style', 'box-shadow: 0 0px 30px 5px rgba(0,0,0,0.35);');
+			// 	} else {
+			// 		that._fixedNav.removeAttribute('style');
+			// 	}
+			// });
 		}
 
 	}

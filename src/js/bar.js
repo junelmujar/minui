@@ -54,7 +54,7 @@ const Bar = (() => {
 					var menu = document.querySelector(`.bar__menu-item__dropdown[for=${target}]`);
 					
 					if (!menu) return false;
-
+					console.log(menu);
 					if (this.activeDropdown == menu) {
 						menu.classList.toggle('bar__menu-item__dropdown--visible');
 					} else {
@@ -69,15 +69,18 @@ const Bar = (() => {
 				});
 			});
 
-			var documentEvent = 'click';
-			if ('ontouchend' in document.documentElement === true) {
-				documentEvent = 'touchend';
-			}
+			document.addEventListener('click', (e) => {
+				if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
+					e.preventDefault();
+					this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+				}
+			});
 
-			document.addEventListener(documentEvent, (e) => {
+			document.addEventListener('touchend', (e) => {
 				if (e.type == 'click') {
 					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
 						e.preventDefault();
+						e.stopPropagation();
 						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 					}
 				}
