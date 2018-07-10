@@ -1,39 +1,41 @@
 .bar {
+	padding: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	box-shadow: 0 5px 10px -2px rgba(0,0,0,0.05);
-	border-bottom: 1px solid #ddd;
-	background: #fff;
+	background: #fafafa;
 	overflow-y: auto;
+	box-shadow: @component-shadow;
+
 	&__drawer {
 		display: flex;
 		justify-content: space-between;
 	}
 	&__brand {
 		flex: 1;
-		background: #eee;
-		padding: 1rem;
+		padding: 0.75rem 1rem;
+		color: @font-color;
+		font-size: 1.2rem;
 	}
 	&__toggle {
 		flex: 0 0 auto;
-		background: #ddd;
-		width: 5rem;
-		padding: 1rem;
+		padding: 0.75rem 1rem;
 		text-decoration: none;
 		color: @font-color;
 		* {
 			pointer-events: none;
+			font-size: 28px;
+			color: @font-color;
 		}
 	}
 	&__menu {
+
 		display: flex;
 		flex-direction: row;
 		list-style: none;
 		list-style-type: none;
 		padding: 0;
 		margin: 0;
-		background: #fff;
 		
 		&-item {
 			flex: 1;
@@ -41,9 +43,10 @@
 				display: flex;
 				padding: 1rem;
 				text-decoration: none;
-				color: @font-color;
+				color: lighten(@font-color, 20%);
 				&:hover {
-					background: rgba(0,0,0,0.1);
+					color: @font-color;
+					background: rgba(0,0,0,0.025);
 				}
 			}
 			&__dropdown {
@@ -57,12 +60,15 @@
 				display: none;
 				flex-direction: column;
 				z-index: 950;
-				box-shadow: 0 5px 10px -2px rgba(0,0,0,0.05);
+				box-shadow: @component-shadow;
 				li {
 					a {
 						display: flex;
-						padding: 1rem;
+						padding: 0.5rem 1rem;
+						color: lighten(@font-color, 20%);
+						text-decoration: none;
 						&:hover {
+							color: @font-color;
 							background: rgba(0,0,0,0.1);
 						}
 					}
@@ -74,6 +80,7 @@
 		}
 	}
 	&__menu.bar__menu--visible {
+		border-top: 1px solid rgba(0,0,0,0.05);
 		display: flex;
 	}
 
@@ -159,6 +166,7 @@
 			display: none;
 		}
 		.bar__menu {
+			border-top: 0;
 			display: flex;
 			flex-direction: row;
 			justify-content: flex-start;
@@ -173,6 +181,7 @@
 			display: none;
 		}
 		.bar__menu {
+			border-top: 0;
 			display: flex;
 			flex-direction: row;
 			justify-content: flex-start;

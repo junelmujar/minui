@@ -1653,13 +1653,13 @@ a:hover {
   }
 }
 .bar {
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid #ddd;
-  background: #fff;
+  background: #fafafa;
   overflow-y: auto;
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25), 0px 3px 10px -5px rgba(0, 0, 0, 0.5);
 }
 .bar__drawer {
   display: flex;
@@ -1667,19 +1667,20 @@ a:hover {
 }
 .bar__brand {
   flex: 1;
-  background: #eee;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
+  color: #333;
+  font-size: 1.2rem;
 }
 .bar__toggle {
   flex: 0 0 auto;
-  background: #ddd;
-  width: 5rem;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   text-decoration: none;
   color: #333;
 }
 .bar__toggle * {
   pointer-events: none;
+  font-size: 28px;
+  color: #333;
 }
 .bar__menu {
   display: flex;
@@ -1688,7 +1689,6 @@ a:hover {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  background: #fff;
 }
 .bar__menu-item {
   flex: 1;
@@ -1697,10 +1697,11 @@ a:hover {
   display: flex;
   padding: 1rem;
   text-decoration: none;
-  color: #333;
+  color: #666666;
 }
 .bar__menu-item__link:hover {
-  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+  background: rgba(0, 0, 0, 0.025);
 }
 .bar__menu-item__dropdown {
   width: 100%;
@@ -1713,19 +1714,23 @@ a:hover {
   display: none;
   flex-direction: column;
   z-index: 950;
-  box-shadow: 0 5px 10px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25), 0px 3px 10px -5px rgba(0, 0, 0, 0.5);
 }
 .bar__menu-item__dropdown li a {
   display: flex;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  color: #666666;
+  text-decoration: none;
 }
 .bar__menu-item__dropdown li a:hover {
+  color: #333;
   background: rgba(0, 0, 0, 0.1);
 }
 .bar__menu-item__dropdown--visible {
   display: flex;
 }
 .bar__menu.bar__menu--visible {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
   display: flex;
 }
 .bar.bar--collapsible {
@@ -1793,6 +1798,7 @@ a:hover {
     display: none;
   }
   .bar .bar__menu {
+    border-top: 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -1807,6 +1813,7 @@ a:hover {
     display: none;
   }
   .bar.bar--collapsible .bar__menu {
+    border-top: 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
