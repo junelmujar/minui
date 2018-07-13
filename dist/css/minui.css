@@ -1673,10 +1673,34 @@ a:hover {
   line-height: 1.5rem;
 }
 .bar__toggle {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
   flex: 0 0 auto;
   padding: 0.75rem 1rem;
   text-decoration: none;
   color: #333;
+}
+.bar__toggle:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .25s, opacity 1s;
+}
+.bar__toggle:active:after {
+  transform: scale(0, 0);
+  opacity: .2;
+  transition: 0s;
 }
 .bar__toggle * {
   pointer-events: none;
@@ -1691,18 +1715,40 @@ a:hover {
   padding: 0;
   margin: 0;
 }
-.bar__menu-item {
-  flex: 1;
-}
 .bar__menu-item__link {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  flex: 1;
   display: flex;
   padding: 0.75rem 1rem;
   text-decoration: none;
   color: #666666;
 }
+.bar__menu-item__link:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .25s, opacity 1s;
+}
+.bar__menu-item__link:active:after {
+  transform: scale(0, 0);
+  opacity: .2;
+  transition: 0s;
+}
 .bar__menu-item__link:hover {
   color: #333;
-  background: rgba(0, 0, 0, 0.025);
+  background: rgba(0, 0, 0, 0.075);
 }
 .bar__menu-item__link--active {
   color: #333;
@@ -1721,10 +1767,35 @@ a:hover {
   z-index: 950;
 }
 .bar__menu-item__dropdown li a {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  flex-grow: 0;
   display: flex;
   padding: 0.75rem 1rem;
   color: #666666;
   text-decoration: none;
+}
+.bar__menu-item__dropdown li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .25s, opacity 1s;
+}
+.bar__menu-item__dropdown li a:active:after {
+  transform: scale(0, 0);
+  opacity: .2;
+  transition: 0s;
 }
 .bar__menu-item__dropdown li a:hover {
   color: #333;
@@ -1752,21 +1823,30 @@ a:hover {
 .bar.bar--collapsible .bar__menu.bar__menu--visible {
   display: flex;
 }
+.bar.bar--list-desc .bar__menu,
 .bar.bar--list .bar__menu {
   flex-direction: column;
   width: 100%;
 }
+.bar.bar--list-desc .bar__menu .bar__menu-item,
 .bar.bar--list .bar__menu .bar__menu-item {
   flex: 1 0 auto;
   width: 100%;
 }
+.bar.bar--list-desc .bar__menu .bar__menu-item .bar__menu-item__link,
 .bar.bar--list .bar__menu .bar__menu-item .bar__menu-item__link {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
+.bar.bar--list-desc .bar__menu .bar__menu-item .bar__menu-item__link-icon,
 .bar.bar--list .bar__menu .bar__menu-item .bar__menu-item__link-icon {
   width: 2rem;
+}
+.bar.bar--list-desc .bar__menu-item .bar__menu-item__link-icon {
+  padding: 0 2rem 0 1rem;
+  width: auto;
+  font-size: 1.5rem;
 }
 .bar.bar--toolbar .bar__menu {
   display: flex;
@@ -1831,7 +1911,6 @@ a:hover {
 }
 .bar.bar--theme-teal .bar__brand {
   color: #fff;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 407.437 407.437" style="enable-background:new 0 0 407.437 407.437;" xml:space="preserve"><polygon points="386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815"></polygon></svg>"') no-repeat;
 }
 .bar.bar--theme-teal .bar__toggle {
   color: #ddd;
@@ -1902,6 +1981,9 @@ a:hover {
     background: #fff;
     box-shadow: 0px 2px 5px -2px rgba(0, 0, 0, 0.25), 0px 3px 10px -5px rgba(0, 0, 0, 0.5);
     position: absolute;
+  }
+  .bar.bar--collapsible .bar__menu .bar__menu-item .bar__menu-item__dropdown.bar__menu-item__dropdown--visible li a {
+    padding-left: 1rem;
   }
   .bar.bar--theme-teal .bar__menu,
   .bar.bar--theme-md .bar__menu {

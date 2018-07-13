@@ -19,6 +19,7 @@
 		line-height: 1.5rem;
 	}
 	&__toggle {
+		.ripple;
 		flex: 0 0 auto;
 		padding: 0.75rem 1rem;
 		text-decoration: none;
@@ -39,15 +40,16 @@
 		margin: 0;
 		
 		&-item {
-			flex: 1;
 			&__link {
+				.ripple;
+				flex: 1;
 				display: flex;
 				padding: 0.75rem 1rem;
 				text-decoration: none;
 				color: lighten(@font-color, 20%);
 				&:hover {
 					color: @font-color;
-					background: rgba(0,0,0,0.025);
+					background: rgba(0,0,0,0.075);
 				}
 				&--active {
 					color: @font-color;
@@ -67,6 +69,8 @@
 				z-index: 950;
 				li {
 					a {
+						.ripple;
+						flex-grow: 0;
 						display: flex;
 						padding: 0.75rem 1rem;
 						color: lighten(@font-color, 20%);
@@ -109,8 +113,8 @@
 
 
 // List
+.bar.bar--list-desc,
 .bar.bar--list {
-
 	.bar__menu {
 		flex-direction: column;
 		width: 100%;
@@ -124,6 +128,18 @@
 				display: flex;
 				justify-content: flex-start;
 				align-items: center;
+			}
+		}
+	}
+}
+
+.bar.bar--list-desc {
+	.bar__menu-item {
+		.bar__menu-item__link {
+			&-icon {
+				padding: 0 2rem 0 1rem;
+				width: auto;
+				font-size: 1.5rem;
 			}
 		}
 	}
@@ -202,7 +218,6 @@
 	background: #009688;
 	.bar__brand {
 		color: #fff;
-	 	background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 407.437 407.437" style="enable-background:new 0 0 407.437 407.437;" xml:space="preserve"><polygon points="386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815"></polygon></svg>"')  no-repeat;
 	}
 	.bar__toggle {
 		color: #ddd;
@@ -236,6 +251,8 @@
 }
 
 @media (min-width: 992px) {  
+
+
 	.bar {
 		flex-direction: row;
 		justify-content: flex-start;
@@ -275,10 +292,17 @@
 					background: #fff;
 					box-shadow: @component-shadow;
 					position: absolute;
+					&.bar__menu-item__dropdown--visible {
+						li a {
+							padding-left: 1rem;
+						}
+					}
 				}
 			}
 		}
 	}
+
+
 	.bar.bar--theme-teal,
 	.bar.bar--theme-md {
 		.bar__menu {
