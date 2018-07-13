@@ -21,6 +21,7 @@ const Bar = (() => {
 	    	}
 
 	    	this.activeDropdown = null;
+	    	this.activeItem = null;
 
 			// Initialize all bar togglers
 			if (typeof this.toggle.bars !== 'undefined' && this.toggle.bars) {
@@ -48,13 +49,17 @@ const Bar = (() => {
 		setupDropdowns() {
 			this.toggle.dropdowns.forEach((toggle) => {
 				toggle.addEventListener(this.interactEvent, (e) => {
+					
 					e.preventDefault();
 					e.stopPropagation();
+
 					var target = e.target.getAttribute('data-id');
-					var menu = document.querySelector(`.bar__menu-item__dropdown[for=${target}]`);
+					var menu   = document.querySelector(`.bar__menu-item__dropdown[for=${target}]`);
 					
+					e.target.classList.add('bar__menu-item__link--active');
+
 					if (!menu) return false;
-					console.log(menu);
+				
 					if (this.activeDropdown == menu) {
 						menu.classList.toggle('bar__menu-item__dropdown--visible');
 					} else {
@@ -64,6 +69,7 @@ const Bar = (() => {
 						menu.classList.toggle('bar__menu-item__dropdown--visible');
 					}
 
+					this.activeItem     = event.target;
 					this.activeDropdown = menu;
 					
 				});
@@ -72,6 +78,7 @@ const Bar = (() => {
 			document.addEventListener('click', (e) => {
 				if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
 					e.preventDefault();
+					this.activeItem.classList.remove('bar__menu-item__link--active');
 					this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 				}
 			});
@@ -81,6 +88,7 @@ const Bar = (() => {
 					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
 						e.preventDefault();
 						e.stopPropagation();
+						this.activeItem.classList.remove('bar__menu-item__link--active');
 						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 					}
 				}
