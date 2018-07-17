@@ -874,7 +874,7 @@ const Bar = (() => {
 					var target = e.target.getAttribute('data-id');
 					var menu = document.querySelector(`.bar__menu-item__dropdown[for=${target}]`);
 
-					e.target.classList.add('bar__menu-item__link--active');
+					e.target.classList.toggle('bar__menu-item__link--active');
 
 					if (!menu) return false;
 
