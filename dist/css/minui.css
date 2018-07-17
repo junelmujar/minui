@@ -1857,6 +1857,7 @@ a:hover {
   align-items: center;
 }
 .bar.bar--list-desc .bar__menu .bar__menu-item .bar__menu-item__link-icon {
+  flex-shrink: 0;
   width: 4rem;
   font-size: 32px;
   margin-right: 0.5rem;
@@ -1993,6 +1994,7 @@ a:hover {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    background: none;
   }
   .bar.bar--collapsible .bar__menu .bar__menu-item {
     position: relative;
