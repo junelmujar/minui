@@ -39,8 +39,9 @@ const Bar = (() => {
 				toggle.addEventListener(this.interactEvent, (e) => {
 					e.preventDefault();
 					e.stopPropagation();
-					var target = e.target.getAttribute('data-id');
-					var menu = document.querySelector(`.bar__menu[for=${target}]`);
+					var parent = this._getClosest(e.target, '.bar__toggle');
+					var target = parent.getAttribute('data-id');
+					var menu   = document.querySelector(`.bar__menu[for=${target}]`);
 					menu.classList.toggle('bar__menu--visible');
 				});
 			});
