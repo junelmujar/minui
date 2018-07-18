@@ -88,8 +88,8 @@ const Bar = (() => {
 			document.addEventListener('touchend', (e) => {
 				if (e.type == 'click') {
 					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
-						e.preventDefault();
-						e.stopPropagation();
+						// e.preventDefault();
+						// e.stopPropagation();
 						this.activeItem.classList.remove('bar__menu-item__link--active');
 						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 					}
