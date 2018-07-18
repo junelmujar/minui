@@ -849,6 +849,7 @@ const Bar = (() => {
 			// Initialize all bar.dropdown togglers
 			if (typeof this.toggle.dropdowns !== 'undefined' && this.toggle.dropdowns) {
 				this.setupDropdowns();
+				this.setupEventListeners();
 			}
 		}
 
@@ -895,33 +896,43 @@ const Bar = (() => {
 					}
 				});
 			});
+		}
 
+		setupEventListeners() {
 			window.addEventListener('click', e => {
-				this.collapseActiveDropdown(e.target);
+				this.collapseActiveDropdown();
+				this.collapseActiveNavBar();
 			});
 
 			var that = this;
 			window.addEventListener('touchstart', function onFirstTouch(e) {
-				that.collapseActiveDropdown(e.target);
+				that.collapseActiveDropdown();
+				that.collapseActiveNavBar();
 				window.removeEventListener('touchstart', onFirstTouch, { capture: false });
 			}, { capture: false });
 
 			document.addEventListener('keyup', e => {
 				if (e.keyCode == 27) {
-					this.collapseActiveDropdown(e.target);
+					this.collapseActiveDropdown();
+					that.collapseActiveNavBar();
 				}
 			});
 		}
 
-		collapseActiveDropdown(target) {
-			var parent = this._getClosest(target, '.bar__menu-item');
-			if (!parent) {
-				var activeLink = document.querySelector(`.bar__menu-item__link--active`);
-				var activeMenu = document.querySelector(`.bar__menu-item__dropdown--visible`);
-				if (typeof activeMenu !== undefined && activeMenu) {
-					activeLink.classList.remove('bar__menu-item__link--active');
-					activeMenu.classList.remove('bar__menu-item__dropdown--visible');
-				}
+		collapseActiveDropdown() {
+			var activeLink = document.querySelector(`.bar__menu-item__link--active`);
+			var activeMenu = document.querySelector(`.bar__menu-item__dropdown--visible`);
+			if (activeMenu && activeLink) {
+				activeLink.classList.remove('bar__menu-item__link--active');
+				activeMenu.classList.remove('bar__menu-item__dropdown--visible');
+			}
+		}
+
+		collapseActiveNavBar() {
+			var activeNavBar = document.querySelector(`.bar__menu--visible`);
+			console.log(activeNavBar);
+			if (activeNavBar) {
+				activeNavBar.classList.remove('bar__menu--visible');
 			}
 		}
 	}
