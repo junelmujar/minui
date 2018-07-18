@@ -85,7 +85,18 @@ const Bar = (() => {
 				}
 			});
 
-			document.addEventListener('touchend', (e) => {
+			// document.addEventListener('touchend', (e) => {
+			// 	if (e.type == 'click') {
+			// 		if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
+			// 			// e.preventDefault();
+			// 			// e.stopPropagation();
+			// 			this.activeItem.classList.remove('bar__menu-item__link--active');
+			// 			this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+			// 		}
+			// 	}
+			// }, false);
+
+			document.addEventListener('touchstart', function onFirstTouch(e) {
 				if (e.type == 'click') {
 					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
 						// e.preventDefault();
@@ -94,7 +105,9 @@ const Bar = (() => {
 						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 					}
 				}
-			}, false);
+
+				document.removeEventListener('touchstart', onFirstTouch, false);
+			}, false);			
 
 // window.addEventListener('touchstart', function onFirstTouch() {
 //   // we could use a class

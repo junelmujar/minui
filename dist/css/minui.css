@@ -1949,7 +1949,7 @@ a:hover {
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1500;
 }
 .bar.bar--theme-md {
   background: #6200EE;
