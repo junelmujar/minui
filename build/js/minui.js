@@ -914,7 +914,8 @@ const Bar = (() => {
 			// 	}
 			// }, false);
 
-			document.addEventListener('touchstart', function onFirstTouch(e) {
+			window.addEventListener('touchstart', function onFirstTouch(e) {
+				console.log('io');
 				if (e.type == 'click') {
 					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
 						// e.preventDefault();
@@ -924,7 +925,7 @@ const Bar = (() => {
 					}
 				}
 
-				document.removeEventListener('touchstart', onFirstTouch, false);
+				window.removeEventListener('touchstart', onFirstTouch, false);
 			}, false);
 
 			// window.addEventListener('touchstart', function onFirstTouch() {
