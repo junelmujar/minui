@@ -896,44 +896,33 @@ const Bar = (() => {
 				});
 			});
 
-			// document.addEventListener('click', (e) => {
-			// 	if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
-			// 		this.activeItem.classList.remove('bar__menu-item__link--active');
-			// 		this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
-			// 	}
-			// });
+			window.addEventListener('click', e => {
+				this.collapseActiveDropdown(e.target);
+			});
 
-			// document.addEventListener('touchend', (e) => {
-			// 	if (e.type == 'click') {
-			// 		if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
-			// 			// e.preventDefault();
-			// 			// e.stopPropagation();
-			// 			this.activeItem.classList.remove('bar__menu-item__link--active');
-			// 			this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
-			// 		}
-			// 	}
-			// }, false);
 			var that = this;
 			window.addEventListener('touchstart', function onFirstTouch(e) {
-				var parent = that._getClosest(e.target, '.bar__menu-item');
-				if (!parent) {
-					var activeLink = document.querySelector(`.bar__menu-item__link--active`);
-					var activeMenu = document.querySelector(`.bar__menu-item__dropdown--visible`);
-					if (typeof activeMenu !== undefined && activeMenu) {
-						activeLink.classList.remove('bar__menu-item__link--active');
-						activeMenu.classList.remove('bar__menu-item__dropdown--visible');
-					}
-				}
-				window.removeEventListener('touchstart', onFirstTouch, false);
-			}, { capture: true });
+				that.collapseActiveDropdown(e.target);
+				window.removeEventListener('touchstart', onFirstTouch, { capture: false });
+			}, { capture: false });
 
 			document.addEventListener('keyup', e => {
 				if (e.keyCode == 27) {
-					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
-						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
-					}
+					this.collapseActiveDropdown(e.target);
 				}
 			});
+		}
+
+		collapseActiveDropdown(target) {
+			var parent = this._getClosest(target, '.bar__menu-item');
+			if (!parent) {
+				var activeLink = document.querySelector(`.bar__menu-item__link--active`);
+				var activeMenu = document.querySelector(`.bar__menu-item__dropdown--visible`);
+				if (typeof activeMenu !== undefined && activeMenu) {
+					activeLink.classList.remove('bar__menu-item__link--active');
+					activeMenu.classList.remove('bar__menu-item__dropdown--visible');
+				}
+			}
 		}
 	}
 
