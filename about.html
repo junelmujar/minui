@@ -14,62 +14,46 @@
 	</head>
 	<body>
 	
-		<div class="navbar navbar--theme-teal navbar--fixed-top">
-			<div class="navbar__drawer">
-				<span class="navbar__brand">MINUI</span>
-				<a href="#" class="navbar__toggle" data-id="main-nav">
-					<i class="icon ion-ios-menu"></i>
+		<div class="bar bar--collapsible bar--fixed bar--theme-teal">
+			<div class="bar__drawer">
+				<a class="bar__brand">
+					MINUI
 				</a>
-			</div>		
-			<ul class="nav nav--collapsible nav--collapsed" for="main-nav">
-				<li class="nav__item">
-					<a href="index.html" class="nav__item-link">
-						<span class="nav__item-link__text">
-							Home
-						</span>
+				<a href="#" class="bar__toggle" data-toggle="bar" data-id="nav">
+					<i class="icon ion-md-menu"></i>
+				</a>
+			</div>
+			<ul class="bar__menu" for="nav">
+				<li class="bar__menu-item"><a href="index.html" class="bar__menu-item__link">Home</a></li>
+				<li class="bar__menu-item">
+					<a href="#" class="bar__menu-item__link" data-toggle="bar__menu" data-id="components">
+						Components
 					</a>
-				</li>
-				<li class="nav__item">
-					<a href="#" class="nav__item-link" data-id="components">
-						<span class="nav__item-link__text">
-							Components
-						</span>
-					</a>
-					<ul class="nav__item-menu visible" id="dropdown-about" for="components">
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="typo.html">Typography</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="grid.html">Grid System</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="button.html">Button</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="card.html">Card</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="inputs.html">Inputs</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="table.html">Table</a></li>
-						<li class="nav__item-menu__item-divider"></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="nav.html">Nav</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="modal.html">Modal</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="tab.html">Tab</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="dropdown.html">Dropdown</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="sidebar.html">Layout & Sidebar</a></li>
+					<ul class="bar__menu-item__dropdown" for="components">
+						<li class=""><a class="" href="typo.html">Typography</a></li>
+						<li class=""><a class="" href="grid.html">Grid System</a></li>
+						<li class=""><a class="" href="button.html">Button</a></li>
+						<li class=""><a class="" href="card.html">Card</a></li>
+						<li class=""><a class="" href="inputs.html">Inputs</a></li>
+						<li class=""><a class="" href="table.html">Table</a></li>
+						<li class=""></li>
+						<li class=""><a class="" href="nav.html">Nav</a></li>
+						<li class=""><a class="" href="modal.html">Modal</a></li>
+						<li class=""><a class="" href="tab.html">Tab</a></li>
+						<li class=""><a class="" href="dropdown.html">Dropdown</a></li>
+						<li class=""><a class="" href="sidebar.html">Layout & Sidebar</a></li>
 					</ul>
 				</li>
-				<li class="nav__item">
-					<a href="#" class="nav__item-link" data-id="hacking">
-						<span class="nav__item-link__text">
-							Hacking
-						</span>
-					</a>
-					<ul class="nav__item-menu " id="dropdown-about" for="hacking">
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="build.html">Build</a></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="source.html">Source</a></li>
-						<li class="nav__item-menu__item-divider"></li>
-						<li class="nav__item-menu__item"><a class="nav__item-menu__item-link" href="attribution.html">Attributions</a></li>
+				<li class="bar__menu-item">
+					<a href="#" class="bar__menu-item__link" data-toggle="bar__menu" data-id="hacking">Hacking</a>
+					<ul class="bar__menu-item__dropdown" for="hacking">
+						<li class=""><a class="" href="build.html">Build</a></li>
+						<li class=""><a class="" href="source.html">Source</a></li>
+						<li class=""></li>
+						<li class=""><a class="" href="attribution.html">Attributions</a></li>						
 					</ul>
 				</li>
-				<li class="nav__item">
-					<a href="about.html" class="nav__item-link">
-						<span class="nav__item-link__text">
-							About
-						</span>
-					</a>
-				</li>
+				<li class="bar__menu-item"><a href="about.html" class="bar__menu-item__link">About</a></li>
 			</ul>
 		</div>
 		

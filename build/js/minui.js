@@ -857,7 +857,8 @@ const Bar = (() => {
 				toggle.addEventListener(this.interactEvent, e => {
 					e.preventDefault();
 					e.stopPropagation();
-					var target = e.target.getAttribute('data-id');
+					var parent = this._getClosest(e.target, '.bar__toggle');
+					var target = parent.getAttribute('data-id');
 					var menu = document.querySelector(`.bar__menu[for=${target}]`);
 					menu.classList.toggle('bar__menu--visible');
 				});
@@ -867,34 +868,36 @@ const Bar = (() => {
 		setupDropdowns() {
 			this.toggle.dropdowns.forEach(toggle => {
 				toggle.addEventListener(this.interactEvent, e => {
+					var isToggle = e.target.getAttribute('data-toggle') === 'bar__menu';
 
-					e.preventDefault();
-					e.stopPropagation();
+					if (isToggle) {
+						e.preventDefault();
+						e.stopPropagation();
 
-					var target = e.target.getAttribute('data-id');
-					var menu = document.querySelector(`.bar__menu-item__dropdown[for=${target}]`);
+						var target = e.target.getAttribute('data-id');
+						var menu = document.querySelector(`.bar__menu-item__dropdown[for=${target}]`);
 
-					e.target.classList.toggle('bar__menu-item__link--active');
+						e.target.classList.toggle('bar__menu-item__link--active');
 
-					if (!menu) return false;
+						if (!menu) return false;
 
-					if (this.activeDropdown == menu) {
-						menu.classList.toggle('bar__menu-item__dropdown--visible');
-					} else {
-						if (this.activeDropdown) {
-							this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+						if (this.activeDropdown == menu) {
+							menu.classList.toggle('bar__menu-item__dropdown--visible');
+						} else {
+							if (this.activeDropdown) {
+								this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
+							}
+							menu.classList.toggle('bar__menu-item__dropdown--visible');
 						}
-						menu.classList.toggle('bar__menu-item__dropdown--visible');
-					}
 
-					this.activeItem = event.target;
-					this.activeDropdown = menu;
+						this.activeItem = event.target;
+						this.activeDropdown = menu;
+					}
 				});
 			});
 
 			document.addEventListener('click', e => {
 				if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
-					e.preventDefault();
 					this.activeItem.classList.remove('bar__menu-item__link--active');
 					this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 				}
