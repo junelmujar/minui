@@ -79,6 +79,8 @@
 				display: none;
 				flex-direction: column;
 				z-index: 950;
+				max-height: 300px;
+				overflow-y: auto;
 
 				li {
 					list-style: none;
@@ -363,7 +365,6 @@
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
-
 		.bar__drawer {
 			display: flex;
 			justify-content: flex-start;
@@ -376,9 +377,6 @@
 			display: flex;
 			flex-direction: row;
 			justify-content: flex-start;
-			.bar__menu-item {
-				
-			}
 		}
 	}
 
@@ -398,12 +396,21 @@
 			background: none;
 			.bar__menu-item {
 				position: relative;
-
 				.bar__menu-item__dropdown {
+					display: flex;
+					opacity: 0;
+					visibility: hidden;					
 					background: #fff;
 					box-shadow: @component-shadow;
 					position: absolute;
-					&.bar__menu-item__dropdown--visible {
+					max-height: 999px;
+					overflow-y: hidden;
+					transition: all ease 0.2s;
+					transform: translate(0px, -4px);
+					&--visible {
+						opacity: 1;
+						visibility: visible;						
+						transform: translate(0px, 0px);
 						li a {
 							color: lighten(@font-color, 15%);
 							padding-left: 1rem;
