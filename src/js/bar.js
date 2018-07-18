@@ -97,32 +97,14 @@ const Bar = (() => {
 			// }, false);
 
 			window.addEventListener('touchstart', function onFirstTouch(e) {
-				console.log('io');
-				if (e.type == 'click') {
+				//if (e.type == 'click') {
 					if (typeof this.activeDropdown !== undefined && this.activeDropdown) {
-						// e.preventDefault();
-						// e.stopPropagation();
 						this.activeItem.classList.remove('bar__menu-item__link--active');
 						this.activeDropdown.classList.remove('bar__menu-item__dropdown--visible');
 					}
-				}
-
+				//}
 				window.removeEventListener('touchstart', onFirstTouch, false);
-			}, false);			
-
-// window.addEventListener('touchstart', function onFirstTouch() {
-//   // we could use a class
-//   document.body.classList.add('user-is-touching');
-
-//   // or set some global variable
-//   window.USER_IS_TOUCHING = true;
-
-//   // or set your app's state however you normally would
-//   myFrameworkOfChoice.dispatchEvent('USER_IS_TOUCHING', true);
-
-//   // we only need to know once that a human touched the screen, so we can stop listening now
-//   window.removeEventListener('touchstart', onFirstTouch, false);
-// }, false);
+			}, { capture: true });			
 
 			document.addEventListener('keyup', (e) => {
 				if (e.keyCode == 27) {
