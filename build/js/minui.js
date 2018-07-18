@@ -908,7 +908,7 @@ const Bar = (() => {
 			window.addEventListener('touchstart', function onFirstTouch(e) {
 				that.collapseActiveDropdown();
 				that.collapseActiveNavBar();
-				//window.removeEventListener('touchstart', onFirstTouch, { capture: false });
+				window.removeEventListener('touchstart', onFirstTouch, { capture: false });
 			}, { capture: false });
 
 			document.addEventListener('keyup', e => {
