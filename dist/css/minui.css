@@ -289,7 +289,7 @@ a:hover {
 .section {
   border-radius: 3px;
   margin-bottom: 20px;
-  background: #eaeaea;
+  background: #dddddd;
   color: #333;
   padding: 1rem;
 }
@@ -311,6 +311,9 @@ a:hover {
 }
 .section--pad-large {
   padding: 2.5rem;
+}
+.section--light {
+  background: #fff;
 }
 .alert {
   border-radius: 3px;
@@ -362,10 +365,13 @@ a:hover {
   border: none;
   border-radius: 3px;
   position: relative;
-  padding: 0.75rem 0.95rem 0.75rem;
+  padding: 0.5rem 0.95rem 0.5rem;
+  line-height: 1.75rem;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  transition: all ease 0.1s;
+  transform: translate(0px, 0px);
 }
 .btn:after {
   content: "";
@@ -391,6 +397,7 @@ a:hover {
 .btn:hover {
   color: #333;
   background: #d7d7d7;
+  transform: translate(0px, -1px);
 }
 .btn--primary {
   background: #1875d1;
@@ -408,13 +415,6 @@ a:hover {
   color: white;
   background: #4f792b;
 }
-.btn--info {
-  background: #b3e5fc;
-  color: #333;
-}
-.btn--info:hover {
-  background: #82d4fa;
-}
 .btn--danger {
   background: #E74C3C;
   color: white;
@@ -425,10 +425,11 @@ a:hover {
 }
 .btn--warning {
   background: #f9a825;
-  color: white;
+  color: #f2f2f2;
 }
 .btn--warning:hover {
-  background: #e59006;
+  color: #fff;
+  background: #f89e0c;
 }
 .btn--disabled {
   pointer-events: none;
@@ -447,6 +448,9 @@ a:hover {
 }
 .btn--block {
   display: block;
+}
+.btn[data-toggle=dropdown] {
+  transform: translate(0px, 0px);
 }
 .table {
   background: #fff;
@@ -1099,7 +1103,7 @@ a:hover {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1010;
+  z-index: 1600;
   transition: all ease-in-out 0.25s;
 }
 .modal__dismiss {
@@ -1110,6 +1114,7 @@ a:hover {
   opacity: 0;
   visibility: hidden;
   background: white;
+  border-radius: 3px;
   max-height: 100%;
   max-width: 100%;
   transform: scale(1.1);
@@ -1137,6 +1142,8 @@ a:hover {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.15);
   position: relative;
   min-height: 1rem;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 .modal__header .modal__dismiss {
   position: absolute;
@@ -1151,6 +1158,7 @@ a:hover {
   text-align: center;
   background: rgba(0, 0, 0, 0.025);
   line-height: 0;
+  border-top-right-radius: 3px;
 }
 .modal__header .modal__dismiss:hover {
   background: rgba(0, 0, 0, 0.05);
@@ -1818,7 +1826,10 @@ a:hover {
 }
 .bar__menu-item__dropdown li a:hover {
   color: #333;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.1);
+}
+.bar__menu-item__divider {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 .bar__menu-item__dropdown--visible {
   display: flex;

@@ -13,7 +13,7 @@
 	position: fixed;
 	top: 0; left: 0; right: 0; bottom: 0;
 	background: rgba(0,0,0,0.5);
-	z-index: 1010;
+	z-index: 1600;
 	transition: all ease-in-out 0.25s;
 	
 	&__dismiss {
@@ -27,7 +27,8 @@
 		visibility: hidden;    	
 		
 		background:white;
-		
+		border-radius: 3px;
+
 		max-height: 100%;
 		max-width: 100%;
 		transform: scale(1.1);
@@ -61,8 +62,10 @@
     	box-shadow: 0 2px 4px -1px rgba(0,0,0,0.15);		
 
     	position: relative;
-
     	min-height: 1rem;
+
+    	border-top-left-radius: 3px;
+    	border-top-right-radius: 3px;
 
     	.modal__dismiss {
 			position: absolute;
@@ -77,6 +80,7 @@
 			text-align: center;
 			background: rgba(0,0,0,0.025);
 			line-height: 0;
+			border-top-right-radius: 3px;
 			&:hover {
 				background: rgba(0,0,0,0.05);
 			}

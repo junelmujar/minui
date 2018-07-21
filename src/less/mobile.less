@@ -96,11 +96,16 @@
 						text-decoration: none;
 						&:hover {
 							color: @font-color;
-							background: rgba(0,0,0,0.05);
+							background: rgba(0,0,0,0.1);
 						}
 					}
 				}
 			}
+
+			&__divider {
+				border-top: 1px solid rgba(0,0,0,0.10);
+			}
+
 			&__dropdown--visible {
 				display: flex;
 				border-top: 1px solid rgba(0,0,0,0.05);
@@ -111,6 +116,7 @@
 				}
 			}
 		}
+
 	}
 	&__menu.bar__menu--visible {
 		border-top: 1px solid rgba(0,0,0,0.05);

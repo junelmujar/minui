@@ -10,16 +10,20 @@
 	border-radius: @component-border-radius;
 
 	position: relative;
-	padding: 0.75rem 0.95rem 0.75rem;
+	padding: 0.5rem 0.95rem 0.5rem;
+	line-height: 1.75rem;
 
 	text-align: center;
 	text-decoration: none;
 
 	cursor: pointer;
+	transition: all ease 0.1s;
+	transform: translate(0px, 0px);
 
 	&:hover {
 		color: @font-color;
 		background: darken(#f0f0f0, 10%);
+		transform: translate(0px, -1px);
 	}
 
 	&--primary {
@@ -40,14 +44,6 @@
 		}		
 	}
 
-	&--info {
-		background: @info-color;
-		color: @font-color; 
-		&:hover {
-			background: darken(@info-color, 10%);
-		}		
-	}
-
 	&--danger {
 		background: @danger-color;
 		color: white; 
@@ -59,9 +55,10 @@
 
 	&--warning {
 		background: @warning-color;
-		color: white; 
+		color: darken(#fff, 5%); 
 		&:hover {
-			background: darken(@warning-color, 10%);
+			color: #fff;
+			background: darken(@warning-color, 5%);
 		}		
 	}		
 
@@ -87,4 +84,8 @@
 	&--block {
 		display: block;
 	}
+}
+
+.btn[data-toggle=dropdown] {
+	transform: translate(0px, 0px);
 }
