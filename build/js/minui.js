@@ -919,7 +919,7 @@ const Bar = (() => {
 			});
 
 			var nav__windowListener = new Hammer(window);
-			nav__windowListener.on('press', function (e) {
+			nav__windowListener.on('tap', function (e) {
 				that.collapseActiveDropdown();
 				that.collapseActiveNavBar();
 			});
