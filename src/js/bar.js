@@ -88,18 +88,24 @@ const Bar = (() => {
 			});
 
 			var that = this;
-			window.addEventListener('touchstart', function onFirstTouch(e) {
-				that.collapseActiveDropdown();
-				that.collapseActiveNavBar();
-				window.removeEventListener('touchstart', onFirstTouch, { capture: false });
-			}, { capture: false });			
+			// window.addEventListener('touchstart', function onFirstTouch(e) {
+			// 	that.collapseActiveDropdown();
+			// 	that.collapseActiveNavBar();
+			// 	window.removeEventListener('touchstart', onFirstTouch, { capture: false });
+			// }, { capture: false });			
 
 			document.addEventListener('keyup', (e) => {
 				if (e.keyCode == 27) {
 					this.collapseActiveDropdown();
 					this.collapseActiveNavBar();
 				}
-			});			
+			});		
+
+			var nav__windowListener = new Hammer(window);
+			nav__windowListener.on('press', function(e) {
+				that.collapseActiveDropdown();
+				that.collapseActiveNavBar();
+			});
 		}
 
 		collapseActiveDropdown() {

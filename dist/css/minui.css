@@ -398,6 +398,7 @@ a:hover {
   color: #333;
   background: #d7d7d7;
   transform: translate(0px, -1px);
+  box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.25), 0px 3px 20px -5px rgba(0, 0, 0, 0.5);
 }
 .btn--primary {
   background: #1875d1;
@@ -443,8 +444,8 @@ a:hover {
   font-size: 14px;
 }
 .btn--large {
-  padding: 15px 20px;
-  font-size: 18px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
 }
 .btn--block {
   display: block;
@@ -927,7 +928,6 @@ a:hover {
   padding: 0.85rem 0.9rem;
   text-decoration: none;
   text-align: left;
-  color: #333;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -952,6 +952,9 @@ a:hover {
   transform: scale(0, 0);
   opacity: .2;
   transition: 0s;
+}
+.menu__item * {
+  color: #333;
 }
 .menu__item:hover {
   background: rgba(0, 0, 0, 0.065);
