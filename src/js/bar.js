@@ -101,11 +101,16 @@ const Bar = (() => {
 				}
 			});		
 
-			var nav__windowListener = new Hammer(window);
-			nav__windowListener.on('tap', function(e) {
-				that.collapseActiveDropdown();
-				that.collapseActiveNavBar();
+			var nav__windowListener = new Hammer(window, {
+				interval: 150
 			});
+			nav__windowListener.on('tap', this.collapseAll());
+		}
+
+		collapseAll() {
+			this.collapseActiveDropdown();
+			this.collapseActiveNavBar();
+			console.log('window');
 		}
 
 		collapseActiveDropdown() {
@@ -119,7 +124,6 @@ const Bar = (() => {
 
 		collapseActiveNavBar() {
 			var activeNavBar = document.querySelector(`.bar__menu--visible`);
-			console.log(activeNavBar);
 			if (activeNavBar) {
 				activeNavBar.classList.remove('bar__menu--visible');
 			}				

@@ -8,7 +8,6 @@ const Inputs = (() => {
 	    	super();
 		  	this._inputs = document.querySelectorAll("form .field__input");
 		  	if (typeof this._inputs !== 'undefined' && this._inputs) {
-		  		console.log(this._inputs);
 		  		this.setup();
 			}
 	    }

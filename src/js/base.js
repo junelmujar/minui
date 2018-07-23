@@ -11,9 +11,9 @@ export default class Base {
 	constructor() {
 
 				this.interactEvent = 'click';
-				if ('ontouchstart' in document.documentElement === true) {
-					this.interactEvent = 'touchstart';
-				}
+				// if ('ontouchstart' in document.documentElement === true) {
+				// 	this.interactEvent = 'touchstart';
+				// }
 		
 	}
 

@@ -91,9 +91,9 @@ class Base {
 	constructor() {
 
 		this.interactEvent = 'click';
-		if ('ontouchstart' in document.documentElement === true) {
-			this.interactEvent = 'touchstart';
-		}
+		// if ('ontouchstart' in document.documentElement === true) {
+		// 	this.interactEvent = 'touchstart';
+		// }
 	}
 
 	/*
@@ -197,7 +197,6 @@ const Inputs = (() => {
 			super();
 			this._inputs = document.querySelectorAll("form .field__input");
 			if (typeof this._inputs !== 'undefined' && this._inputs) {
-				console.log(this._inputs);
 				this.setup();
 			}
 		}
@@ -918,11 +917,16 @@ const Bar = (() => {
 				}
 			});
 
-			var nav__windowListener = new Hammer(window);
-			nav__windowListener.on('tap', function (e) {
-				that.collapseActiveDropdown();
-				that.collapseActiveNavBar();
+			var nav__windowListener = new Hammer(window, {
+				interval: 150
 			});
+			nav__windowListener.on('tap', this.collapseAll());
+		}
+
+		collapseAll() {
+			this.collapseActiveDropdown();
+			this.collapseActiveNavBar();
+			console.log('window');
 		}
 
 		collapseActiveDropdown() {
@@ -936,7 +940,6 @@ const Bar = (() => {
 
 		collapseActiveNavBar() {
 			var activeNavBar = document.querySelector(`.bar__menu--visible`);
-			console.log(activeNavBar);
 			if (activeNavBar) {
 				activeNavBar.classList.remove('bar__menu--visible');
 			}
