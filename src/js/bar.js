@@ -51,9 +51,12 @@ const Bar = (() => {
 		setupDropdowns() {
 			this.toggle.dropdowns.forEach((toggle) => {
 				toggle.addEventListener(this.interactEvent, (e) => {
-					var isToggle = e.target.getAttribute('data-toggle') === 'bar__menu';
 
-					if (isToggle) {
+					var parent   = this._getClosest(e.target, '.bar__menu-item');
+					var isToggle = e.target.getAttribute('data-toggle') === 'bar__menu';
+					console.log(parent);
+
+					if (isToggle ) {
 						e.preventDefault();
 						e.stopPropagation();
 
@@ -82,10 +85,10 @@ const Bar = (() => {
 		}
 
 		setupEventListeners() {
-			window.addEventListener('click', (e) => {
-				this.collapseActiveDropdown();
-				this.collapseActiveNavBar();
-			});
+			// window.addEventListener('click', (e) => {
+			// 	this.collapseActiveDropdown();
+			// 	this.collapseActiveNavBar();
+			// });
 
 			var that = this;
 			// window.addEventListener('touchstart', function onFirstTouch(e) {
@@ -104,13 +107,10 @@ const Bar = (() => {
 			var nav__windowListener = new Hammer(window, {
 				interval: 150
 			});
-			nav__windowListener.on('tap', this.collapseAll());
-		}
-
-		collapseAll() {
-			this.collapseActiveDropdown();
-			this.collapseActiveNavBar();
-			console.log('window');
+			nav__windowListener.on('click', function(e) {
+				that.collapseActiveDropdown();
+				that.collapseActiveNavBar();
+			});
 		}
 
 		collapseActiveDropdown() {
