@@ -83,26 +83,10 @@ const Bar = (() => {
 		}
 
 		setupEventListeners() {
-
-			// document.body.addEventListener('click', (e) => {
-			// 	this.collapseActiveDropdown();
-			// 	this.collapseActiveNavBar();
-			// 	console.log(e.type);
-			// });
-
-			// var that = this;
-			// window.addEventListener('tap', function onFirstTouch(e) {
-			// 	that.collapseActiveDropdown();
-			// 	that.collapseActiveNavBar();
-			// 	console.log('tap');
-			// 	window.removeEventListener('tap', onFirstTouch, { capture: false });
-			// }, { capture: false });			
-
-			var that = this;
-			document.body.addEventListener(this.interactEvent, function onFirstTouch(e) {
-				that.collapseActiveDropdown();
-				that.collapseActiveNavBar();
-			});	
+			document.body.addEventListener('click', (e) => {
+				this.collapseActiveDropdown();
+				this.collapseActiveNavBar();
+			});
 
 			document.body.addEventListener('keyup', (e) => {
 				if (e.keyCode == 27) {
@@ -110,14 +94,6 @@ const Bar = (() => {
 					this.collapseActiveNavBar();
 				}
 			});		
-
-			// var nav__windowListener = new Hammer(document);
-	
-			// nav__windowListener.on('tap', function(e) {
-			// 	console.log(e.type);
-			// 	that.collapseActiveDropdown();
-			// 	that.collapseActiveNavBar();
-			// });			
 		}
 
 		collapseActiveDropdown() {
