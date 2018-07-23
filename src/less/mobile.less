@@ -44,7 +44,7 @@
 		&-item {
 
 			&__link {
-				
+				.ripple;
 				flex: 1;
 				display: flex;
 				padding: 0.65rem 1rem;
@@ -54,9 +54,6 @@
 				&:hover {
 					color: @font-color;
 					background: rgba(0,0,0,0.075);
-				}
-				&:focus {
-					.ripple;
 				}
 				&-icon,
 				&-text {
@@ -91,6 +88,7 @@
 					margin: 0;
 					padding: 0;			
 					a {
+						.ripple;
 						flex-grow: 0;
 						display: flex;
 						padding: 0.75rem 1rem;
@@ -99,9 +97,6 @@
 						&:hover {
 							color: @font-color;
 							background: rgba(0,0,0,0.1);
-						}
-						&:focus {
-							.ripple;
 						}
 					}
 				}

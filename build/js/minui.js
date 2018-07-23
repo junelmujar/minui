@@ -91,9 +91,9 @@ class Base {
 	constructor() {
 
 		this.interactEvent = 'click';
-		// if ('ontouchstart' in document.documentElement === true) {
-		// 	this.interactEvent = 'touchstart';
-		// }
+		if ('ontouchstart' in document.documentElement === true) {
+			this.interactEvent = 'touchstart';
+		}
 	}
 
 	/*
@@ -869,9 +869,7 @@ const Bar = (() => {
 			this.toggle.dropdowns.forEach(toggle => {
 				toggle.addEventListener(this.interactEvent, e => {
 
-					var parent = this._getClosest(e.target, '.bar__menu-item');
 					var isToggle = e.target.getAttribute('data-toggle') === 'bar__menu';
-					console.log(parent);
 
 					if (isToggle) {
 						e.preventDefault();
@@ -901,32 +899,41 @@ const Bar = (() => {
 		}
 
 		setupEventListeners() {
-			// window.addEventListener('click', (e) => {
+
+			// document.body.addEventListener('click', (e) => {
 			// 	this.collapseActiveDropdown();
 			// 	this.collapseActiveNavBar();
+			// 	console.log(e.type);
 			// });
 
-			var that = this;
-			// window.addEventListener('touchstart', function onFirstTouch(e) {
+			// var that = this;
+			// window.addEventListener('tap', function onFirstTouch(e) {
 			// 	that.collapseActiveDropdown();
 			// 	that.collapseActiveNavBar();
-			// 	window.removeEventListener('touchstart', onFirstTouch, { capture: false });
+			// 	console.log('tap');
+			// 	window.removeEventListener('tap', onFirstTouch, { capture: false });
 			// }, { capture: false });			
 
-			document.addEventListener('keyup', e => {
+			var that = this;
+			document.body.addEventListener(this.interactEvent, function onFirstTouch(e) {
+				that.collapseActiveDropdown();
+				that.collapseActiveNavBar();
+			});
+
+			document.body.addEventListener('keyup', e => {
 				if (e.keyCode == 27) {
 					this.collapseActiveDropdown();
 					this.collapseActiveNavBar();
 				}
 			});
 
-			var nav__windowListener = new Hammer(window, {
-				interval: 150
-			});
-			nav__windowListener.on('click', function (e) {
-				that.collapseActiveDropdown();
-				that.collapseActiveNavBar();
-			});
+			// var nav__windowListener = new Hammer(document);
+
+			// nav__windowListener.on('tap', function(e) {
+			// 	console.log(e.type);
+			// 	that.collapseActiveDropdown();
+			// 	that.collapseActiveNavBar();
+			// });			
 		}
 
 		collapseActiveDropdown() {
