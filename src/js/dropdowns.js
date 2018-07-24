@@ -54,7 +54,7 @@ const Dropdowns = (() => {
 			var that = this;
 
 			// Document listeners
-			document.addEventListener('click', (event) => {
+			document.body.addEventListener('click', (event) => {
 				if (event.target != 'html') {
 					if (event.target.classList.contains('menu') ||
 						event.target.parentNode.classList.contains('menu__html')) {
@@ -65,7 +65,7 @@ const Dropdowns = (() => {
 			});
 
 			// Document listeners
-			document.addEventListener('keyup', (event) => {
+			document.body.addEventListener('keyup', (event) => {
 				// Dropdowns: Close all visible dropdowns if there's any
 				if (event.keyCode == 27) {
 				    if (typeof that._dropdowns !== 'undefined' && that._dropdowns) {

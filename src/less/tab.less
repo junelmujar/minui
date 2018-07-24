@@ -1,8 +1,9 @@
 /* Tab Styles */
 .tab {
 	
+	border-radius: 3px;
 	background: #fff;
-	box-shadow: @component-shadow;
+	box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.08), 0 1px 1.5px 0 rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.08);
 
 	&__nav {
 		list-style: none;
@@ -36,7 +37,7 @@
 		&__item {
 			a {
 				display: block;
-				padding: 1rem 0.9rem 0.9rem;
+				padding: 0.75rem 1.25rem;
 				border-bottom: 2px solid transparent;
 				text-decoration: none;
 				color: lighten(@font-color, 40);
@@ -49,6 +50,8 @@
 			}
 			&--active {
 				a {
+					border-top-right-radius: 3px;
+					border-top-left-radius: 3px;
 					background: #fff;
 					border-bottom: 2px solid darken(@default-color, 30);
 					color: darken(@font-color, 20);
