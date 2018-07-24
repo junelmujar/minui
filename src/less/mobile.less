@@ -76,7 +76,7 @@
 				list-style-type: none;
 				margin: 0;
 				padding: 0.5rem 0;
-				border-radius: 3px;
+				
 				background: rgba(0,0,0,0.025);
 				min-width: 200px;
 				display: none;
@@ -84,7 +84,7 @@
 				z-index: 950;
 				max-height: 300px;
 				overflow-y: auto;
-
+				
 				li {
 					list-style: none;
 					list-style-type: none;		
@@ -99,7 +99,7 @@
 						text-decoration: none;
 						&:hover {
 							color: @font-color;
-							background: #e3e8ed;
+							background: rgba(0,0,0,0.05);
 						}
 					}
 				}
@@ -415,7 +415,10 @@
 					opacity: 0;
 					visibility: hidden;					
 					background: #fff;
-					box-shadow: @component-shadow;
+					box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.08), 0 1px 1.5px 0 rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.08);
+					border-radius: 3px;
+					border-top-left-radius: 0;
+					border-top-right-radius: 0;
 					position: absolute;
 					max-height: 999px;
 					overflow-y: hidden;
