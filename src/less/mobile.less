@@ -6,7 +6,9 @@
 	align-items: stretch;
 	background: #fafafa;
 	overflow-y: auto;
-	box-shadow: @component-shadow;
+	// box-shadow: @component-shadow;
+	border-radius: 3px;
+	box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.08), 0 1px 1.5px 0 rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.08);
 
 	&__drawer {
 		display: flex;
@@ -371,6 +373,7 @@
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
+
 		.bar__drawer {
 			display: flex;
 			justify-content: flex-start;
@@ -384,6 +387,10 @@
 			flex-direction: row;
 			justify-content: flex-start;
 		}
+	}
+	
+	.bar.bar--fixed {
+		border-radius: 0;
 	}
 
 	.bar.bar--collapsible {
