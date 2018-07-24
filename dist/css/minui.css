@@ -8,7 +8,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #eee;
+  background-color: #fff;
 }
 hr {
   border: 0;
@@ -891,7 +891,7 @@ a:hover {
   position: relative;
   transition: opacity 0.2s, margin 0.2s;
   margin: -10px 0 0;
-  padding: 4px 0;
+  padding: 0.5rem 0;
   border-radius: 3px;
   position: absolute;
   background: #fff;
@@ -911,6 +911,7 @@ a:hover {
   padding: 0.85rem 0.9rem;
   text-decoration: none;
   text-align: left;
+  color: #4d4d4d;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -940,7 +941,8 @@ a:hover {
   color: #333;
 }
 .menu__item:hover {
-  background: rgba(0, 0, 0, 0.065);
+  color: #333;
+  background: #e3e8ed;
 }
 .menu__item[disabled] {
   pointer-events: none;
@@ -1765,7 +1767,8 @@ a:hover {
   list-style: none;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 0;
+  border-radius: 3px;
   background: rgba(0, 0, 0, 0.025);
   min-width: 200px;
   display: none;
@@ -1813,7 +1816,7 @@ a:hover {
 }
 .bar__menu-item__dropdown li a:hover {
   color: #333;
-  background: rgba(0, 0, 0, 0.1);
+  background: #e3e8ed;
 }
 .bar__menu-item__divider {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
