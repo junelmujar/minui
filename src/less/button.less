@@ -1,23 +1,25 @@
+.box(@background: #fff, @color, @display: 'inline-block') {
+	box-shadow: 0 0 0 1px rgba(50,50,93,.1), 
+				0 2px 5px 0 rgba(50,50,93,.08), 
+				0 1px 1.5px 0 rgba(0,0,0,.07), 
+				0 1px 2px 0 rgba(0,0,0,.08);
+	border-radius: 3px;
+	background: @background;
+	color: @color;
+	display: @display;
+}
+
 .btn {
-	// .nav-component;
+	.box(#f0f0f0, @font-color, 'inline-block');
 	.ripple;
 
-	background: lighten(#f0f0f0, 2%);
-	color: lighten(@font-color, 20%);
-	box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.08), 0 1px 1.5px 0 rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.08);
-	font-weight: 450;
+	font-weight: 400;
 
-	display: inline-block;
-	border: none;
-	border-radius: 3px;
-
-	position: relative;
 	padding: 0.5rem 1.25rem 0.5rem;
 	line-height: 1.75rem;
 
 	text-align: center;
 	text-decoration: none;
-
 
 	cursor: pointer;
 	transition: all ease 0.1s;
@@ -34,7 +36,7 @@
 	}
 
 	&--primary {
-		background: #2C3E50;
+		background: @primary-color;
 		color: white; 
 		box-shadow: 0 0 0 1px rgba(44,60,76,0.75), 
 					0 2px 5px 0 rgba(50,50,93,.08), 

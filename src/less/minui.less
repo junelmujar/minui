@@ -1,6 +1,6 @@
 /* minui.less */
 @default-color: #eaeaea;
-@primary-color: #1875d1;    
+@primary-color: #2C3E50;    
 @danger-color: #f94e25;   
 @success-color: #10b72d;
 @info-color: #b3e5fc;          
@@ -17,6 +17,21 @@
 @component-shadow-hover: 0px 2px 8px -2px rgba(0,0,0,0.25), 0px 3px 20px -5px rgba(0,0,0,0.5);
 @component-shadow-2dp: 0 10px 25px -10px rgba(0,0,0,0.75);
 @component-shadow-3dp: 0 10px 40px -10px rgba(0,0,0,0.75);
+
+#palette() {
+    .default() {
+        primary: #2C3E50;    
+    }
+}
+
+@palette-primary: #2C3E50;
+
+@sizes: {
+  mobile: 320px;
+  tablet: 768px;
+  desktop: 1024px;
+}
+
 
 /* basic stylings ------------------------------------------ */
 body {
@@ -64,7 +79,6 @@ a {
 @import "dropdown.less";
 @import "modal.less";
 @import "nav.less";
-@import "mobile.less";
 @import "tab.less";
 @import "layout.less";
 @import "responsive_utilities.less";
