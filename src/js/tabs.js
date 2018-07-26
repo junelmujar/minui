@@ -12,7 +12,7 @@ const Tabs = (() => {
 		// Initialize all found tabs
 	    constructor() {
 	    	super();
-			this._tabs = document.querySelectorAll('[data-toggle='+Data.TOGGLE+']');
+			this._tabs = document.querySelectorAll(`[data-toggle=${Data.TOGGLE}]`);
 			this._activeTabs = document.querySelectorAll('.tab__nav__item--active');
 
 			if (typeof this._tabs !== 'undefined' && this._tabs) {

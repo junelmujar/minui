@@ -3,13 +3,8 @@
 /* CARD */
 .card  {
 	
-	background: @card-background-color;
-	box-shadow: 0 0 0 1px rgba(50,50,93,.1), 
-				0 2px 5px 0 rgba(50,50,93,.08), 
-				0 1px 1.5px 0 rgba(0,0,0,.07), 
-				0 1px 2px 0 rgba(0,0,0,.08);
-				
-	border-radius: 3px;
+	.fill();
+	.outline(#base.component[radius]);
 	margin-bottom: @component-bottom-margin;
 
 	p,h1,h2,h3,h4,h5,h6 {
@@ -39,7 +34,7 @@
 	}
 
 	&--inverse {
-		background: #2C3E50;
+		.fill(#2C3E50);
 		color: @default-color;
 		.input-group {
 			* {
@@ -76,7 +71,7 @@
 	}
 
 	&__title {
-		font-size: 20px;
+		font-size: 1.25rem;
 		margin: 0 0 15px !important;
 	}
 

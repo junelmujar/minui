@@ -1,32 +1,34 @@
 .bar {
-	padding: 0;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: stretch;
-	background: #fafafa;
+
+	.flex();
+	.flex-direction(column);
+	.flex-justify-content(flex-start);
+	.flex-align-items(stretch);
+
+	.fill(#palette.colors[fill]);
+	.padding(0);
+	.outline();
+
 	overflow-y: auto;
-	border-radius: 3px;
-	box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.08), 0 1px 1.5px 0 rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.08);
 
 	&__drawer {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		.flex();
+		.flex-justify-content(space-between);
+		.flex-align-items(center);
 	}
 	&__brand {
 		flex: 1;
-		padding: 0.65rem 1rem;
-		color: @font-color;
+		.text();
+		.padding(0.65rem 1rem);
 		font-size: 1.15rem;
 		line-height: 0;
 	}
 	&__toggle {
 		.ripple;
+		.padding(0.65rem 1rem);
+		.text();
+		.link();
 		flex: 0 0 auto;
-		padding: 0.65rem 1rem;
-		text-decoration: none;
-		color: @font-color;
 		* {
 			pointer-events: none;
 			font-size: 28px;
@@ -35,26 +37,26 @@
 	}
 	&__menu {
 
-		display: flex;
-		flex-direction: row;
-		list-style: none;
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
+		.flex();
+		.flex-direction(row);
+		.list_style(none);
+		.padding(0);
+		.margin(0);
 		
 		&-item {
 
 			&__link {
 				.ripple;
+				.flex();
+				.padding(0.65rem 1rem);
+				.link(lighten(#palette.colors[font], 30%));
+
 				flex: 1;
-				display: flex;
-				padding: 0.65rem 1rem;
 				text-decoration: none;
-				color: lighten(@font-color, 20%);
 				align-items: center;
+
 				&:hover {
-					color: @font-color;
-					background: rgba(0,0,0,0.075);
+					.fill(rgba(0,0,0,0.075));
 				}
 				&-icon,
 				&-text {
@@ -72,33 +74,30 @@
 			&__dropdown {
 
 				width: 100%;
-				list-style: none;
-				list-style-type: none;
-				margin: 0;
-				padding: 0.5rem 0;
-				
-				background: rgba(0,0,0,0.025);
 				min-width: 200px;
-				display: none;
-				flex-direction: column;
-				z-index: 950;
 				max-height: 300px;
+
+				.hide;
+				.fill(rgba(0,0,0,0.025));
+				.list_style(none);
+				.margin(0);
+				.padding(0.5rem 0);
+				.flex-direction(column);
+				.index(950);
+				
 				overflow-y: auto;
 
 				li {
-					list-style: none;
-					list-style-type: none;		
-					margin: 0;
-					padding: 0;			
+					.list_style(none);
+					.margin(0);
+					.padding(0);			
 					a {
 						.ripple;
-						flex-grow: 0;
-						display: flex;
-						padding: 0.75rem 1rem;
-						color: lighten(@font-color, 20%);
-						text-decoration: none;
+						.link(lighten(#palette.colors[font], 30%));
+						.flex();
+						.flex-grow(0);
+						.padding(0.75rem 1rem);
 						&:hover {
-							color: @font-color;
 							background: rgba(0,0,0,0.05);
 						}
 					}
@@ -110,7 +109,7 @@
 			}
 
 			&__dropdown--visible {
-				display: flex;
+				.flex();
 				border-top: 1px solid rgba(0,0,0,0.05);
 				border-bottom: 1px solid rgba(0,0,0,0.05);
 				position: relative;
@@ -123,7 +122,7 @@
 	}
 	&__menu.bar__menu--visible {
 		border-top: 1px solid rgba(0,0,0,0.05);
-		display: flex;
+		.flex();
 	}
 
 }
@@ -154,7 +153,7 @@
 		right: 0.75rem;
 		height: 1rem;
 		width: 1rem;
-		opacity: 0.5;
+		.opacity(0.5);
 		.__arrow--closed;		
 	}
 }
@@ -167,7 +166,7 @@
 		right: 0.75rem;
 		height: 1rem;
 		width: 1rem;
-		opacity: 0.5;
+		.opacity(0.5);
 		.__arrow--open;
 	}
 }
@@ -177,20 +176,19 @@
 .bar.bar--collapsible {
 	overflow-y: visible;
 	.bar__menu {
-		display: none;
-		flex-direction: column;
+		.hide();
+		.flex-direction(column);
 	}
 	.bar__menu.bar__menu--visible {
-		display: flex;
+		.flex();
 	}
 }
 
 
 // List
 .bar.bar--list {
-	
 	.bar__menu {
-		flex-direction: column;
+		.flex-direction(column);
 		width: 100%;
 		.bar__menu-item {
 			flex: 1 0 auto;
@@ -202,9 +200,9 @@
 					margin-right: 0.75rem;
 					text-align: center;
 				}
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
+				.flex();
+				.flex-justify-content(flex-start);
+				.flex-align-items(center);
 			}
 		}
 	}
@@ -212,7 +210,7 @@
 
 .bar.bar--list-desc {
 	.bar__menu {
-		flex-direction: column;
+		.flex-direction(column);
 		width: 100%;
 		.bar__menu-item {
 			flex: 1 0 auto;
@@ -226,9 +224,9 @@
 					margin-right: 0.75rem;
 					text-align: center;
 				}
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
+				.flex();
+				.flex-justify-content(flex-start);
+				.flex-align-items(center);
 				&-text {
 					*:last-child {
 						margin: 0 0 0.5rem;
@@ -242,16 +240,16 @@
 // Toolbar
 .bar.bar--toolbar {
 	.bar__menu {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
+		.flex();
+		.flex-direction(row);
+		.flex-justify-content(flex-start);
 		.bar__menu-item {
 			min-width: 5rem;
-			flex-grow: 1;
-			flex-shrink: 0;
+			.flex-grow(1);
+			.flex-shrink(0);
 			.bar__menu-item__link {
-				display: flex;
-				flex-direction: column;
+				.flex();
+				.flex-direction(column);
 				.bar__menu-item__link-icon,
 				.bar__menu-item__link-text
 				{
@@ -273,29 +271,29 @@
 	left: 0;
 	right: 0;
 	width: 100%;
-	z-index: 1500;
+	.border-radius(0);
+	.index(1500);
 }
 
 .bar.bar--theme-md {
-	background: @material-color;
+	.fill(@material-color);
 	.bar__brand {
-		color: #fff;
+		.text(#fff);
 	}
 	.bar__toggle {
-		color: #ddd;
+		.text(#ddd);
 		* {
-			color: #fff;
+			.text(#fff);
 		}
 	}		
 	.bar__menu {
-		background: rgba(0,0,0,0.075);
+		.fill(rgba(0,0,0,0.075));
 		.bar__menu-item {
 			.bar__menu-item__link {
-				color: #ddd;
+				.link(darken(#palette.colors[light], 10%));
 				&:focus,
 				&:hover {
-					background: rgba(0, 0, 0, 0.1);
-					color: #fff;
+					.fill(rgba(0, 0, 0, 0.1));
 				}
 			}
 			.bar__menu-item__link[data-toggle=bar__menu] {
@@ -310,12 +308,9 @@
 			}			
 			.bar__menu-item__dropdown {
 				box-shadow: none;
-				background: rgba(0,0,0,0.15);
+				.fill(rgba(0,0,0,0.15));
 				li a {
-					color: #ddd;
-					&:hover {
-						color: #fff;
-					}
+					.link(#palette.colors[light]);
 				}
 			}
 		}
@@ -371,71 +366,64 @@
 
 @media (min-width: 992px) {  
 	.bar {
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
+		.flex-direction(row);
+		.flex-justify-content(flex-start);
+		.flex-align-items(center);
 
 		.bar__drawer {
-			display: flex;
-			justify-content: flex-start;
+			.flex();
+			.flex-justify-content(flex-start);
 		}
 		.bar__toggle {
 			display: none;
 		}
 		.bar__menu {
 			border-top: 0;
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-start;
+			.flex();
+			.flex-direction(row);
+			.flex-justify-content(flex-start);
 		}
 	}
 	
 	.bar.bar--fixed {
-		border-radius: 0;
+		.border-radius(0);
 	}
 
 	.bar.bar--collapsible {
-		flex-direction: row;
-		justify-content: flex-start;
-		align-items: center;
+		.flex-direction(row);
+		.flex-justify-content(flex-start);
+		.flex-align-items(center);
 		.bar__toggle {
-			display: none;
+			.hidden;
 		}
 		.bar__menu {
 			border-top: 0;
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-start;
-			align-items: center;
-			background: none;
+			.flex;
+			.flex-direction(row);
+			.flex-justify-content(flex-start);
+			.flex-align-items(center);
+			.fill(none);
 			.bar__menu-item {
 				position: relative;
 				.bar__menu-item__dropdown {
-					display: flex;
-					opacity: 0;
-					visibility: hidden;					
-					background: #fff;
-					box-shadow: 0 0 0 1px rgba(50,50,93,.1), 
-								0 4px 8px -1px rgba(50,50,93,.15), 
-								0 1px 1.5px 0 rgba(0,0,0,.07), 
-								0 1px 2px 0 rgba(0,0,0,.08);
-					border-radius: 3px;
+					.flex();
+					.opacity(0);
+					.visibility(hidden);
+					.fill();
+					.outline();
+					.border-radius(3px);
 					position: absolute;
 					max-height: 999px;
 					overflow-y: hidden;
 					transition: all ease 0.2s;
 					transform: translate(0px, -4px);
-
-						&--visible {
-						opacity: 1;
-						visibility: visible;						
+					&--visible {
+						.opacity(1);
+						.visibility(visible);
 						transform: translate(0px, 4px);
 						li a {
-							color: lighten(@font-color, 15%);
+							.link(lighten(#palette.colors[font], 20%));
 							padding-left: 1rem;
-							&:hover {
-								color: @font-color;
-							}							
 						}
 					}
 				}

@@ -4,15 +4,19 @@
 
 .modal {
 
-	opacity: 0;
-	visibility: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	align-content: center;
+	.fill(rgba(0,0,0,0.5));
+	.flex();
+	.flex-align-items(center);
+	.flex-justify-content(center);
+	.flex-align-content(center);
+
+	.opacity(0);
+	.visibility(hidden);	
+	
 	position: fixed;
+	
 	top: 0; left: 0; right: 0; bottom: 0;
-	background: rgba(0,0,0,0.5);
+	
 	z-index: 1600;
 	transition: all ease-in-out 0.25s;
 	
@@ -23,20 +27,20 @@
 
     &__content {
 
-		opacity: 0;
-		visibility: hidden;    	
-		
-		background:white;
-		border-radius: 3px;
+		.flex();
+		.flex-direction(column);
+
+		.fill();
+		.opacity(0);
+		.visibility(hidden);
+		.index(1001);
+		.outline(3px, 0.15);
 
 		max-height: 100%;
 		max-width: 100%;
+
 		transform: scale(1.1);
 		transition: opacity 0.25s 0s, transform 0.25s, scale 0.25s;
-		z-index: 1001;
-
-		display: flex;
-		flex-direction: column;
 
 		&--small {
 			max-width: 35%;
@@ -44,7 +48,6 @@
 		&--large {
 			max-width: 75%;
 		}
-		.shadow-3dp;
 		
     }
 
@@ -173,12 +176,11 @@
 	color: inherit;
 }
 
-
 .modal.modal--theme-material {
-	background: rgba(4, 1, 10, 0.5);
+	.fill(rgba(4, 1, 10, 0.5));
 	.modal__content {
 		.modal__header {
-			background: #6200EE;
+			.fill(#6200EE);
 			border-bottom: 0;
 			box-shadow: 0 2px 5px 0px rgba(0,0,0,0.25);	
 			color: #fff;
