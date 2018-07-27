@@ -81,12 +81,12 @@
 	display: inline-block;
 	font-size: 1.75rem;
 	padding: 0.5rem 1rem;
-	color: lighten(@font-color, 20%); 
+	color: lighten(#palette.colors[font], 20%); 
 	text-decoration: none;
 	border-right: 1px solid rgba(0, 0, 0, 0.1);
 	&:hover {
 		background: rgba(0, 0, 0, 0.025);
-		color: @font-color; 
+		color: #palette.colors[font]; 
 	}
 	* {
 		pointer-events: none;

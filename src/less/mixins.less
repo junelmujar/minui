@@ -1,0 +1,228 @@
+/*-----------*/
+/* FUNCTIONS */
+/*-----------*/
+.position(@type) {
+    position: @type;
+}
+.display(@type) {
+    display: @type;
+}
+.width(@width) {
+    width: @width;
+}
+.width(@width, @target: '') when (@target = 'max') {
+    max-width: @width;
+}
+.width(@width, @target: '') when (@target = 'min') {
+    min-width: @width;
+}
+.height(@height) {
+    height: @height;
+}
+.cursor(@type) {
+    cursor: @type;
+}
+
+.inline(@radius: #base.component[radius], @strength: 0) {
+    border: 0;
+    border-radius: @radius;
+    box-shadow: inset 0 0 0 1px rgba(50,50,93,.25), 
+                inset 0 2px 5px 0 rgba(50,50,93,.08), 
+                inset 0 1px 1.5px 0 rgba(0,0,0,.07), 
+                inset 0 1px 2px 0 rgba(0,0,0,.08);
+}
+
+.outline(@radius: #base.component[radius], @strength: 0) {
+    border: 0;
+    border-radius: @radius;
+    box-shadow: 0 0 0 1px rgba(50,50,93,.1), 
+                0 2px 5px 0 rgba(50,50,93,.08), 
+                0 1px 1.5px 0 rgba(0,0,0,.07), 
+                0 1px 2px 0 rgba(0,0,0,.08);
+}
+
+.outline(@radius: #base.component[radius], @strength: 0) when (@strength > 0) {
+    border: 0;
+    border-radius: @radius;
+    box-shadow: 0 0 0 1px rgba(50,50,93,.1 + (@strength / 2)), 
+                0 2px 5px 0 rgba(50,50,93,.08 + @strength), 
+                0 1px 1.5px 0 rgba(0,0,0,.07 + @strength), 
+                0 1px 2px 0 rgba(0,0,0,.08 + @strength);
+}
+
+.padding(@padding) {
+    padding: @padding;
+}
+.padding(@padding, @target:'') when (@target = 'top') {
+    padding-top: @padding;
+}
+.padding(@padding, @target:'') when (@target = 'left') {
+    padding-left: @padding;
+}
+.padding(@padding, @target:'') when (@target = 'right') {
+    padding-right: @padding;
+}
+.padding(@padding, @target:'') when (@target = 'bottom') {
+    padding-bottom: @padding;
+}
+
+
+.margin(@margin) {
+    margin: @margin;
+}
+.margin(@margin, @target:'') when (@target = 'top') {
+    margin-top: @margin;
+}
+.margin(@margin, @target:'') when (@target = 'left') {
+    margin-left: @margin;
+}
+.margin(@margin, @target:'') when (@target = 'right') {
+    margin-right: @margin;
+}
+.margin(@margin, @target:'') when (@target = 'bottom') {
+    margin-bottom: @margin;
+}
+
+.border(@border) {
+    border: @border;
+}
+.border(@border, @target:'') when (@target = 'top') {
+    border-top: @border;
+}
+.border(@border, @target:'') when (@target = 'left') {
+    border-left: @border;
+}
+.border(@border, @target:'') when (@target = 'right') {
+    border-right: @border;
+}
+.border(@border, @target:'') when (@target = 'bottom') {
+    border-bottom: @border;
+}
+
+.border-radius(@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius:    @radius;
+    border-radius:         @radius;
+    -moz-background-clip:    padding;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+}
+
+.border-radius(@radius, @target:'') when (@target = 'tl') {
+    border-top-left-radius: @radius;
+}
+.border-radius(@radius, @target:'') when (@target = 'tr') {
+    border-top-right-radius: @radius;
+}
+.border-radius(@radius, @target:'') when (@target = 'br') {
+    border-bottom-left-radius: @radius;
+}
+.border-radius(@radius, @target:'') when (@target = 'bt') {
+    border-bottom-right-radius: @radius;
+}
+
+.list_style(@style: none) {
+    list-style: @style;
+    list-style-type: @style;
+}
+.link(@color: #palette.colors[font]) {
+    text-decoration: none;
+    color: @color;
+    &:hover {
+        color: darken(@color, 10%);
+    }
+}
+.link(@color: #palette.colors[font], @flip: false) when (@flip = true) {
+    text-decoration: none;
+    color: darken(@color, 10%);
+    &:hover {
+        color: @color;
+    }
+}
+
+
+.opacity(@strength) {
+    opacity: @strength;
+}
+.visibility(@state) {
+    visibility: @state;
+}
+.index(@position) {
+    z-index: @position;
+}
+
+.hide {
+    display: none;
+}
+.show(@type: block) {
+    display: @type;
+}
+
+
+.top(@top) {
+    top: @top;
+}
+.left(@left) {
+    left: @left;
+}
+.right(@right) {
+    right: @right;
+}
+.bottom(@bottom) {
+    bottom: @bottom;
+}
+.anchor(@top; @right; @bottom; @left) {
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+}
+
+
+
+.text(@color: #palette.colors[font]) {
+    color: @color;
+}
+.text(@color: #palette.colors[font], @weight: 0) when (@weight > 0) {
+    color: @color;
+    font-weight: @weight;
+}
+
+
+.fill(@background: #palette.colors[fill]) {
+    background: @background;
+}
+
+.placeholder(@color) {
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+    &:-moz-placeholder {
+        color: @color;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: @color;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: @color;
+    }    
+}
+
+.placeholder(@color, @font-size) when (@font-size > 0) {
+    &::-webkit-input-placeholder {
+        color: @color;
+        font-size: @font-size;
+    }
+    &:-moz-placeholder {
+        color: @color;
+        font-size: @font-size;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: @color;
+        font-size: @font-size;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: @color;
+        font-size: @font-size;
+    }    
+}

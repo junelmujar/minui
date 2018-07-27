@@ -72,46 +72,48 @@
 			</div>	
 			<div class="row">
 				<div class="col col-6 col-sm">
-				
-					<form class="section section--pad-medium"  target="#">
-		
-				        <div class="field field--error">
-				        	<label class="field__label" for="name">Username</label>
-				            <input id="name" class="field__input" type="email" placeholder="Enter username" />
-				            <div class="field__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
-				        </div>
-				        <div class="field field--success">
-				        	<label class="field__label" for="name1">Password</label>
-				            <input id="name1" class="field__input" type="password" placeholder="Enter password"/>
-				            <div class="field__text text--warning">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
-				        </div>
-				        <div class="field">
-				        	<label class="field__label" for="name1">Type</label>
-				            <select name="type" id="type" class="field__input">
-				            	<option value="">Student</option>
-				            	<option value="">Teacher</option>
-				            	<option value="">Admin</option>
-				            </select>
-				        </div>				
-				        <div class="field">
-				        	<input type="radio" name="radio1" id="radio1"> Keep Session
-				        	&nbsp;&nbsp;
-				        	<input type="radio" name="radio1" id="radio1"> Discard Session
-				        </div>        
-				        <div class="field">
-				        	<input type="checkbox" name="radio1" id="radio1"> Log Details
-				        	&nbsp;&nbsp;
-				        	<input type="checkbox" name="radio1" id="radio1"> Send Emails
-				        </div>        
-				        <div class="field">
-				        	<label class="field__label" for="text">Comments</label>
-				        	<textarea name="text" id="text" cols="30" rows="4" class="field__input"></textarea>
-				        	<div class="field__text text--info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
-				        </div>
-						<div class="field text-center">
-							<button class="btn btn--primary btn--large btn--block">Login</button>
-						</div>									    
-					</form>
+					<div class="card">
+						<form class="card__block"  target="#">
+			
+					        <div class="field">
+					        	<label class="field__label" for="name">Username</label>
+					            <input id="name" class="field__input" type="email" placeholder="Enter username" />
+					            <div class="field__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+					        </div>
+					        <div class="field">
+					        	<label class="field__label" for="name1">Password</label>
+					            <input id="name1" class="field__input" type="password" placeholder="Enter password"/>
+					            <div class="field__text text--warning">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+					        </div>
+					        <div class="field">
+					        	<label class="field__label" for="name1">Type</label>
+					            <select name="type" id="type" class="field__input">
+					            	<option>Select...</option>
+					            	<option value="">Student</option>
+					            	<option value="">Teacher</option>
+					            	<option value="">Admin</option>
+					            </select>
+					        </div>				
+					        <div class="field">
+					        	<input type="radio" name="radio1" id="radio1"> Keep Session
+					        	&nbsp;&nbsp;
+					        	<input type="radio" name="radio1" id="radio1"> Discard Session
+					        </div>        
+					        <div class="field">
+					        	<input type="checkbox" name="radio1" id="radio1"> Log Details
+					        	&nbsp;&nbsp;
+					        	<input type="checkbox" name="radio1" id="radio1"> Send Emails
+					        </div>        
+					        <div class="field">
+					        	<label class="field__label" for="text">Comments</label>
+					        	<textarea name="text" id="text" cols="30" rows="4" class="field__input"></textarea>
+					        	<div class="field__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+					        </div>
+							<div class="field text-center">
+								<button class="btn btn--primary btn--large btn--block">Login</button>
+							</div>									    
+						</form>
+					</div>
 				</div>
 				<div class="col col-6 col-sm">
 			<pre>
@@ -137,59 +139,60 @@
 			</div>
 			<div class="row">
 				<div class="col col-6 col-sm">
+					<div class="card">
+						<div class="card__block">
 
-					<div class="section section--pad-medium">
+							<p>
+								Prefix & Suffix (with Button)
+							</p>
+							<div class="field__group">
+								<span class="field__prefix">
+									<span class="field__prefix__text"><i class="icon ion-md-search" style="font-size: 24px;"></i></span>
+								</span>
+								<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+								<span class="field__suffix">
+									<a href="" class="btn btn--danger">Submit</a>
+								</span>
+							</div>	
+							<br>
 
-						<p>
-							Prefix & Suffix (with Button)
-						</p>
-						<div class="field__group">
-							<span class="field__prefix">
-								<span class="field__prefix__text"><i class="icon ion-md-search" style="font-size: 24px;"></i></span>
-							</span>
-							<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
-							<span class="field__suffix">
-								<a href="" class="btn btn--danger">Submit</a>
-							</span>
-						</div>	
-						<br>
+							<p>
+								Prefix & Suffix
+							</p>
+							<div class="field__group">
+								<span class="field__prefix">
+									<span class="field__prefix__text"><i class="icon ion-md-search" style="font-size: 24px;"></i></span>
+								</span>
+								<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+								<span class="field__suffix">
+									<span class="field__prefix__text">Yes a suffix</span>
+								</span>
+							</div>		
+							<br>
 
-						<p>
-							Prefix & Suffix
-						</p>
-						<div class="field__group">
-							<span class="field__prefix">
-								<span class="field__prefix__text"><i class="icon ion-md-search" style="font-size: 24px;"></i></span>
-							</span>
-							<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
-							<span class="field__suffix">
-								<span class="field__prefix__text">Yes a suffix</span>
-							</span>
-						</div>		
-						<br>
+							<p>
+								Prefix only
+							</p>
+							<div class="field__group">
+								<span class="field__prefix">
+									<span class="field__prefix__text">Prefix</span>
+								</span>
+								<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+							</div>		
+							<br>
 
-						<p>
-							Prefix only
-						</p>
-						<div class="field__group">
-							<span class="field__prefix">
-								<span class="field__prefix__text">Prefix</span>
-							</span>
-							<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
-						</div>		
-						<br>
-
-						<p>
-							Suffix only
-						</p>
-						<div class="field__group">
-							<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
-							<span class="field__suffix">
-								<a href="" class="btn"><i class="icon ion-md-search"></i> Go</a>
-							</span>
-						</div>	
-																					
-					</div>					
+							<p>
+								Suffix only
+							</p>
+							<div class="field__group">
+								<input id="name1" class="field__input" type="password" placeholder="Enter keyword" />
+								<span class="field__suffix">
+									<a href="" class="btn btn--primary"><i class="icon ion-md-search"></i> Go</a>
+								</span>
+							</div>	
+																						
+						</div>			
+					</div>		
 				</div>
 				<div class="col col-6 col-sm">
 			<pre>

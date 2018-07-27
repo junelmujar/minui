@@ -4,52 +4,42 @@
 	margin-bottom: 1rem;
 
 	&__label {
-		display: block;
-		margin-bottom: 0.25rem;
-		color: lighten(@font-color, 20%);
+		.display(block);
+		.margin(0.5rem, 'bottom');
+		.text(lighten(#palette.colors[font], 20%));
+		font-size: 1rem;
 		&--no-transition {
 			transition: none !important;
 		}
 	}
 
 	&__input {
-		border: 1px solid rgba(0,0,0,0.15);
-		display: block;
-		width: 100%; 
-		padding: 0.65rem 0.75rem;
-		border-radius: 3px;
+		.inline();
+		.placeholder(#aaa);
+		.display(block);
+		.width(100%); 
+		.padding(0.65rem 0.75rem);
+		.border-radius(3px);
+		line-height: 1.25rem;
 	}
 
 	&__text {
-		color: lighten(@font-color, 30%);
-		margin-top: 0.25rem;
+		.text(lighten(#palette.colors[font], 50%));
+		.margin(0.25rem, 'top');
 	}
 
 	&--md {
-
-		position: relative;
-		margin-top: 1.5rem;
-		margin-bottom: 1.75rem;
-
-	    ::-webkit-input-placeholder { /* WebKit browsers */
-	        color: transparent;
-	    }
-	    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	       color: transparent;
-	    }
-	    ::-moz-placeholder { /* Mozilla Firefox 19+ */
-	       color: transparent;
-	    }
-	    :-ms-input-placeholder { /* Internet Explorer 10+ */
-	       color: transparent;
-	    }	
+		.position(relative);
+		.margin(1.5rem, 'top');
+		.margin(1.75rem, 'bottom');
 
 		.field__input {
-	    	border-left: 0;
-	    	border-right: 0;
-	    	border-top: 0;
+	    	.border(0,'left');
+	    	.border(0,'right');
+	    	.border(0,'top');
+	    	.border-radius(0);
+			.placeholder(transparent);
 	    	outline: none;
-	    	border-radius: 0;
 	    	transition: .25s ease-in-out;
 	    	box-shadow: none;
 	    	border-bottom: 2px solid darken(@default-color, 10);
@@ -75,7 +65,7 @@
 	}
 
 	&:last-child {
-		margin-bottom: 0;
+		.margin(0, 'bottom');
 	}
 
 	&--error {
@@ -106,7 +96,7 @@
 	}
 	.field__input {
 		border-bottom: 2px solid #B594F9;
-		color: @font-color;
+		color: #palette.colors[font];
 		padding: 0.65rem 0;
 		&:invalid {
 			outline: none;
@@ -143,7 +133,10 @@
     		border-top-left-radius: 0;
     		border-bottom-left-radius: 0;
     		box-shadow: none;
-    		padding: 0.5rem 1rem;
+    		transform: translate(0px, 0px);
+    		&--primary {
+    			margin: -1px 0 -1px;	
+    		}
     	}
     }    
     .field__input {
@@ -154,6 +147,7 @@
 	    margin-bottom: 0;    
 	    border: 0;	
 	    padding: 0.5rem 1rem;
+	    box-shadow: none;
 	    &:last-child {
     		border-top-right-radius: 3px;
     		border-bottom-right-radius: 3px;	    	

@@ -2,7 +2,7 @@
 .section {
 	.component;
 	background: lighten(@default-color, 5%);
-	color: @font-color;
+	color: #palette.colors[font];
 	padding: 1rem;
 	h1,h2,h3,h4,h5,h6, p {
 		&:first-child {
@@ -49,19 +49,19 @@
 	}
 	&--warning {
 		background: @warning-color;
-		color: lighten(negation(@font-color, @warning-color), 30);
+		color: lighten(negation(#palette.colors[font], @warning-color), 30);
 	}	
 	&--info {
 		background: @info-color;
-		color: lighten(multiply(@font-color, @info-color), 20);
+		color: lighten(multiply(#palette.colors[font], @info-color), 20);
 	}	
 	&--success {
 		background: @success-color;
-		color: lighten(negation(@font-color, @success-color), 30);
+		color: lighten(negation(#palette.colors[font], @success-color), 30);
 	}
 	&--danger {
 		background: @danger-color;
-		color: lighten(negation(@font-color, @danger-color), 30);
+		color: lighten(negation(#palette.colors[font], @danger-color), 30);
 	}	
 
 }

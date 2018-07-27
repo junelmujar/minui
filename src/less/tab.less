@@ -20,29 +20,30 @@
 
 		&__item {
 			a {
-				.link(#palette.colors[font]);
-				.flex;
-				padding: 0.75rem 1.25rem;
-				border: 0, 1px solid transparent, 0;
+				.flex();
 				.ripple;
+				.padding(0.5rem 1.25rem);
+				.link(#palette.colors[font]);
 			}
 			&--active {
 				a {
+					.text(#palette.colors[font], 500);
 					.fill(#palette.colors[light]);
-					border: 0, 1px solid rgba(0,0,0,0.1), 0;
+					.border(1px solid rgba(0,0,0,0.1), 'left');
+					.border(1px solid rgba(0,0,0,0.1), 'right');
 				}				
 			}			
 		}
 		&__item:first-child {
 			a {
-				border-left: 0;
-				border-top-left-radius: 3px;
+				.border(0, 'left');
+				.border-radius(3px, 'tl');
 			}
 		}
 		&__item:last-child {
 			a {
-				border-right: 0;
-				border-top-right-radius: 3px;
+				.border(0, 'right');
+				.border-radius(3px, 'tr');
 			}
 		}
 
@@ -50,6 +51,24 @@
 
 	}
 
+	&__content {
+		.hide;
+		
+		&--active {
+			.show(block);	
+		}
+
+		&__panel {
+			.hide;
+			.padding(1.5rem);
+
+			&--active {
+				.show(block);
+			}			
+		}
+	}
+
+	// Justified tab
 	&__nav.tab__nav--justified {
 		.flex-justify-content(space-between);
 		.flex-align-items(stretch);
@@ -62,57 +81,51 @@
 		}
 	}
 
-	&__content {
-		display: none;
-		
-		&--active {
-			display: block;	
-		}
-		&__panel {
-			padding: 25px;
-			display: none;
-			&--active {
-				display: block;
-			}			
-		}
-	}
 }
 
+
+// Hipster Theme
 .tab.tab--theme-hipster {
+
 	.tab__nav {
 		.fill(rgba(0,0,0,0.75));
-		border-top-left-radius: 3px;
-		border-top-right-radius: 3px;		
-		border-bottom: 0;
-		padding: 1rem 0.5rem 0;
+		.border-radius(3px, 'tl');
+		.border-radius(3px, 'tr');
+		.border(0, 'bottom');
+		.padding(1rem 0.5rem 0);
+
 		.tab__nav__item {
 			a {
-				border-top-left-radius: 3px;
-				border-top-right-radius: 3px;					
-				color: #fff;
-				border: 0;
+				.border-radius(3px, 'tl');
+				.border-radius(3px, 'tr');
+				.text(#fff);
+				.border(0);
 			}
+
 			&--active {
 				a {
-					background: orange;
-					color: #052433;
+					.fill(orange);
+					.text(#052433);
 				}
 			}
 		}
 	}
 }
 
+
+// Material Design Theme
 .tab.tab--theme-material {
 	.tab__nav {
 		.fill(#6200EE);
-		border-bottom: 0;
+		.border(0, 'bottom');
+		.border-radius(3px, 'tl');
+		.border-radius(3px, 'tr');
 		box-shadow: 0 2px 8px -2px rgba(0,0,0,0.5);
-		border-top-left-radius: 3px;
-		border-top-right-radius: 3px;
+
 		.tab__nav__item {
 			a {
 				.link(#palette.colors[light]);
-				padding: 1rem 0.9rem 0.9rem;
+				.padding(1rem 0.9rem 0.9rem);
 				border-color: transparent;
 				&:hover {
 					.fill(rgba(0,0,0,0.15));

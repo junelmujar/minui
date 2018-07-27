@@ -1,141 +1,4 @@
-/* minui.less */
-@default-color: #eaeaea;
-@primary-color: #2C3E50;    
-@danger-color: #f94e25;   
-@success-color: #10b72d;
-@info-color: #b3e5fc;          
-@warning-color: #ff9b00;
-@material-color: #6200EE;
-  
-@font-size: 16px;
-@font-color: #333;   
-
-@component-default-bg-color: #fff;
-@component-border-radius: 3px;
-@component-bottom-margin: 20px;
-@component-shadow: 0px 2px 5px -2px rgba(0,0,0,0.25), 0px 3px 10px -5px rgba(0,0,0,0.5);
-@component-shadow-hover: 0px 2px 8px -2px rgba(0,0,0,0.25), 0px 3px 20px -5px rgba(0,0,0,0.5);
-@component-shadow-2dp: 0 10px 25px -10px rgba(0,0,0,0.75);
-@component-shadow-3dp: 0 10px 40px -10px rgba(0,0,0,0.75);
-
-@palette-primary: #2C3E50;
-
-
-#palette() {
-    .colors() {
-        fill: #FFFFFF;
-        light: #FFFFFF;
-        font: #212529;
-        primary: #2C3E50;    
-        danger: #f94e25;
-        success: #10b72d;
-        warning: #ff9b00;
-        link: #0b7be2;
-    }
-}
-
-#base() {
-    .colors() {
-        white: #ffffff;
-    }    
-    .font() {
-        family: -apple-system, 
-                BlinkMacSystemFont, 
-                "Segoe UI", 
-                Roboto, 
-                "Helvetica Neue", 
-                Arial, sans-serif, 
-                "Apple Color Emoji", 
-                "Segoe UI Emoji", 
-                "Segoe UI Symbol";
-        color: #palette.colors[font];
-        size: 1rem;
-        weight: 400;
-        line-height: 1.5rem;
-    }
-    .component() {
-        radius: 3px;
-    }
-}
-
-/*-----------*/
-/* FUNCTIONS */
-/*-----------*/
-
-.cursor(@type) {
-    cursor: @type;
-}
-.outline(@radius: #base.component[radius], @strength: 0) {
-    border: 0;
-    border-radius: @radius;
-    box-shadow: 0 0 0 1px rgba(50,50,93,.1 + (@strength / 2)), 
-                0 2px 5px 0 rgba(50,50,93,.08 + @strength), 
-                0 1px 1.5px 0 rgba(0,0,0,.07 + @strength), 
-                0 1px 2px 0 rgba(0,0,0,.08 + @strength);
-}
-.text(@color: #palette.colors[font], @weight: 400) {
-    color: @color;
-    font-weight: @weight;
-}
-.fill(@background: #palette.colors[fill]) {
-    background: @background;
-}
-.padding(@padding) {
-    padding: @padding;
-}
-.margin(@margin) {
-    margin: @margin;
-}
-.list_style(@style: none) {
-    list-style: @style;
-    list-style-type: @style;
-}
-.link(@color: #palette.colors[font]) {
-    text-decoration: none;
-    color: @color;
-    &:hover {
-        color: darken(@color, 10%);
-    }
-}
-.opacity(@strength) {
-    opacity: @strength;
-}
-.visibility(@state) {
-    visibility: @state;
-}
-.index(@position) {
-    z-index: @position;
-}
-.border-radius(@radius: 5px) {
-    -webkit-border-radius: @radius;
-    -moz-border-radius:    @radius;
-    border-radius:         @radius;
-    -moz-background-clip:    padding;
-    -webkit-background-clip: padding-box;
-    background-clip:         padding-box;
-}
-.hide {
-    display: none;
-}
-.show(@type: block) {
-    display: @type;
-}
-/* basic stylings ------------------------------------------ */
-body {
-    margin: 0;
-    font-family: #base.font[family];
-    font-size: #base.font[size];
-    font-weight: #base.font[weight];
-    line-height: #base.font[line-height];
-    color: #base.font[color];
-    text-align: left;
-    background-color: #fff;
-}
-
-hr {
-    border: 0;
-    border-top: 1px solid rgba(0,0,0,0.1);
-}
+@import "variables.less";
 
 .component {
 	border-radius: @component-border-radius;
@@ -151,7 +14,7 @@ a {
 }
 
 /* components */
-// @import "fluidable.less";
+@import "mixins.less";
 @import "flex.less";
 @import "grid.less";
 @import "alert.less";
@@ -169,6 +32,25 @@ a {
 @import "responsive_utilities.less";
 @import "typography.less";
 @import "utilities.less";
+
+
+/* basic stylings ------------------------------------------ */
+body {
+    margin: 0;
+    font-family: #base.font[family];
+    font-size: #base.font[size];
+    font-weight: #base.font[weight];
+    line-height: #base.font[line-height];
+    color: #base.font[color];
+    text-align: left;
+    background-color: #fff;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
 
 .layout__header {
 

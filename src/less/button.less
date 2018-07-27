@@ -1,7 +1,7 @@
 .btn {
 	.ripple;
 	.outline(#base.component[radius]);
-	.text(lighten(@font-color, 15%), 400);
+	.text(lighten(#palette.colors[font], 15%), 400);
 	.fill(darken(#base.colors[white], 2%));
 	.cursor(pointer);
 
@@ -15,7 +15,7 @@
 
 	&:active,
 	&:hover {
-		.text(@font-color);
+		.text(#palette.colors[font]);
 		.fill(#base.colors[white]);
 		.outline(#base.component[radius], 0.05);
 		transform: translate(0px, -1px);
@@ -39,7 +39,7 @@
 
 	&--disabled {
 		pointer-events: none;
-		color: lighten(@font-color, 30);
+		color: lighten(#palette.colors[font], 30);
 	}
 
 	* {

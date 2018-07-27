@@ -27,20 +27,20 @@
 		padding: 0.85rem 0.9rem;
 		text-decoration: none;
 		text-align: left;
-		color: lighten(@font-color, 10%);
+		color: lighten(#palette.colors[font], 10%);
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
 		* {
-			color: @font-color;
+			color: #palette.colors[font];
 		}
 		&:hover {
-			color: @font-color;
+			color: #palette.colors[font];
 			background: rgba(0,0,0,0.05);
 		}
 		&[disabled] {
 			pointer-events: none;
-			color: lighten(@font-color, 50%) !important;
+			color: lighten(#palette.colors[font], 50%) !important;
 		}
 	}
 		
@@ -52,7 +52,7 @@
 	&--keys,
 	&--icons {
 		.menu__item {
-			color: @font-color;
+			color: #palette.colors[font];
 			span {
 				flex-grow: 1;
 				min-width: 80px;
@@ -62,7 +62,7 @@
 				flex-shrink: 0;	
 				width: 30px;
 				padding-left: 5px;
-				color: lighten(@font-color, 30);
+				color: lighten(#palette.colors[font], 30);
 				
 			}
 			&__key {
@@ -70,7 +70,7 @@
 				flex-shrink: 0;
 				width: 70px;
 				text-align: right;	
-				color: lighten(@font-color, 30);
+				color: lighten(#palette.colors[font], 30);
 			}
 		}
 	}
@@ -134,7 +134,7 @@
 			margin: 0.5rem auto;
 			font-size: 24px;
 			text-align: center;
-			color: @font-color;
+			color: #palette.colors[font];
 		}
 		.menu__item__text {
 			width: 100%;
@@ -165,7 +165,7 @@
 			margin: 0.5rem auto;
 			font-size: 32px;
 			text-align: center;
-			color: @font-color;
+			color: #palette.colors[font];
 		}		
 		.menu__item__text {
 			flex-grow: 1;
@@ -174,7 +174,7 @@
 			}
 			*:last-child {
 				font-size: 14px;
-				color: lighten(@font-color, 20%);
+				color: lighten(#palette.colors[font], 20%);
 			}
 		}
 	}
