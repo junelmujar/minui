@@ -17,19 +17,12 @@ This library was created as an exercise / experiment for the author. The goal wa
 - Tooltips
 - Alerts
 - Modal
+- Nav
+- Grid
+- Typography
 
 And that's about it! Basic stuff to build your app.
 
 ## Status
 
-As of now it's in its baby form, and needs tons of refactoring. It's fairly usable in its current form. 8)
-
-## Future plans
-
-- ~~refactor JS and split bits of code for each component that uses it (e.g: tabs, dropdowns, material design form inputs, modal)~~
-- refactor/optimize LESS code
-- ~~improve code structure~~
-- ~~add build/minification for JS and LESS bits~~
-- add browser tests
-
-
+Alpha
