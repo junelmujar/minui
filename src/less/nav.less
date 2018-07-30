@@ -22,6 +22,7 @@
 		.text();
 		.padding(0.65rem 1rem);
 		font-size: 1.15rem;
+		font-weight: 500;
 		line-height: 0;
 	}
 
@@ -132,7 +133,7 @@
 
 	}
 	&__menu.bar__menu--visible {
-		.border(1px solid rgba(0,0,0,0.05), 'top');
+		.border(1px solid rgba(0,0,0,0.15), 'top');
 		.flex();
 	}
 
@@ -195,6 +196,10 @@
 	}
 }
 
+// Collapsible
+.bar.bar--borderless {
+	box-shadow: none;
+}
 
 // List
 .bar.bar--list {

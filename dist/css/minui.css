@@ -848,6 +848,12 @@ a:hover {
 .card__header--centered {
   text-align: center;
 }
+.card__header--tall {
+  padding: 1rem;
+}
+.card__header--bold {
+  font-weight: 500;
+}
 .card__footer {
   padding: 0.5rem 1rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -857,6 +863,7 @@ a:hover {
 }
 .card__image {
   background-color: rgba(0, 0, 0, 0.05);
+  background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
   border-right: 1px solid rgba(0, 0, 0, 0.05);
@@ -889,15 +896,11 @@ a:hover {
   color: #fff;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
 }
-.card--pad-large .card__footer,
-.card--pad-large .card__block,
-.card--pad-large .card__header {
+.card--pad-large .card__block {
   padding: 2rem;
 }
-.card--pad-medium .card__footer,
-.card--pad-medium .card__block,
-.card--pad-medium .card__header {
-  padding: 1rem 1.5rem;
+.card--pad-medium .card__block {
+  padding: 1.5rem;
 }
 .card.card--media {
   -webkit-box-direction: normal;
@@ -1418,6 +1421,7 @@ a:hover {
   color: #212529;
   padding: 0.65rem 1rem;
   font-size: 1.15rem;
+  font-weight: 500;
   line-height: 0;
 }
 .bar__toggle {
@@ -1614,7 +1618,7 @@ a:hover {
   padding-left: 2rem;
 }
 .bar__menu.bar__menu--visible {
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -1675,6 +1679,9 @@ a:hover {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+}
+.bar.bar--borderless {
+  box-shadow: none;
 }
 .bar.bar--list .bar__menu {
   -webkit-box-direction: normal;

@@ -15,7 +15,7 @@
 	</head>
 	<body>
 	
-		<div class="bar bar--collapsible bar--fixed bar--theme-teal">
+		<div class="bar bar--collapsible bar--fixed bar--theme-md">
 			<div class="bar__drawer">
 				<a class="bar__brand">
 					MINUI
@@ -79,7 +79,7 @@
 
 					<div class="display-2">Media</div>
 					<div class="card card--media">
-						<div class="card__image" style="background-image: url(https://placeimg.com/640/480/nature)">
+						<div class="card__image" style="background-image: url('img/image_01.jpg')">
 							&nbsp;
 						</div>
 						<div class="card__block">
@@ -103,7 +103,7 @@
 
 					<div class="display-2">Image</div>
 					<div class="card">
-						<div class="card__image" style="background-image: url(https://placeimg.com/640/480/nature); min-height: 200px;">
+						<div class="card__image" style="background-image: url('img/image_01.jpg'); min-height: 200px;">
 							&nbsp;
 						</div>
 						<div class="card__block">
@@ -126,16 +126,15 @@
 			</div>
 			<br><br>
 
-			<div class="display-2">With Title & Optional Shadow</div>
+			<div class="display-2">With Title</div>
 
 			<div class="row">
 				<div class="col col-6 col-sm">
 					<div class="card card--shadow card--theme-material card--rounded">
-						<div class="card__header card__header--centered">
+						<div class="card__header card__header--centered card__header--tall">
 							APP LOGIN
 						</div>
 						<div class="card__block">
-							<div class="card__title">Login Form</div>
 							<form class="form" target="#">
 						        <div class="field field--md">
 						        	<label class="field__label" for="name"><i class="icon ion-md-person"></i> Username</label>
@@ -151,7 +150,31 @@
 								</div>									    
 							</form>								    
 						</div>
-					</div>			
+					</div>	
+					<div class="card card--pad-large">
+						<div class="card__header card__header--bold">
+							APP LOGIN
+						</div>
+						<div class="card__block">
+							<form class="form" target="#">
+						        <div class="field">
+						        	<label class="field__label" for="name"><i class="icon ion-md-person"></i> Username</label>
+						            <input id="name" class="field__input" type="email" placeholder="Enter username" value="john.doe@mail.com" />
+						        </div>
+
+						        <div class="field">
+						        	<label class="field__label" for="name1"><i class="icon ion-md-key"></i> Password</label>
+						            <input id="name1" class="field__input" type="password" placeholder="Enter password" />
+						        </div>
+								<div class="field">
+									<button class="btn btn--large"> Login</button>
+								</div>									    
+							</form>								    
+						</div>
+						<div class="card__footer">
+							Click <a href="#">here</a> to reset your password
+						</div>
+					</div>								
 				</div>
 				<div class="col col-6 col-sm">
 					<pre>
@@ -246,7 +269,7 @@
 						<div class="card__header">
 							A Card Header
 						</div>
-						<div class="card__image" style="background-image: url(https://placeimg.com/640/480/nature); min-height: 200px;">
+						<div class="card__image" style="background-image: url('img/image_01.jpg'); min-height: 200px;">
 							<div class="card__image-caption card__image-caption--dark">
 								Card Image
 							</div>
